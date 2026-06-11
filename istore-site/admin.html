@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Админ-панель — iStore.by</title>
+<style>
+  :root { --bg:#07080c; --card:rgba(255,255,255,.05); --border:rgba(255,255,255,.1); --text:#f2f4f8; --muted:#9aa3b5; --accent:#4e7cff; --accent2:#9b5cff; --green:#34d399; --red:#f87171; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; min-height:100vh; }
+  .wrap { max-width:880px; margin:0 auto; padding:40px 20px; }
+  h1 { font-size:28px; letter-spacing:-.5px; }
+  h1 span { background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sub { color:var(--muted); margin-top:8px; font-size:15px; }
+  .panel { background:var(--card); border:1px solid var(--border); border-radius:18px; padding:24px; margin-top:24px; }
+  input, textarea {
+    width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--border);
+    background:rgba(255,255,255,.05); color:var(--text); font-size:15px; outline:none;
+  }
+  input:focus { border-color:var(--accent); }
+  label { display:block; font-size:13px; color:var(--muted); margin:14px 0 6px; }
+  .btn {
+    padding:12px 22px; border-radius:12px; border:none; cursor:pointer; font-size:15px; font-weight:600;
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); color:#fff; transition:.25s;
+  }
+  .btn:hover { transform:translateY(-2px); }
+  .btn-sec { background:rgba(255,255,255,.1); }
+  .btn-danger { background:rgba(248,113,113,.15); color:var(--red); }
+  .prod {
+    display:grid; grid-template-columns:1fr 110px 110px 90px; gap:12px; align-items:end;
+    padding:18px 0; border-bottom:1px solid var(--border);
+  }
+  .prod label { margin-top:0; }
+  .toolbar { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+  .hidden { display:none; }
+  .note { font-size:13px; color:var(--muted); line-height:1.6; margin-top:16px; }
+  .toast {
+    position:fixed; bottom:30px; left:50%; transform:translate(-50%,80px);
+    background:#12141c; border:1px solid var(--border); border-radius:12px; padding:13px 22px;
+    transition:transform .35s; z-index:100;
+  }
+  .toast.show { transform:translate(-50%,0); }
+  @media (max-width:640px) {
+    .prod { grid-template-columns:1fr 1fr; }
+    .prod > div[style*="grid-column"] > div { grid-template-columns:1fr 1fr !important; }
+    input, select { font-size:16px; } /* iPhone не зумит поля */
+    .wrap { padding:24px 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>⚙️ Админ-панель <span>iStore.by</span></h1>
+  <p class="sub">Управление товарами и ценами</p>
+
+  <!-- Вход -->
+  <div class="panel" id="loginPanel">
+    <label>Пароль администратора</label>
+    <input type="password" id="pwd" placeholder="Введите пароль" onkeydown="if(event.key==='Enter')login()">
+    <div class="toolbar"><button class="btn" onclick="login()">Войти</button></div>
+    <p class="note">Пароль по умолчанию: <b>admin123</b> — смените его в файле products.js (поле adminPassword).</p>
+  </div>
+
+  <!-- Редактор -->
+  <div class="hidden" id="editor">
+    <div class="panel">
+      <div id="prodList"></div>
+      <div class="toolbar">
+        <button class="btn btn-sec" onclick="addProduct()">＋ Добавить товар</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <button class="btn" onclick="saveAll()">💾 Сохранить изменения</button>
+      <button class="btn btn-sec" onclick="downloadJS()">⬇️ Скачать products.js</button>
+      <button class="btn btn-danger" onclick="resetAll()">Сбросить к исходным</button>
+    </div>
+    <p class="note">
+      <b>Сохранить изменения</b> — цены сразу обновятся на сайте (данные хранятся в этом браузере / на этом домене).<br>
+      <b>Скачать products.js</b> — замените этим файлом старый на хостинге, чтобы изменения увидели все посетители навсегда.
+    </p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="products.js"></script>
+<script>
+let products = [];
+
+function login() {
+  const pwd = document.getElementById("pwd").value;
+  if (pwd === window.SHOP_CONFIG.adminPassword) {
+    document.getElementById("loginPanel").classList.add("hidden");
+    document.getElementById("editor").classList.remove("hidden");
+    loadProducts(); render();
+  } else toast("Неверный пароль");
+}
+
+const KEY = "shop_products_v3";
+const CATS = Object.fromEntries(window.SHOP_CATEGORIES.filter(c=>c[0]!=="all"));
+
+function loadProducts() {
+  try {
+    const saved = localStorage.getItem(KEY);
+    products = saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(window.DEFAULT_PRODUCTS));
+  } catch(e) { products = JSON.parse(JSON.stringify(window.DEFAULT_PRODUCTS)); }
+}
+
+function render() {
+  document.getElementById("prodList").innerHTML = products.map((p,i) => `
+    <div class="prod">
+      <div><label>Название</label><input value="${esc(p.name)}" onchange="upd(${i},'name',this.value)"></div>
+      <div><label>Базовая цена, BYN</label><input type="number" value="${p.price}" onchange="upd(${i},'price',+this.value)"></div>
+      <div><label>Старая цена</label><input type="number" value="${p.oldPrice ?? ''}" placeholder="—" onchange="upd(${i},'oldPrice',this.value?+this.value:null)"></div>
+      <div><button class="btn btn-danger" style="width:100%" onclick="del(${i})">✕</button></div>
+      <div style="grid-column:1/-1">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px">
+          <div><label>Категория</label>
+            <select onchange="upd(${i},'cat',this.value)" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#12141c;color:var(--text)">
+              ${Object.entries(CATS).map(([k,v])=>`<option value="${k}" ${p.cat===k?'selected':''}>${v}</option>`).join("")}
+            </select>
+          </div>
+          <div><label>Цвет</label><input value="${esc(p.color)}" onchange="upd(${i},'color',this.value)"></div>
+          <div><label>Бейдж</label><input value="${esc(p.badge ?? '')}" placeholder="Хит / Новинка" onchange="upd(${i},'badge',this.value||null)"></div>
+          <div><label>Состояние (для Б/У)</label><input value="${esc(p.condition ?? '')}" placeholder="Как новый" onchange="upd(${i},'condition',this.value||undefined)"></div>
+        </div>
+        <label>Короткое описание</label>
+        <input value="${esc(p.desc ?? '')}" onchange="upd(${i},'desc',this.value)">
+        <label>Варианты памяти — формат: 256 ГБ:0, 512 ГБ:450 (метка:доплата)</label>
+        <input value="${esc(memToStr(p.memory))}" placeholder="оставьте пустым, если без вариантов" onchange="upd(${i},'memory',strToMem(this.value))">
+      </div>
+    </div>`).join("");
+}
+
+const memToStr = m => Array.isArray(m) ? m.map(x=>x[0]+":"+x[1]).join(", ") : "";
+const strToMem = s => {
+  s = s.trim(); if (!s) return undefined;
+  return s.split(",").map(part => {
+    const i = part.lastIndexOf(":");
+    return [part.slice(0,i).trim(), +part.slice(i+1).trim() || 0];
+  }).filter(x=>x[0]);
+};
+
+const esc = s => String(s ?? "").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+function upd(i,k,v){ products[i][k]=v; }
+function del(i){ if(confirm("Удалить «"+products[i].name+"»?")){ products.splice(i,1); render(); } }
+function addProduct(){
+  products.push({ id:Date.now(), cat:"iphone", name:"Новый товар", color:"Чёрный",
+    price:1000, oldPrice:null, badge:null, gradient:["#5f6b7a","#2c3440"],
+    sim:true, memory:[["128 ГБ",0],["256 ГБ",250]], desc:"", full:"", specs:[] });
+  render();
+}
+function saveAll(){
+  localStorage.setItem(KEY, JSON.stringify(products));
+  toast("✅ Сохранено! Цены на сайте обновлены");
+}
+function resetAll(){
+  if(confirm("Вернуть исходные товары и цены?")){
+    localStorage.removeItem(KEY); loadProducts(); render(); toast("Сброшено");
+  }
+}
+function downloadJS(){
+  const cfg = JSON.stringify(window.SHOP_CONFIG, null, 2);
+  const prods = JSON.stringify(products, null, 2);
+  const content = "// Файл сгенерирован админ-панелью " + new Date().toLocaleString("ru-RU") +
+    "\nwindow.SHOP_CONFIG = " + cfg + ";\n\nwindow.DEFAULT_PRODUCTS = " + prods + ";\n";
+  const blob = new Blob([content], {type:"text/javascript"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "products.js"; a.click();
+  toast("Файл скачан — замените им products.js на хостинге");
+}
+
+let tt;
+function toast(m){
+  const t=document.getElementById("toast"); t.textContent=m; t.classList.add("show");
+  clearTimeout(tt); tt=setTimeout(()=>t.classList.remove("show"),2600);
+}
+</script>
+</body>
+</html>
