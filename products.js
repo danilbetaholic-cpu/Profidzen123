@@ -114,6 +114,15 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый доступный вход в экосистему Apple: флагманский чип A19, OLED-дисплей и поддержка Apple Intelligence.",
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A19","Камера 48 Мп 2-в-1","Face ID","До 26 часов видео"] },
 
+  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2890, oldPrice:3040, badge:"Выгодно",
+    img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
+    gradient:["#bfa98a","#7a6a4f"], sim:true,
+    colors:[["Титан пустыни","#bfa98a"],["Натуральный титан","#c2bcb2"],["Белый титан","#e8e6e2"],["Чёрный титан","#3a3c40"]],
+    memory:[["256 ГБ",0],["512 ГБ",400],["1 ТБ",800]],
+    desc:"Новый, прошлогодний флагман — лучшая цена за титановый Pro Max",
+    full:"Совершенно новый iPhone 16 Pro Max в плёнке: титановый корпус, большой дисплей 6,9″, камера 48 Мп с 5-кратным зумом и кнопка Camera Control. Та же премиальная линейка Pro — на треть доступнее новинки.",
+    specs:["Дисплей 6,9″ ProMotion 120 Гц","Чип Apple A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","До 33 часов видео","Титановый корпус"] },
+
   // ================= Б/У iPHONE =================
   { id:101, cat:"used", name:"iPhone 17 Pro Max", price:3080, oldPrice:null, badge:"Как новый",
     img:"https://www.apple.com/v/iphone-17-pro/f/images/meta/iphone-17-pro_overview__eumhhclcpuaa_og.png",
@@ -152,6 +161,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Состояние 10/10","АКБ 98–100%","Гарантия 6 месяцев"] },
 
   { id:105, cat:"used", name:"iPhone 16 Pro", price:1890, oldPrice:null, badge:"Как новый",
+    img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     condition:"Как новый", gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Натуральный титан","#bfa98a"],["Чёрный титан","#3a3c40"]],
     memory:[["128 ГБ",0],["256 ГБ",200],["512 ГБ",450]],
