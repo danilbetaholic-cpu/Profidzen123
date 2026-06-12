@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iBrain — техника Apple в Минске</title>
+<title>iBrain — техника Apple в Беларуси</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -264,6 +264,58 @@
   .news-card p { color:var(--muted); font-size:14px; line-height:1.55; margin-top:10px; }
   .news-date { color:#a1a1a6; font-size:12.5px; margin-top:14px; }
 
+  /* ---------- Мы в Instagram ---------- */
+  .insta-grid {
+    margin-top:40px; display:grid; gap:14px;
+    grid-template-columns:repeat(6,1fr);
+  }
+  .insta-cell {
+    aspect-ratio:1; border-radius:18px; overflow:hidden; position:relative;
+    background:linear-gradient(135deg,#0a0a0c,#23232a); cursor:pointer;
+    box-shadow:var(--card-shadow); transition:transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s;
+  }
+  .insta-cell:hover { transform:translateY(-5px); box-shadow:var(--card-shadow-hover); }
+  .insta-cell img { width:100%; height:100%; object-fit:cover; }
+  .insta-ph {
+    width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:#fff; gap:8px;
+  }
+  .insta-ph .mark { font-family:var(--display); font-weight:600; font-size:clamp(15px,2vw,22px); letter-spacing:-.03em; }
+  .insta-ph .mark span { background:linear-gradient(90deg,#0066ff,#9b5cff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .insta-ph .ig { width:24px; height:24px; opacity:.55; }
+  .insta-foot {
+    margin-top:30px; display:flex; align-items:center; justify-content:center; gap:34px; flex-wrap:wrap;
+  }
+  .insta-stat { display:flex; align-items:center; gap:16px; }
+  .insta-stat b { font-size:17px; }
+  .insta-rating { display:flex; align-items:center; gap:8px; }
+  .insta-rating .stars { color:#ffb703; font-size:19px; letter-spacing:2px; }
+  .insta-rating b { font-size:19px; }
+  @media (max-width:900px){ .insta-grid { grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:480px){ .insta-grid { grid-template-columns:repeat(2,1fr); } .insta-stat { flex-direction:column; gap:10px; } }
+
+  /* карточки-отзывы (фирменные) */
+  .review-grid { margin-top:40px; display:grid; gap:18px; grid-template-columns:repeat(3,1fr); }
+  .review-card {
+    background:#fff; border:1px solid rgba(20,20,40,.05); border-radius:20px; padding:24px;
+    box-shadow:var(--card-shadow); transition:transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s;
+  }
+  .review-card:hover { transform:translateY(-6px); box-shadow:var(--card-shadow-hover); }
+  .rc-head { display:flex; align-items:center; gap:12px; }
+  .rc-ava {
+    width:44px; height:44px; border-radius:50%; flex-shrink:0;
+    background:linear-gradient(135deg,#0066ff,#9b5cff); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px;
+  }
+  .rc-who { flex:1; line-height:1.3; }
+  .rc-who b { font-size:15px; }
+  .rc-who span { display:block; color:var(--muted); font-size:13px; }
+  .rc-ig { opacity:.85; }
+  .rc-stars { color:#ffb703; font-size:16px; letter-spacing:2px; margin-top:14px; }
+  .rc-text { color:var(--text); font-size:14.5px; line-height:1.55; margin-top:8px; }
+  @media (max-width:900px){ .review-grid { grid-template-columns:1fr 1fr; } }
+  @media (max-width:560px){ .review-grid { grid-template-columns:1fr; } }
+
   /* ---------- преимущества ---------- */
   .feats { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:38px; }
   .feat { text-align:center; padding:26px 16px; opacity:0; transform:translateY(30px); }
@@ -344,6 +396,36 @@
   .success-anim { text-align:center; padding:30px 0; }
   .success-anim .check { width:80px; height:80px; margin:0 auto; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:40px; color:#fff; animation:pop .5s cubic-bezier(.34,1.56,.64,1); }
   @keyframes pop { from { transform:scale(0); } to { transform:scale(1); } }
+
+  /* ---------- инфо-блоки (оплата, возврат, реквизиты) ---------- */
+  .info-sec { background:var(--bg-grey); max-width:none; }
+  .info-grid {
+    max-width:1100px; margin:0 auto; display:grid; gap:18px;
+    grid-template-columns:1fr 1fr;
+  }
+  .info-card { background:#fff; border-radius:18px; padding:28px; box-shadow:var(--card-shadow); }
+  .info-card h3 { font-family:var(--display); font-size:20px; font-weight:600; letter-spacing:-.02em; }
+  .info-card p { color:var(--muted); font-size:14.5px; line-height:1.6; margin-top:12px; }
+  .info-card .req { color:var(--text); font-size:14px; line-height:1.8; }
+  .info-small { font-size:12.5px !important; color:#86868b !important; }
+  @media (max-width:760px){ .info-grid { grid-template-columns:1fr; } }
+
+  /* логотипы платёжных систем */
+  .pay-logos { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+  .pl {
+    display:inline-flex; align-items:center; gap:5px; height:34px; padding:0 14px;
+    border:1px solid var(--border); border-radius:8px; background:#fff;
+    font-weight:800; font-size:14px; letter-spacing:.02em; color:var(--text);
+  }
+  .pl-visa { color:#1a1f71; font-style:italic; font-family:Georgia,serif; }
+  .pl-mc i { width:17px; height:17px; border-radius:50%; display:inline-block; margin-right:-7px; }
+  .pl-mc i:first-child { background:#eb001b; }
+  .pl-mc i:nth-child(2) { background:#f79e1b; opacity:.9; }
+  .pl-mc { color:#222; gap:0; padding-left:10px; }
+  .pl-mc { gap:6px; }
+  .pl-belkart { color:#e2231a; }
+  .pl-erip { color:#0a7d44; }
+  .pl-pay { color:#000; font-weight:700; }
 
   /* ---------- футер ---------- */
   footer { background:var(--bg-grey); border-top:1px solid rgba(0,0,0,.06); padding:50px 22px 30px; font-size:13px; color:var(--muted); }
@@ -575,14 +657,89 @@
   </div>
 </section>
 
+<!-- МЫ В INSTAGRAM -->
+<section id="insta">
+  <h2 class="sec-title">Мы в Instagram</h2>
+  <p class="sec-sub">Нам доверяют — и делятся впечатлениями. Читайте отзывы в нашем Instagram</p>
+  <div class="insta-grid" id="instaGrid"></div>
+  <div class="insta-foot">
+    <div class="insta-stat">
+      <b id="instaReviews">0 отзывов</b>
+      <a class="btn btn-outline" id="instaLink" href="#" target="_blank" rel="noopener">Смотреть в Instagram</a>
+    </div>
+    <div class="insta-rating">
+      <span class="stars">★★★★★</span>
+      <b id="instaRating">5.0</b>
+    </div>
+  </div>
+</section>
+
 <!-- ПОЧЕМУ МЫ -->
 <section id="why">
   <h2 class="sec-title">Почему iBrain</h2>
   <div class="feats">
     <div class="feat"><div class="ico">✅</div><h4>Оригинал 100%</h4><p>Официальная техника Apple с проверкой по серийному номеру.</p></div>
-    <div class="feat"><div class="ico">🚚</div><h4>Быстрая доставка</h4><p>По Минску — в день заказа, по Беларуси — 1–2 дня.</p></div>
+    <div class="feat"><div class="ico">🚚</div><h4>Быстрая доставка</h4><p>По Могилёву — в день заказа, по Беларуси — 1–2 дня.</p></div>
     <div class="feat"><div class="ico">🛡️</div><h4>Гарантия</h4><p>12 месяцев на новое, 6 месяцев на б/у. Проверка по 40 пунктам.</p></div>
     <div class="feat"><div class="ico">💳</div><h4>Удобная оплата</h4><p>Карты, ЕРИП, Apple Pay — безопасно через bePaid.</p></div>
+  </div>
+</section>
+
+<!-- ОПЛАТА, ВОЗВРАТ, РЕКВИЗИТЫ (требования bePaid) -->
+<section id="info" class="info-sec">
+  <div class="info-grid">
+
+    <div class="info-card">
+      <h3>Способы и безопасность оплаты</h3>
+      <p>Принимаем к оплате банковские карты <b>Visa</b>, <b>Mastercard</b>, <b>БЕЛКАРТ</b>,
+      а также оплату через систему <b>ЕРИП</b>, <b>Apple Pay</b> и <b>Google Pay</b>.</p>
+      <div class="pay-logos">
+        <span class="pl pl-visa">VISA</span>
+        <span class="pl pl-mc"><i></i><i></i>Mastercard</span>
+        <span class="pl pl-belkart">БЕЛКАРТ</span>
+        <span class="pl pl-erip">ЕРИП</span>
+        <span class="pl pl-pay"> Pay</span>
+      </div>
+      <p class="info-small">
+        Оплата проходит через защищённый платёжный сервис <b>bePaid</b>. При оплате вы
+        перенаправляетесь на авторизационную страницу банка для ввода реквизитов карты.
+        Аутентификация держателя карты выполняется по технологиям <b>Verified by Visa</b>,
+        <b>Mastercard SecureCode</b> и <b>Интернет-пароль БЕЛКАРТ</b>. Передача данных
+        защищена протоколом <b>SSL</b> — реквизиты вашей карты не попадают и не хранятся на нашем сайте.
+      </p>
+    </div>
+
+    <div class="info-card">
+      <h3>Доставка</h3>
+      <p>Доставка по Могилёву — курьером в день заказа. По Беларуси — почтой или курьерской
+      службой в течение 1–2 дней. Стоимость и сроки доставки в регионы уточняются с менеджером
+      при оформлении заказа. Самовывоз — по адресу магазина в рабочее время.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Возврат и обмен</h3>
+      <p>Возврат и обмен товара осуществляется в соответствии с законодательством Республики
+      Беларусь. Товар надлежащего качества можно вернуть или обменять в течение 14 дней при
+      сохранении товарного вида, потребительских свойств, упаковки и документов.</p>
+      <p>Возврат денежных средств производится тем же способом, которым была произведена оплата,
+      в срок до 7 банковских дней с момента согласования возврата. Для оформления возврата
+      свяжитесь с нами по телефону или email, указанным в контактах.</p>
+    </div>
+
+    <div class="info-card">
+      <h3>Реквизиты продавца</h3>
+      <p class="req">
+        ИП Савельева Мария Петровна<br>
+        Торговое наименование: интернет-магазин «iBrain»<br>
+        Регистрационный номер (УНП): 791438583<br>
+        Зарегистрирована 11.06.2026, Администрация Ленинского района г. Могилёва<br>
+        Место жительства и почтовый адрес: Могилёвская обл., г. Могилёв, ул. Кедровая, д. 13, ком. 614<br>
+        Режим работы: ежедневно 10:00–21:00<br>
+        Телефон: +375 (XX) XXX-XX-XX · Email: info@ibrain.by
+      </p>
+      <p class="info-small">⚠️ Укажите реальный телефон и email перед подключением bePaid.</p>
+    </div>
+
   </div>
 </section>
 
@@ -599,20 +756,20 @@
     <div>
       <h5>Покупателям</h5>
       <li><a href="#catalog" onclick="setTab('sale')">Акции</a></li>
-      <li><a href="#news">Новости</a></li>
-      <li><a href="#why">Гарантия</a></li>
-      <li><a href="#why">Доставка и оплата</a></li>
+      <li><a href="#info">Доставка и оплата</a></li>
+      <li><a href="#info">Возврат и обмен</a></li>
+      <li><a href="#info">Безопасность платежей</a></li>
     </div>
     <div>
       <h5>Контакты</h5>
-      <li>Минск, пр-т Независимости, 1</li>
-      <li>+375 (29) 000-00-00</li>
+      <li>г. Могилёв, ул. Кедровая, 13</li>
+      <li>+375 (XX) XXX-XX-XX</li>
       <li>info@ibrain.by</li>
       <li>Ежедневно 10:00–21:00</li>
     </div>
   </div>
   <div class="copyright">
-    © 2026 iBrain · ИП Иванов И.И., УНП 000000000 · Зарегистрирован в Торговом реестре РБ<br>
+    © 2026 iBrain · ИП Савельева М.П., УНП 791438583 · г. Могилёв<br>
     Apple, iPhone, iPad, Mac, Apple Watch и AirPods — товарные знаки Apple Inc.
   </div>
 </footer>
@@ -763,6 +920,47 @@ function renderCatalog() {
   `).join("");
   observeReveal();
 }
+function renderInstagram() {
+  const cfg = window.SHOP_INSTAGRAM || {};
+  const grid = document.getElementById("instaGrid");
+  if (!grid) return;
+  const link = cfg.url || "https://instagram.com/";
+
+  // приоритет: свои фото → фирменные карточки-отзывы → плейсхолдеры
+  if (cfg.photos && cfg.photos.length) {
+    grid.className = "insta-grid";
+    grid.innerHTML = cfg.photos.slice(0, 12).map(src =>
+      `<a class="insta-cell" href="${link}" target="_blank" rel="noopener"><img src="${src}" alt="Отзыв iBrain" loading="lazy"></a>`
+    ).join("");
+  } else if (cfg.cards && cfg.cards.length) {
+    grid.className = "review-grid";
+    grid.innerHTML = cfg.cards.map(r => `
+      <div class="review-card">
+        <div class="rc-head">
+          <div class="rc-ava">${escHtml(r.name).trim().charAt(0)}</div>
+          <div class="rc-who"><b>${escHtml(r.name)}</b><span>${escHtml(r.city || "")}</span></div>
+          <div class="rc-ig">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#c1357f" stroke-width="1.7" width="20" height="20">
+              <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#c1357f" stroke="none"/></svg>
+          </div>
+        </div>
+        <div class="rc-stars">★★★★★</div>
+        <p class="rc-text">${escHtml(r.text)}</p>
+      </div>`).join("");
+  } else {
+    grid.className = "insta-grid";
+    const ph = `<div class="insta-ph">
+      <svg class="ig" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7">
+        <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg>
+      <div class="mark">i<span>Brain</span></div></div>`;
+    grid.innerHTML = new Array(6).fill(0).map(() =>
+      `<a class="insta-cell" href="${link}" target="_blank" rel="noopener">${ph}</a>`).join("");
+  }
+  document.getElementById("instaReviews").textContent = cfg.reviews || "Отзывы";
+  document.getElementById("instaRating").textContent = cfg.rating || "5.0";
+  document.getElementById("instaLink").href = link;
+}
+
 function renderNews() {
   document.getElementById("newsGrid").innerHTML = (window.SHOP_NEWS||[]).map(n => `
     <div class="news-card">
@@ -918,7 +1116,7 @@ function openCheckout() {
     <div class="field"><label>Email *</label>
       <input id="coEmail" type="email" placeholder="you@mail.com">
       <div class="err-msg">Укажите корректный email — на него придёт подтверждение заказа</div></div>
-    <div class="field"><label>Адрес доставки</label><input id="coAddr" placeholder="Минск, ул. ..."></div>
+    <div class="field"><label>Адрес доставки</label><input id="coAddr" placeholder="Могилёв, ул. ..."></div>
     <div class="cart-total" style="margin-top:24px"><span>К оплате</span><span>${fmt(cartTotal())}</span></div>
     <button class="btn btn-blue" style="width:100%;margin-top:20px" onclick="submitOrder()">Оплатить ${fmt(cartTotal())}</button>
     <div class="pay-note">Безопасная оплата через <b>bePaid</b>: Visa · Mastercard · БЕЛКАРТ · ЕРИП · Apple Pay</div>`;
@@ -1068,6 +1266,7 @@ window.addEventListener("scroll", () => {
 renderTabs();
 renderCatalog();
 renderNews();
+renderInstagram();
 observeReveal();
 </script>
 </body>
