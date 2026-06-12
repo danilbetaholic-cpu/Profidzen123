@@ -499,6 +499,13 @@
   @media (max-width:680px) { .detail { grid-template-columns:1fr; } }
   .detail-img { position:relative; background:var(--bg-grey); border-radius:18px; display:flex; align-items:center; justify-content:center; padding:18px; min-height:280px; overflow:hidden; }
   .detail-img img, .detail-img > svg { position:relative; z-index:1; max-width:100%; max-height:300px; object-fit:contain; }
+  /* галерея фото товара */
+  .thumbs { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+  .thumb { width:56px; height:56px; border-radius:11px; overflow:hidden; padding:0; cursor:pointer;
+    border:1px solid var(--border); background:var(--bg-grey); transition:border .2s, transform .2s; }
+  .thumb:hover { transform:translateY(-2px); }
+  .thumb.on { border-color:var(--blue); outline:1px solid var(--blue); }
+  .thumb img { width:100%; height:100%; object-fit:cover; }
   /* живая подсветка под цвет выбранного варианта */
   .detail-glow {
     position:absolute; inset:0; z-index:0; border-radius:18px;
@@ -1514,9 +1521,16 @@ function renderDetail(p) {
   const selHex = (p.colors && (p.colors.find(c => c[0] === selColor) || [])[1]) || p.gradient && p.gradient[0] || "#0066ff";
   document.getElementById("detailBody").innerHTML = `
     <div class="detail">
-      <div class="detail-img" style="--glow:${selHex}">
-        <div class="detail-glow"></div>
-        ${imgOrArt(p, 280)}
+      <div class="detail-media">
+        <div class="detail-img" style="--glow:${selHex}">
+          <div class="detail-glow"></div>
+          ${(p.photo || (p.gallery && p.gallery.length))
+            ? `<img id="detailMainImg" src="${(p.gallery && p.gallery[0]) || p.photo}" alt="${escHtml(p.name)}"
+                 onerror="this.outerHTML = artById(${p.id}, 200, 280)">`
+            : imgOrArt(p, 280)}
+        </div>
+        ${p.gallery && p.gallery.length > 1 ? `<div class="thumbs">${p.gallery.map((g,i)=>
+          `<button class="thumb ${i===0?'on':''}" onclick="swapMain(this,'${g}')"><img src="${g}" alt="" loading="lazy" onerror="this.parentElement.style.display='none'"></button>`).join("")}</div>` : ""}
       </div>
       <div>
         <h2>${p.name}</h2>
@@ -1572,6 +1586,12 @@ function similarBlock(p) {
         <span>${s.memory && s.memory.length>1 ? "от " : ""}${fmt(s.price)}</span>
       </div>`).join("")}</div>
   </div>`;
+}
+function swapMain(btn, src) {
+  const main = document.getElementById("detailMainImg");
+  if (main) main.src = src;
+  document.querySelectorAll(".thumbs .thumb").forEach(t => t.classList.remove("on"));
+  btn.classList.add("on");
 }
 function closeDetail(){ document.getElementById("detailOverlay").classList.remove("open"); }
 
