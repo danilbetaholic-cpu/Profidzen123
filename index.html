@@ -926,10 +926,30 @@ function art(p, w, h) {
      <circle cx="100" cy="22" r="3.2" fill="rgba(255,255,255,.35)"/>
      <rect x="118" y="60" width="3" height="34" rx="1.5" fill="rgba(255,255,255,.22)"/>` + end;
 }
+// список кандидатов-фото для товара: своё фото + все стоки категории (со сдвигом)
+function photoList(p) {
+  const list = [];
+  if (p.photo) list.push(p.photo);
+  if (p.img) list.push(p.img);
+  const arr = (window.CAT_PHOTOS && window.CAT_PHOTOS[p.cat]) || [];
+  const off = (p.id || 0) % (arr.length || 1);
+  for (let i = 0; i < arr.length; i++) list.push(arr[(off + i) % arr.length]);
+  return list;
+}
+// перебор источников: не открылось одно фото → пробуем следующее → иллюстрация
+window.imgNext = function (el) {
+  const list = JSON.parse(el.getAttribute("data-list") || "[]");
+  let i = (+el.getAttribute("data-i") || 0) + 1;
+  const id = +el.getAttribute("data-id"), h = +el.getAttribute("data-h") || 170;
+  if (i < list.length) { el.setAttribute("data-i", i); el.src = list[i]; }
+  else { el.outerHTML = artById(id, 140, h); }
+};
 function imgOrArt(p, h) {
-  if (p.img) return `<img src="${p.img}" alt="${p.name}" loading="lazy"
-    onerror="this.outerHTML = artById(${p.id}, 140, ${h})">`;
-  return art(p, 140, h);
+  const list = photoList(p);
+  if (!list.length) return art(p, 140, h);
+  return `<img src="${list[0]}" alt="${escHtml(p.name)}" loading="lazy"
+    data-list='${JSON.stringify(list).replace(/'/g, "&#39;")}' data-i="0" data-id="${p.id}" data-h="${h}"
+    onerror="window.imgNext(this)">`;
 }
 window.artById = (id, w, h) => art(byId(id), w, h);
 
