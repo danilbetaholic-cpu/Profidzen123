@@ -1121,8 +1121,8 @@ function art(p, w, h) {
      <rect x="52" y="52" width="56" height="96" rx="20" fill="rgba(0,0,0,.4)"/>
      <rect x="116" y="86" width="6" height="20" rx="3" fill="${c2}"/>` + end;
 
-  // ----- AIRPODS / АУДИО -----
-  if (n.includes("Max")) return head +
+  // ----- AIRPODS / АУДИО (только для категории audio) -----
+  if (cat === "audio" && n.includes("Max")) return head +
     `<path d="M40 110 a40 40 0 0 1 80 0" fill="none" stroke="${G}" stroke-width="12" stroke-linecap="round"/>
      <rect x="28" y="100" width="30" height="56" rx="15" fill="${G}" ${st}/>
      <rect x="102" y="100" width="30" height="56" rx="15" fill="${G}" ${st}/>` + end;
