@@ -7,3 +7,8 @@ README.md
 .DS_Store
 istore-site/
 *.zip
+
+# исходные фото и временные склейки
+_исходные-фото/
+sheet*.png
+_проверка-фото.png
