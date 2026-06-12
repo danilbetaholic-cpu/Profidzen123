@@ -68,6 +68,16 @@
     overflow-x:hidden; letter-spacing:-.01em;
     -webkit-tap-highlight-color: transparent;
   }
+  /* ——— типографика премиум-уровня ——— */
+  .hero h1, .store-title, .sec-title, .hl h3, .ti-text h2, .modal h2, .info-card h3, h2, h3 {
+    text-wrap:balance;            /* убираем «висячие» слова в заголовках */
+  }
+  .sec-sub, .hero p.sub, .full, .info-card p, .news-card p, .rc-text { text-wrap:pretty; }
+  /* цены и числа — моноширинные цифры, чтобы ровно выстраивались */
+  .price, .old-price, .detail-price, .cart-total, .ao-total, .from,
+  .sale-timer .unit b, .count { font-variant-numeric: tabular-nums; font-feature-settings:"tnum" 1; }
+  .sec-sub { line-height:1.55; max-width:560px; margin-left:auto; margin-right:auto; }
+
   /* мелкие детали премиум-сайта */
   ::selection { background:rgba(0,102,255,.18); color:var(--text); }
   ::-webkit-scrollbar { width:11px; height:11px; }
@@ -93,6 +103,22 @@
   }
   .card { transition:transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s, border-color .5s; }
   .card:active { transform:scale(.985); transition:transform .12s ease; }
+
+  /* ——— премиум-микродетали ——— */
+  /* мягкое свечение за заголовками секций — глубина «дорогого» сайта */
+  .sec-title { position:relative; z-index:0; }
+  .sec-title::before {
+    content:""; position:absolute; left:50%; top:50%; width:min(620px,86%); height:230%;
+    transform:translate(-50%,-50%); z-index:-1; pointer-events:none;
+    background:radial-gradient(ellipse at center, rgba(0,102,255,.09), rgba(155,92,255,.05) 45%, transparent 72%);
+    filter:blur(6px);
+  }
+  /* «живая» главная кнопка: лёгкий подъём и усиленное свечение */
+  .btn-blue { transition:.25s, box-shadow .35s, transform .25s; }
+  .btn-blue:hover { transform:translateY(-1px); box-shadow:0 10px 30px rgba(0,102,255,.38); }
+  .btn-blue:active { transform:translateY(0) scale(.97); }
+  /* плавная отрисовка тени карточек */
+  .card:hover { border-color:rgba(0,102,255,.14); }
 
   /* плавная смена категории каталога */
   #productGrid { transition:opacity .28s ease, transform .28s ease; }
@@ -943,7 +969,7 @@
 <div class="hero">
   <div class="eyebrow">Новый iPhone 17 Pro</div>
   <h1><span class="grad">Невероятно Pro</span></h1>
-  <p class="sub">Оригинал с гарантией · Доставка по Беларуси</p>
+  <p class="sub">Оригинальная техника Apple с гарантией. Доставка по всей Беларуси — бесплатно от 1000 BYN.</p>
   <p class="sub-note">По самым низким ценам. Работаем без кредитов и рассрочек.</p>
   <div class="cta">
     <a class="btn btn-blue" href="#catalog" onclick="setTab('iphone')">Купить</a>
@@ -1088,7 +1114,7 @@
 <section id="news">
   <div class="news-inner">
     <h2 class="sec-title">Новости и акции</h2>
-    <p class="sec-sub">Что нового в мире Apple и в нашем магазине</p>
+    <p class="sec-sub">Свежие поступления, новинки Apple и выгодные предложения недели</p>
     <div class="news-grid" id="newsGrid"></div>
   </div>
 </section>
@@ -1110,6 +1136,7 @@
 <!-- ПОЧЕМУ МЫ -->
 <section id="why">
   <h2 class="sec-title">Почему iBrain</h2>
+  <p class="sec-sub">Магазин, которому доверяют покупке техники Apple в Беларуси</p>
   <div class="feats">
     <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></div><h4>Оригинал 100%</h4><p>Официальная техника Apple с проверкой по серийному номеру.</p></div>
     <div class="feat"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></div><h4>Быстрая доставка</h4><p>По Могилёву — в день заказа, по Беларуси — 1–2 дня.</p></div>
@@ -1133,6 +1160,7 @@
 <!-- FAQ -->
 <section id="faq">
   <h2 class="sec-title">Частые вопросы</h2>
+  <p class="sec-sub">Коротко о главном — оплата, доставка, гарантия и возврат</p>
   <div class="faq-list">
     <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Как сделать заказ?<span>+</span></button>
       <div class="faq-a">Выберите товар, нажмите «Купить», укажите конфигурацию (цвет, память, SIM) и оформите заказ. Мы свяжемся с вами для подтверждения и доставки.</div></div>
