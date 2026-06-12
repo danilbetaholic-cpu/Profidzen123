@@ -799,6 +799,12 @@
   </div>
 </div>
 
+<!-- НЕДАВНО СМОТРЕЛИ -->
+<section id="recentSec" style="display:none">
+  <h2 class="sec-title">Вы недавно смотрели</h2>
+  <div class="similar-grid" id="recentGrid" style="margin-top:30px"></div>
+</section>
+
 <!-- НОВОСТИ -->
 <section id="news">
   <div class="news-inner">
@@ -1258,6 +1264,20 @@ function renderCatalog() {
   `).join("");
   observeReveal();
 }
+function renderRecent() {
+  let ids = [];
+  try { ids = JSON.parse(localStorage.getItem("ibrain_recent") || "[]"); } catch(e) {}
+  const items = ids.map(byId).filter(Boolean).slice(0, 8);
+  const sec = document.getElementById("recentSec");
+  if (!items.length) { sec.style.display = "none"; return; }
+  sec.style.display = "";
+  document.getElementById("recentGrid").innerHTML = items.map(s => `
+    <div class="similar-card" onclick="openDetail(${s.id})">
+      <div class="similar-img">${imgOrArt(s, 120)}</div>
+      <b>${escHtml(s.name)}</b>
+      <span>${s.memory && s.memory.length>1 ? "от " : ""}${fmt(s.price)}</span>
+    </div>`).join("");
+}
 function renderInstagram() {
   const cfg = window.SHOP_INSTAGRAM || {};
   const grid = document.getElementById("instaGrid");
@@ -1319,8 +1339,16 @@ function observeReveal() {
 
 // ============ ДЕТАЛЬНАЯ КАРТОЧКА ============
 let selMem = "", selSim = "", selColor = "";
+function pushRecent(id) {
+  try {
+    let r = JSON.parse(localStorage.getItem("ibrain_recent") || "[]");
+    r = [id, ...r.filter(x => x !== id)].slice(0, 8);
+    localStorage.setItem("ibrain_recent", JSON.stringify(r));
+  } catch(e) {}
+}
 function openDetail(id) {
   const p = byId(id); if (!p) return;
+  pushRecent(id);
   selMem = p.memory ? p.memory[0][0] : "";
   selSim = p.sim ? (window.SIM_DEFAULT || window.SIM_OPTIONS[0][0]) : "";
   selColor = p.colors ? p.colors[0][0] : "";
@@ -1665,6 +1693,7 @@ renderNews();
 renderInstagram();
 renderFab();
 initCookie();
+renderRecent();
 updateCartCount(); // показать счётчик, если корзина сохранилась с прошлого визита
 observeReveal();
 </script>
