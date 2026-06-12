@@ -66,7 +66,18 @@
     font-feature-settings: "ss01","cv01","cv11";
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     overflow-x:hidden; letter-spacing:-.01em;
+    -webkit-tap-highlight-color: transparent;
   }
+  /* мелкие детали премиум-сайта */
+  ::selection { background:rgba(0,102,255,.18); color:var(--text); }
+  ::-webkit-scrollbar { width:11px; height:11px; }
+  ::-webkit-scrollbar-thumb { background:#c9c9cf; border-radius:6px; border:3px solid var(--bg); }
+  ::-webkit-scrollbar-thumb:hover { background:#aeaeb6; }
+  /* плавное проявление фото после загрузки */
+  .card-img img, .detail-img img, .tile img, .hl img, .similar-img img, .thumb img {
+    opacity:0; transition:opacity .5s ease;
+  }
+  .card-img img.ld, .detail-img img.ld, .tile img.ld, .hl img.ld, .similar-img img.ld, .thumb img.ld { opacity:1; }
   img { max-width:100%; }
   a { color:var(--blue); text-decoration:none; }
   a:hover { text-decoration:underline; }
@@ -1564,6 +1575,7 @@ function renderDetail(p) {
           ${p.oldPrice ? `<span class="old-price">${fmt(oldPriceOf(p, selMem, selSim))}</span>` : ""}
           <span class="month">или ${fmt(Math.round(price/12))} / мес. в рассрочку на 12 мес.</span>
         </div>
+        ${p.left ? `<div class="left-row" style="margin-top:10px"><span class="left-bar"><i style="width:${Math.min(p.left*18,100)}%"></i></span>Осталось ${p.left} шт. — успейте купить</div>` : ""}
         ${p.stock==="out"
           ? `<button class="btn" style="width:100%;margin-top:18px;background:#e8e8ed;color:#86868b;cursor:default">Закончились — ожидаем поставку</button>`
           : `<button class="btn btn-blue" style="width:100%;margin-top:18px" onclick="addToCart(${p.id}, selMem, selSim, selColor); closeDetail();">
@@ -1907,6 +1919,17 @@ function toggleFaq(btn) {
   btn.classList.toggle("open", !open);
   a.classList.toggle("open", !open);
 }
+
+// плавное проявление фото: помечаем загруженные картинки
+addEventListener("load", e => {
+  if (e.target && e.target.tagName === "IMG") e.target.classList.add("ld");
+}, true);
+function markImgLoaded() {
+  document.querySelectorAll("img:not(.ld)").forEach(im => {
+    if (im.complete && im.naturalWidth > 0) im.classList.add("ld");
+  });
+}
+setInterval(markImgLoaded, 400); // подхватываем кэшированные фото
 
 // мобильное меню
 function toggleMenu() {
