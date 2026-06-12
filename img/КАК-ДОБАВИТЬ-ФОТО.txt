@@ -20,6 +20,23 @@ iPhone 13 Pro Max 256GB (Б/У, Sierra Blue):
   img/iphone13-promax-blue-2.jpg
   img/iphone13-promax-blue-3.jpg
 
+iPhone 12 Pro Max Dual SIM 128GB (Б/У, Pacific Blue):
+  img/iphone12-promax-blue-1.jpg   ← главное (задняя сторона / в коробке)
+  img/iphone12-promax-blue-2.jpg
+  img/iphone12-promax-blue-3.jpg
+  img/iphone12-promax-blue-4.jpg
+
+iPhone 12 Pro Max 512GB (Б/У, Silver):
+  img/iphone12-promax-silver-1.jpg   ← главное (задняя сторона / в коробке)
+  img/iphone12-promax-silver-2.jpg
+  img/iphone12-promax-silver-3.jpg
+
+iPhone 14 Pro Max 128GB (Б/У, Deep Purple):
+  img/iphone14-promax-purple-1.jpg   ← главное (задняя сторона)
+  img/iphone14-promax-purple-2.jpg
+  img/iphone14-promax-purple-3.jpg
+  img/iphone14-promax-purple-4.jpg
+
 Совет: имена должны совпадать буква в букву (латиница, нижний регистр, .jpg).
 Если фото в формате .png или .heic — переименуйте/сконвертируйте в .jpg,
 либо скажите мне, и я поменяю расширение в products.js.
