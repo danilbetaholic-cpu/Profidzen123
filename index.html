@@ -829,7 +829,7 @@
 <div class="hero">
   <div class="eyebrow">Новый iPhone 17 Pro</div>
   <h1><span class="grad">Невероятно Pro</span></h1>
-  <p class="sub">Оригинал с гарантией · Доставка по Беларуси · Рассрочка</p>
+  <p class="sub">Оригинал с гарантией · Доставка по Беларуси</p>
   <div class="cta">
     <a class="btn btn-blue" href="#catalog" onclick="setTab('iphone')">Купить</a>
     <a class="btn btn-outline" href="#catalog" onclick="openDetail(2);return false;">Подробнее</a>
@@ -862,7 +862,7 @@
     </div>
     <div class="trust-item">
       <span class="ti-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19"/><path d="M6 14.5h4"/></svg></span>
-      <div><b>Удобная оплата</b><span>карта, ЕРИП, рассрочка</span></div>
+      <div><b>Удобная оплата</b><span>карта, ЕРИП, Apple Pay</span></div>
     </div>
   </div>
 </div>
@@ -1322,12 +1322,11 @@ function art(p, w, h) {
 }
 // список кандидатов-фото для товара: своё фото + все стоки категории (со сдвигом)
 function photoList(p) {
+  // приоритет: своё фото → официальный рендер → (далее иллюстрация)
+  // случайные стоки НЕ используем — они выглядят неуместно
   const list = [];
   if (p.photo) list.push(p.photo);
   if (p.img) list.push(p.img);
-  const arr = (window.CAT_PHOTOS && window.CAT_PHOTOS[p.cat]) || [];
-  const off = (p.id || 0) % (arr.length || 1);
-  for (let i = 0; i < arr.length; i++) list.push(arr[(off + i) % arr.length]);
   return list;
 }
 // перебор источников: не открылось одно фото → пробуем следующее → иллюстрация
@@ -1420,7 +1419,7 @@ function renderCatalog() {
         <div class="price">${p.memory && p.memory.length > 1 ? '<span class="from">от </span>' : ''}${fmt(p.price)}</div>
         ${p.oldPrice ? `<div class="old-price">${fmt(p.oldPrice)}</div>` : ""}
       </div>
-      ${p.left ? `<div class="left-row"><span class="left-bar"><i style="width:${Math.min(p.left*18,100)}%"></i></span>Осталось ${p.left} шт.</div>` : ""}
+      ${p.left ? `<div class="left-row"><span class="left-bar"><i style="width:${Math.max(12,Math.min(p.left/10*100,100))}%"></i></span>Осталось ${p.left} шт.</div>` : ""}
       <div class="card-btns">
         ${p.stock==="out"
           ? `<button class="buy-sm off" onclick="event.stopPropagation(); showToast('Ожидаем поставку — загляните позже')">Ожидаем</button>`
@@ -1575,9 +1574,8 @@ function renderDetail(p) {
 
         <div class="detail-price">${fmt(price)}
           ${p.oldPrice ? `<span class="old-price">${fmt(oldPriceOf(p, selMem, selSim))}</span>` : ""}
-          <span class="month">или ${fmt(Math.round(price/12))} / мес. в рассрочку на 12 мес.</span>
         </div>
-        ${p.left ? `<div class="left-row" style="margin-top:10px"><span class="left-bar"><i style="width:${Math.min(p.left*18,100)}%"></i></span>Осталось ${p.left} шт. — успейте купить</div>` : ""}
+        ${p.left ? `<div class="left-row" style="margin-top:10px"><span class="left-bar"><i style="width:${Math.max(12,Math.min(p.left/10*100,100))}%"></i></span>Осталось ${p.left} шт. — успейте купить</div>` : ""}
         ${p.stock==="out"
           ? `<button class="btn" style="width:100%;margin-top:18px;background:#e8e8ed;color:#86868b;cursor:default">Закончились — ожидаем поставку</button>`
           : `<button class="btn btn-blue" style="width:100%;margin-top:18px" onclick="addToCart(${p.id}, selMem, selSim, selColor); closeDetail();">
