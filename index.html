@@ -556,7 +556,9 @@
 
   /* корзина */
   .cart-item { display:flex; align-items:center; gap:14px; padding:16px 0; border-bottom:1px solid var(--bg-grey); }
-  .ci-art { width:46px; height:60px; border-radius:10px; flex-shrink:0; }
+  .ci-art { width:46px; height:60px; border-radius:10px; flex-shrink:0; overflow:hidden; background:var(--bg-grey); }
+  .ci-art img { width:100%; height:100%; object-fit:cover; }
+  .ci-ph { width:100%; height:100%; }
   .ci-info { flex:1; min-width:0; }
   .ci-info b { font-size:14.5px; }
   .ci-info span { display:block; color:var(--muted); font-size:12px; margin-top:3px; }
@@ -1646,8 +1648,11 @@ function renderCart() {
   }
   items.innerHTML = entries.map(([key,q]) => {
     const {p, mem, sim, color} = parseKey(key); if(!p) return "";
+    const cimg = photoFor(p);
     return `<div class="cart-item">
-      <div class="ci-art" style="background:linear-gradient(135deg,${p.gradient[0]},${p.gradient[1]})"></div>
+      <div class="ci-art">${cimg
+        ? `<img src="${cimg}" alt="${escHtml(p.name)}" onerror="this.outerHTML='<div class=&quot;ci-ph&quot; style=&quot;background:linear-gradient(135deg,${p.gradient[0]},${p.gradient[1]})&quot;></div>'">`
+        : `<div class="ci-ph" style="background:linear-gradient(135deg,${p.gradient[0]},${p.gradient[1]})"></div>`}</div>
       <div class="ci-info"><b>${p.name}${p.condition?` (${p.condition})`:""}</b>
         <span>${[color, mem, sim].filter(Boolean).join(" · ")} · ${fmt(priceOf(p,mem,sim))}</span></div>
       <div class="qty">
