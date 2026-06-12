@@ -295,7 +295,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Восстановленный iPhone 16: новый аккумулятор, новый корпус. Лучшее соотношение цены и возможностей.",
     specs:["Новый аккумулятор","Новый корпус","Чип A18","Гарантия 6 месяцев"] },
 
-  { id:112, cat:"used", name:"iPhone 14 Pro Max", price:1790, oldPrice:null, badge:"Как новый",
+  { id:112, cat:"used", name:"iPhone 14 Pro Max", price:1790, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#5a4e7a","#332b50"], sim:true,
     colors:[["Deep Purple","#5a4e7a"]],
     memory:[["128 ГБ",0],["256 ГБ",200],["512 ГБ",500]],
@@ -305,7 +305,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 14 Pro Max в цвете Deep Purple, состояние «как новый», в полном комплекте с коробкой. Dynamic Island, дисплей 6,7″ ProMotion 120 Гц с Always-On, тройная камера Pro 48 Мп. Гарантия 6 месяцев.",
     specs:["Дисплей 6,7″ ProMotion 120 Гц, Always-On","Dynamic Island","Чип A16 Bionic","Камера 48 Мп Pro","Спутниковый SOS","Гарантия 6 месяцев"] },
 
-  { id:108, cat:"used", name:"iPhone 13 Pro Max", price:1490, oldPrice:null, badge:"Как новый",
+  { id:108, cat:"used", name:"iPhone 13 Pro Max", price:1490, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#a9c4e0","#5a7da0"], sim:true,
     colors:[["Sierra Blue","#9fc0dd"]],
     memory:[["256 ГБ",0]],
@@ -315,7 +315,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 13 Pro Max 256 ГБ в цвете Sierra Blue, состояние «как новый» — без царапин и сколов. Дисплей 6,7″ ProMotion 120 Гц, тройная камера Pro, ёмкость аккумулятора от 90%. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,7″ ProMotion 120 Гц","Чип A15 Bionic","Тройная камера Pro 12 Мп","АКБ от 90%","Полный комплект","Гарантия 6 месяцев"] },
 
-  { id:109, cat:"used", name:"iPhone 12 Pro Max", price:1090, oldPrice:null, badge:"Как новый",
+  { id:109, cat:"used", name:"iPhone 12 Pro Max", price:1090, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#e6d2a8","#c2a36a"], sim:true,
     colors:[["Золотой","#e6cfa0"]],
     memory:[["128 ГБ",0],["256 ГБ",150]],
@@ -325,7 +325,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 12 Pro Max в золотом цвете, состояние «как новый». Дисплей 6,7″ Super Retina XDR, тройная камера Pro с LiDAR, нержавеющая сталь по периметру. Полная проверка по 40 пунктам, гарантия 6 месяцев.",
     specs:["Дисплей 6,7″ Super Retina XDR","Чип A14 Bionic","Тройная камера Pro + LiDAR","АКБ от 88%","Стальная рамка","Гарантия 6 месяцев"] },
 
-  { id:110, cat:"used", name:"iPhone 12 Pro Max Dual SIM", price:1190, oldPrice:null, badge:"Как новый",
+  { id:110, cat:"used", name:"iPhone 12 Pro Max Dual SIM", price:1190, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#3a6ea8","#1e3f66"], sim:true,
     colors:[["Pacific Blue","#3a6ea8"]],
     memory:[["128 ГБ",0]],
@@ -335,7 +335,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 12 Pro Max с двумя физическими SIM (Dual SIM), 128 ГБ, цвет Pacific Blue. Состояние «как новый», в полном комплекте с коробкой. Дисплей 6,7″ Super Retina XDR, тройная камера Pro с LiDAR. Гарантия 6 месяцев.",
     specs:["Две физические SIM (Dual SIM)","Дисплей 6,7″ Super Retina XDR","Чип A14 Bionic","Тройная камера Pro + LiDAR","Полный комплект, коробка","Гарантия 6 месяцев"] },
 
-  { id:111, cat:"used", name:"iPhone 12 Pro Max", price:1290, oldPrice:null, badge:"Как новый",
+  { id:111, cat:"used", name:"iPhone 12 Pro Max", price:1290, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#e8e6e2","#bcbcbc"], sim:true,
     colors:[["Silver","#e8e6e2"]],
     memory:[["512 ГБ",0]],
