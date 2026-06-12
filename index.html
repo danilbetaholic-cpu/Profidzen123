@@ -635,6 +635,19 @@
   .field input { width:100%; padding:13px 15px; border-radius:12px; border:1px solid var(--border); background:#fff; color:var(--text); font-size:15px; outline:none; transition:border .25s; font-family:inherit; }
   .field input:focus { border-color:var(--blue); }
   .pay-note { margin-top:16px; font-size:12.5px; color:var(--muted); line-height:1.5; text-align:center; }
+  /* выбор доставки */
+  .deliv-opts { display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+  .deliv-opt { display:flex; align-items:center; gap:12px; padding:12px 14px; border:1px solid var(--border);
+    border-radius:13px; cursor:pointer; transition:border .2s, background .2s; }
+  .deliv-opt:hover { border-color:#c9c9cf; }
+  .deliv-opt.on { border-color:var(--blue); background:rgba(0,102,255,.04); }
+  .deliv-opt input { accent-color:var(--blue); width:18px; height:18px; flex:none; }
+  .deliv-opt .d-main { display:flex; flex-direction:column; gap:2px; flex:1; }
+  .deliv-opt .d-main b { font-size:14.5px; font-weight:600; }
+  .deliv-opt .d-main span { font-size:12.5px; color:var(--muted); }
+  .deliv-opt .d-cost { font-size:13.5px; font-weight:700; color:var(--text); white-space:nowrap; }
+  .deliv-note { margin-top:10px; font-size:13px; color:var(--muted); line-height:1.5; }
+  .cart-grand { font-weight:800; font-size:18px; padding-top:10px; border-top:1px solid var(--border); }
   .success-anim { text-align:center; padding:30px 0; }
   .success-anim .check { width:80px; height:80px; margin:0 auto; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:40px; color:#fff; animation:pop .5s cubic-bezier(.34,1.56,.64,1); }
   @keyframes pop { from { transform:scale(0); } to { transform:scale(1); } }
@@ -756,7 +769,10 @@
   .cookie-bar.show { transform:none; }
   .cookie-bar span { font-size:13.5px; line-height:1.5; color:#c7cad3; flex:1; }
   .cookie-bar .btn { padding:10px 20px; font-size:14px; flex-shrink:0; }
-  @media (max-width:560px){ .cookie-bar { flex-direction:column; text-align:center; gap:12px; } }
+  .cookie-btns { display:flex; gap:10px; flex-shrink:0; }
+  .cookie-bar .btn-outline { color:#fff; border-color:rgba(255,255,255,.35); background:transparent; }
+  .cookie-bar .btn-outline:hover { background:rgba(255,255,255,.12); border-color:#fff; }
+  @media (max-width:560px){ .cookie-bar { flex-direction:column; text-align:center; gap:12px; } .cookie-btns { width:100%; } .cookie-btns .btn { flex:1; } }
 
   .toast {
     position:fixed; bottom:30px; left:50%; transform:translate(-50%,80px);
@@ -928,7 +944,7 @@
     </div>
     <div class="trust-item">
       <span class="ti-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg></span>
-      <div><b>Доставка по РБ</b><span>по Могилёву — в день заказа</span></div>
+      <div><b>Доставка по РБ</b><span>бесплатно от 1000 BYN</span></div>
     </div>
     <div class="trust-item">
       <span class="ti-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19"/><path d="M6 14.5h4"/></svg></span>
@@ -1132,9 +1148,10 @@
 
     <div class="info-card">
       <h3>Доставка</h3>
-      <p>Доставка по Могилёву — курьером в день заказа. По Беларуси — почтой или курьерской
-      службой в течение 1–2 дней. Стоимость и сроки доставки в регионы уточняются с менеджером
-      при оформлении заказа. Самовывоз — по адресу магазина в рабочее время.</p>
+      <p><b>Бесплатная доставка при заказе от 1000 BYN.</b> Доставка по Могилёву — курьером
+      в день заказа. По Беларуси — Европочтой или Белпочтой; стоимость рассчитывается по тарифам
+      перевозчика и оплачивается при получении. Самовывоз — бесплатно, по адресу магазина
+      (Могилёв, ул. Кедровая 13) в рабочее время. Способ доставки выбирается при оформлении заказа.</p>
     </div>
 
     <div class="info-card">
@@ -1237,8 +1254,11 @@
 
 <!-- cookie-уведомление -->
 <div class="cookie-bar" id="cookieBar">
-  <span>Мы используем cookie, чтобы сайт работал корректно и удобно. Продолжая пользоваться сайтом, вы соглашаетесь с этим.</span>
-  <button class="btn btn-blue" onclick="acceptCookie()">Хорошо</button>
+  <span>Мы используем cookie, чтобы сайт работал корректно и удобно. Вы можете принять или отклонить использование cookie.</span>
+  <div class="cookie-btns">
+    <button class="btn btn-outline" onclick="declineCookie()">Отклонить</button>
+    <button class="btn btn-blue" onclick="acceptCookie()">Принять</button>
+  </div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -1824,10 +1844,57 @@ function openCheckout() {
       <input id="coEmail" type="email" placeholder="you@mail.com">
       <div class="err-msg">Укажите корректный email — на него придёт подтверждение заказа</div></div>
     <div class="field"><label>Адрес доставки</label><input id="coAddr" placeholder="Могилёв, ул. ..."></div>
-    <div class="cart-total" style="margin-top:24px"><span>К оплате</span><span>${fmt(cartTotal())}</span></div>
-    <button class="btn btn-blue" style="width:100%;margin-top:20px" onclick="submitOrder()">Оплатить ${fmt(cartTotal())}</button>
+    <div class="opt-label" style="margin-top:18px">Способ доставки</div>
+    <div id="delivOpts" class="deliv-opts"></div>
+    <div id="delivNote" class="deliv-note"></div>
+    <div class="cart-total" style="margin-top:18px"><span>Товары</span><span id="coSub">${fmt(cartTotal())}</span></div>
+    <div class="cart-total" style="margin-top:6px"><span>Доставка</span><span id="coDeliv">—</span></div>
+    <div class="cart-total cart-grand" style="margin-top:10px"><span>К оплате</span><span id="coTotal">${fmt(cartTotal())}</span></div>
+    <button class="btn btn-blue" id="coPayBtn" style="width:100%;margin-top:20px" onclick="submitOrder()">Оплатить ${fmt(cartTotal())}</button>
     <div class="pay-note">Безопасная оплата через <b>bePaid</b>: Visa · Mastercard · БЕЛКАРТ · ЕРИП · Apple Pay</div>`;
+  renderDelivery();
   document.getElementById("checkoutOverlay").classList.add("open");
+}
+// ---------- доставка ----------
+let selDeliv = "pickup";
+function deliveryCfg(){ return window.SHOP_DELIVERY || { freeFrom:0, methods:[{id:"pickup",label:"Самовывоз",cost:0}] }; }
+function isFreeDeliv(){ const c=deliveryCfg(); return c.freeFrom && cartTotal() >= c.freeFrom; }
+function deliveryCost(){
+  const c=deliveryCfg(); const m=c.methods.find(x=>x.id===selDeliv)||{};
+  if (isFreeDeliv()) return 0;
+  if (m.byTariff) return 0;            // платится перевозчику при получении
+  return m.cost||0;
+}
+function renderDelivery(){
+  const c=deliveryCfg(); const free=isFreeDeliv();
+  const box=document.getElementById("delivOpts"); if(!box) return;
+  if(!c.methods.find(m=>m.id===selDeliv)) selDeliv=c.methods[0].id;
+  box.innerHTML = c.methods.map(m=>{
+    let right;
+    if (m.byTariff) right = free ? "Бесплатно" : "по тарифам";
+    else right = (free || !(m.cost>0)) ? "Бесплатно" : "+"+fmt(m.cost);
+    return `<label class="deliv-opt ${m.id===selDeliv?'on':''}">
+      <input type="radio" name="deliv" value="${m.id}" ${m.id===selDeliv?'checked':''} onchange="selDeliv='${m.id}';renderDelivery()">
+      <span class="d-main"><b>${escHtml(m.label)}</b>${m.sub?`<span>${escHtml(m.sub)}</span>`:""}</span>
+      <span class="d-cost">${right}</span>
+    </label>`;
+  }).join("");
+  recalcTotals();
+}
+function recalcTotals(){
+  const c=deliveryCfg(); const sub=cartTotal(); const free=isFreeDeliv();
+  const m=c.methods.find(x=>x.id===selDeliv)||{}; const dc=deliveryCost(); const total=sub+dc;
+  const set=(id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=v; };
+  set("coSub", fmt(sub));
+  set("coDeliv", (m.byTariff && !free) ? "по тарифам перевозчика" : (dc===0 ? "Бесплатно" : "+"+fmt(dc)));
+  set("coTotal", fmt(total));
+  const btn=document.getElementById("coPayBtn"); if(btn) btn.textContent="Оплатить "+fmt(total);
+  const note=document.getElementById("delivNote");
+  if(note){
+    if(free) note.innerHTML="🎉 Заказ от "+fmt(c.freeFrom)+" — <b>доставка бесплатно</b>.";
+    else if(m.byTariff) note.textContent="Доставку оплачиваете перевозчику при получении — по его тарифам.";
+    else note.textContent = c.freeFrom ? ("Бесплатная доставка от "+fmt(c.freeFrom)+".") : "";
+  }
 }
 function closeCheckout(){ document.getElementById("checkoutOverlay").classList.remove("open"); }
 
@@ -1847,14 +1914,22 @@ function submitOrder() {
   mark("coEmail", !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)); // корректный email
   if (!ok) { showToast("Проверьте выделенные поля"); return; }
 
+  const dm = deliveryCfg().methods.find(x=>x.id===selDeliv) || {};
+  const dc = deliveryCost();
   const order = {
     customer: { name, phone, email,
       address: document.getElementById("coAddr").value.trim() },
+    delivery: {
+      method: dm.label || selDeliv,
+      cost: dc,
+      byTariff: !!(dm.byTariff && !isFreeDeliv()),
+      free: isFreeDeliv()
+    },
     items: Object.entries(cart).map(([key,q]) => {
       const {p, mem, sim, color} = parseKey(key);
       return { id:p.id, name:[p.name, color, mem, sim].filter(Boolean).join(" · ") + (p.condition?` (${p.condition})`:""), qty:q, price:priceOf(p,mem,sim) };
     }),
-    total: cartTotal()
+    total: cartTotal() + dc
   };
   window.startPayment(order, onPaymentSuccess);
 }
@@ -1867,9 +1942,12 @@ function onPaymentSuccess(order) {
   document.getElementById("checkoutBody").innerHTML = `
     <div class="success-anim">
       <div class="check">✓</div>
-      <h2 style="margin-top:22px">Заказ оформлен!</h2>
-      <p style="color:var(--muted);margin-top:10px;line-height:1.6">
-        Спасибо, ${escHtml(order.customer.name)}!<br>Мы свяжемся с вами по номеру<br><b style="color:var(--text)">${escHtml(order.customer.phone)}</b> в ближайшее время.
+      <h2 style="margin-top:22px">Спасибо за заказ!</h2>
+      <p style="color:var(--muted);margin-top:12px;line-height:1.65">
+        ${escHtml(order.customer.name)}, ваш заказ принят.<br>
+        Наш менеджер свяжется с вами по номеру<br>
+        <b style="color:var(--text)">${escHtml(order.customer.phone)}</b><br>
+        в ближайшее время, чтобы подтвердить детали и доставку.
       </p>
       <button class="btn btn-blue" style="margin-top:26px" onclick="closeCheckout()">Отлично</button>
     </div>`;
@@ -1925,12 +2003,16 @@ function submitOneClick(id){
   };
   if (window.notifyOrder) { try { window.notifyOrder(order); } catch(e){} }
   const ov = document.getElementById("oneClickOverlay");
-  ov.querySelector(".oneclick-sheet").innerHTML = `
+  const sheet = ov.querySelector(".oneclick-modal") || ov.querySelector(".modal");
+  sheet.innerHTML = `
     <div class="success-anim" style="padding:14px 4px">
       <div class="check">✓</div>
-      <h2 style="margin-top:18px">Заявка принята!</h2>
-      <p style="color:var(--muted);margin-top:10px;line-height:1.6">
-        ${escHtml(name)}, мы перезвоним вам<br>на <b style="color:var(--text)">${escHtml(phone)}</b> в ближайшее время.
+      <h2 style="margin-top:18px">Спасибо за заказ!</h2>
+      <p style="color:var(--muted);margin-top:12px;line-height:1.65">
+        ${escHtml(name)}, ваша заявка принята.<br>
+        Менеджер перезвонит вам на<br>
+        <b style="color:var(--text)">${escHtml(phone)}</b><br>
+        в ближайшее время, чтобы подтвердить заказ.
       </p>
       <button class="btn btn-blue" style="margin-top:24px" onclick="document.getElementById('oneClickOverlay').classList.remove('open')">Хорошо</button>
     </div>`;
@@ -2084,10 +2166,15 @@ function acceptCookie() {
   try { localStorage.setItem("ibrain_cookie", "1"); } catch(e) {}
   document.getElementById("cookieBar").classList.remove("show");
 }
+function declineCookie() {
+  // запоминаем выбор, чтобы не показывать плашку снова; необязательные cookie не ставим
+  try { localStorage.setItem("ibrain_cookie", "0"); } catch(e) {}
+  document.getElementById("cookieBar").classList.remove("show");
+}
 function initCookie() {
-  let ok = false;
-  try { ok = localStorage.getItem("ibrain_cookie") === "1"; } catch(e) {}
-  if (!ok) setTimeout(() => document.getElementById("cookieBar").classList.add("show"), 1200);
+  let chosen = false;
+  try { chosen = localStorage.getItem("ibrain_cookie") !== null; } catch(e) {}
+  if (!chosen) setTimeout(() => document.getElementById("cookieBar").classList.add("show"), 1200);
 }
 
 // плавающая кнопка связи

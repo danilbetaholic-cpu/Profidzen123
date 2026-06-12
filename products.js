@@ -91,6 +91,19 @@ window.SIM_OPTIONS = [
 ];
 window.SIM_DEFAULT = "eSIM + физ. SIM";
 
+// ---------- ДОСТАВКА (редактируйте свободно) ----------
+// freeFrom — сумма заказа, от которой доставка бесплатна (BYN).
+// byTariff — стоимость по тарифам перевозчика, оплачивается при получении.
+window.SHOP_DELIVERY = {
+  freeFrom: 1000,
+  methods: [
+    { id:"pickup",     label:"Самовывоз",              sub:"Могилёв, ул. Кедровая 13",                     cost:0 },
+    { id:"courier",    label:"Курьер по Могилёву",     sub:"в день заказа",                                cost:15 },
+    { id:"europochta", label:"Европочта по Беларуси",  sub:"по тарифам перевозчика, оплата при получении", byTariff:true },
+    { id:"belpochta",  label:"Белпочта по Беларуси",   sub:"по тарифам перевозчика, оплата при получении", byTariff:true }
+  ]
+};
+
 // ---------- НОВОСТИ (редактируйте свободно) ----------
 window.SHOP_NEWS = [
   { date: "10 июня 2026", tag: "Событие",
@@ -356,6 +369,16 @@ window.DEFAULT_PRODUCTS = [
     gallery:["img/iphone13-promax-blue-1.jpg","img/iphone13-promax-blue-2.jpg","img/iphone13-promax-blue-3.jpg"],
     desc:"Состояние 10/10, цвет Sierra Blue, АКБ 90%+",
     full:"iPhone 13 Pro Max 256 ГБ в цвете Sierra Blue, состояние «как новый» — без царапин и сколов. Дисплей 6,7″ ProMotion 120 Гц, тройная камера Pro, ёмкость аккумулятора от 90%. Полная проверка, гарантия 6 месяцев.",
+    specs:["Дисплей 6,7″ ProMotion 120 Гц","Чип A15 Bionic","Тройная камера Pro 12 Мп","АКБ от 90%","Полный комплект","Гарантия 6 месяцев"] },
+
+  { id:126, cat:"used", name:"iPhone 13 Pro Max", price:1540, oldPrice:null, badge:"Как новый", left:1,
+    condition:"Как новый", gradient:["#e9d6ad","#c7a86a"], sim:true,
+    colors:[["Gold","#e6d3a3"]],
+    memory:[["256 ГБ",0]],
+    photo:"img/iphone13-promax-gold-1.jpg",
+    gallery:["img/iphone13-promax-gold-1.jpg","img/iphone13-promax-gold-2.jpg","img/iphone13-promax-gold-3.jpg","img/iphone13-promax-gold-4.jpg"],
+    desc:"Состояние 10/10, цвет Gold, АКБ 90%+",
+    full:"iPhone 13 Pro Max 256 ГБ в цвете Gold, состояние «как новый» — без царапин и сколов, есть наклейка с серийным номером. Дисплей 6,7″ ProMotion 120 Гц, тройная камера Pro, ёмкость аккумулятора от 90%. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,7″ ProMotion 120 Гц","Чип A15 Bionic","Тройная камера Pro 12 Мп","АКБ от 90%","Полный комплект","Гарантия 6 месяцев"] },
 
   { id:109, cat:"used", name:"iPhone 12 Pro Max", price:1090, oldPrice:null, badge:"Как новый", left:1,
