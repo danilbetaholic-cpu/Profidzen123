@@ -1305,10 +1305,10 @@
 <script>
 // ============ ДАННЫЕ ============
 function loadProducts() {
-  try {
-    const saved = localStorage.getItem("shop_products_v3");
-    if (saved) return JSON.parse(saved);
-  } catch(e) {}
+  // Источник истины — products.js (DEFAULT_PRODUCTS), который публикуется на сайт.
+  // Раньше каталог мог подменяться сохранённой в браузере копией ("shop_products_v3"),
+  // из-за чего покупатели видели устаревшие данные. Теперь всегда берём свежий products.js.
+  try { localStorage.removeItem("shop_products_v3"); } catch(e) {}
   return window.DEFAULT_PRODUCTS;
 }
 let PRODUCTS = loadProducts();
