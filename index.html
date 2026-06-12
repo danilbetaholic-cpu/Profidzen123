@@ -103,7 +103,7 @@
 
   /* ---------- шапка (умная: прозрачная над hero → светлая на скролле) ---------- */
   header {
-    position:fixed; top:0; left:0; right:0; z-index:100;
+    position:fixed; top:38px; left:0; right:0; z-index:100;
     background:transparent; border-bottom:1px solid transparent;
     transition:background .35s ease, border-color .35s ease, backdrop-filter .35s ease;
   }
@@ -142,7 +142,7 @@
   .burger.open span:nth-child(2) { opacity:0; }
   .burger.open span:nth-child(3) { transform:translateY(-6.8px) rotate(-45deg); }
   .mobile-menu {
-    display:none; position:fixed; top:53px; left:0; right:0; z-index:99; pointer-events:none;
+    display:none; position:fixed; top:87px; left:0; right:0; z-index:99; pointer-events:none;
     background:rgba(251,251,253,.97); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
     border-bottom:1px solid rgba(0,0,0,.08);
     max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.22,1,.36,1);
@@ -158,6 +158,17 @@
     .burger { display:block; }
     .mobile-menu { display:block; }
   }
+
+  /* ---------- плашка акции (фиксирована над шапкой) ---------- */
+  .promo-strip {
+    position:fixed; top:0; left:0; right:0; z-index:101;
+    display:block; text-align:center; text-decoration:none;
+    background:linear-gradient(90deg,#c1410b,#ff7a2f); color:#fff;
+    font-size:14px; font-weight:600; letter-spacing:.01em; padding:10px 16px;
+    transition:filter .25s;
+  }
+  .promo-strip:hover { filter:brightness(1.08); text-decoration:none; }
+  @media (max-width:600px){ .promo-strip { font-size:12px; padding:9px 12px; } }
 
   /* ---------- hero (тёмный, премиум) ---------- */
   .hero {
@@ -826,6 +837,11 @@
   <a href="#news" onclick="closeMenu()">Новости</a>
   <a href="#contacts" onclick="closeMenu()">Контакты</a>
 </div>
+
+<!-- ПЛАШКА АКЦИИ -->
+<a class="promo-strip" href="#catalog" onclick="setTab('sale')">
+  🔥 Ликвидация склада — цены снижены. Успейте забрать выгодные модели →
+</a>
 
 <!-- HERO -->
 <div class="hero">
