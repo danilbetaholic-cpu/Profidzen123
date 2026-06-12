@@ -295,7 +295,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Восстановленный iPhone 16: новый аккумулятор, новый корпус. Лучшее соотношение цены и возможностей.",
     specs:["Новый аккумулятор","Новый корпус","Чип A18","Гарантия 6 месяцев"] },
 
-  { id:112, cat:"used", name:"iPhone 14 Pro Max", price:1790, oldPrice:null, badge:"Как новый", left:1,
+  { id:114, cat:"used", name:"iPhone 14 Pro Max", price:1790, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#5a4e7a","#332b50"], sim:true,
     colors:[["Deep Purple","#5a4e7a"]],
     memory:[["128 ГБ",0],["256 ГБ",200],["512 ГБ",500]],
@@ -335,7 +335,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 12 Pro Max с двумя физическими SIM (Dual SIM), 128 ГБ, цвет Pacific Blue. Состояние «как новый», в полном комплекте с коробкой. Дисплей 6,7″ Super Retina XDR, тройная камера Pro с LiDAR. Гарантия 6 месяцев.",
     specs:["Две физические SIM (Dual SIM)","Дисплей 6,7″ Super Retina XDR","Чип A14 Bionic","Тройная камера Pro + LiDAR","Полный комплект, коробка","Гарантия 6 месяцев"] },
 
-  { id:111, cat:"used", name:"iPhone 12 Pro Max", price:1290, oldPrice:null, badge:"Как новый", left:1,
+  { id:115, cat:"used", name:"iPhone 12 Pro Max", price:1290, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#e8e6e2","#bcbcbc"], sim:true,
     colors:[["Silver","#e8e6e2"]],
     memory:[["512 ГБ",0]],
