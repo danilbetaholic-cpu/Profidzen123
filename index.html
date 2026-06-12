@@ -122,8 +122,8 @@
   nav a:hover { color:#fff; text-decoration:none; }
   header.solid nav a:hover { color:var(--text); }
   .cart-btn {
-    position:relative; background:none; border:none; cursor:pointer; font-size:19px; padding:4px 6px;
-    filter:grayscale(1) brightness(2); transition:filter .35s;
+    position:relative; background:none; border:none; cursor:pointer; font-size:21px; padding:8px 10px;
+    line-height:1; filter:grayscale(1) brightness(2); transition:filter .35s; z-index:2;
   }
   header.solid .cart-btn { filter:none; }
   .cart-count {
@@ -142,12 +142,12 @@
   .burger.open span:nth-child(2) { opacity:0; }
   .burger.open span:nth-child(3) { transform:translateY(-6.8px) rotate(-45deg); }
   .mobile-menu {
-    display:none; position:fixed; top:53px; left:0; right:0; z-index:99;
+    display:none; position:fixed; top:53px; left:0; right:0; z-index:99; pointer-events:none;
     background:rgba(251,251,253,.97); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
     border-bottom:1px solid rgba(0,0,0,.08);
     max-height:0; overflow:hidden; transition:max-height .35s cubic-bezier(.22,1,.36,1);
   }
-  .mobile-menu.open { max-height:380px; }
+  .mobile-menu.open { max-height:380px; pointer-events:auto; }
   .mobile-menu a {
     display:block; padding:15px 26px; color:var(--text); font-size:16px;
     border-bottom:1px solid rgba(0,0,0,.05);
@@ -179,6 +179,8 @@
     opacity:0; animation:rise .8s .35s cubic-bezier(.22,1,.36,1) forwards; }
   .hero .btn-outline { color:#fff; border-color:rgba(255,255,255,.4); }
   .hero .btn-outline:hover { background:rgba(255,255,255,.12); border-color:#fff; }
+  .hero .sub-note { color:#8a8a90; font-size:14.5px; margin-top:8px; font-weight:500;
+    opacity:0; animation:rise .8s .45s cubic-bezier(.22,1,.36,1) forwards; }
   .hero .cta { margin-top:24px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
     opacity:0; animation:rise .8s .5s cubic-bezier(.22,1,.36,1) forwards; }
   .hero-stage { position:relative; margin:40px auto 0; max-width:1040px; perspective:1400px; }
@@ -830,6 +832,7 @@
   <div class="eyebrow">Новый iPhone 17 Pro</div>
   <h1><span class="grad">Невероятно Pro</span></h1>
   <p class="sub">Оригинал с гарантией · Доставка по Беларуси</p>
+  <p class="sub-note">По самым низким ценам. Работаем без кредитов и рассрочек.</p>
   <div class="cta">
     <a class="btn btn-blue" href="#catalog" onclick="setTab('iphone')">Купить</a>
     <a class="btn btn-outline" href="#catalog" onclick="openDetail(2);return false;">Подробнее</a>
@@ -1309,16 +1312,33 @@ function art(p, w, h) {
   if (n.includes("AirTag")) return head +
     `<circle cx="80" cy="96" r="40" fill="${G}" ${st}/><circle cx="80" cy="96" r="26" fill="rgba(255,255,255,.7)"/>` + end;
 
-  // ----- iPHONE (по умолчанию: задняя крышка с тройной камерой) -----
+  // ----- iPHONE (по умолчанию: реалистичная задняя крышка Pro) -----
+  const fid = id + "f";
   return head +
-    `<rect x="38" y="8" width="84" height="184" rx="26" fill="${G}" ${st}/>
-     <rect x="44" y="14" width="72" height="172" rx="21" fill="rgba(255,255,255,.08)"/>
-     <rect x="49" y="19" width="44" height="44" rx="13" fill="rgba(0,0,0,.28)"/>
-     <circle cx="61" cy="31" r="9" fill="rgba(0,0,0,.5)"/><circle cx="61" cy="31" r="4.5" fill="rgba(255,255,255,.22)"/>
-     <circle cx="61" cy="51" r="9" fill="rgba(0,0,0,.5)"/><circle cx="61" cy="51" r="4.5" fill="rgba(255,255,255,.22)"/>
-     <circle cx="81" cy="41" r="9" fill="rgba(0,0,0,.5)"/><circle cx="81" cy="41" r="4.5" fill="rgba(255,255,255,.22)"/>
-     <circle cx="100" cy="22" r="3.2" fill="rgba(255,255,255,.35)"/>
-     <rect x="118" y="60" width="3" height="34" rx="1.5" fill="rgba(255,255,255,.22)"/>` + end;
+    `<defs>
+       <linearGradient id="${fid}" x1="0" y1="0" x2="1" y2="1">
+         <stop offset="0" stop-color="${c1}"/><stop offset=".55" stop-color="${c2}"/><stop offset="1" stop-color="${c1}"/>
+       </linearGradient>
+     </defs>
+     <!-- титановая рамка -->
+     <rect x="35" y="6" width="90" height="188" rx="28" fill="${c2}" opacity=".55"/>
+     <!-- корпус -->
+     <rect x="38" y="9" width="84" height="182" rx="25" fill="url(#${fid})" stroke="rgba(0,0,0,.10)" stroke-width="1"/>
+     <!-- вертикальный блик стекла -->
+     <rect x="46" y="14" width="14" height="172" rx="7" fill="rgba(255,255,255,.16)"/>
+     <!-- логотип -->
+     <path d="M80 104 q4 -1 4 4 q0 5 -4 6 q-4 -1 -4 -6 q0 -5 4 -4z" fill="rgba(255,255,255,.30)"/>
+     <circle cx="80" cy="100" r="2.4" fill="rgba(255,255,255,.30)"/>
+     <!-- блок камер -->
+     <rect x="47" y="17" width="46" height="46" rx="14" fill="rgba(255,255,255,.10)" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+     <g>
+       <circle cx="60" cy="30" r="9.5" fill="rgba(20,20,25,.85)"/><circle cx="60" cy="30" r="6" fill="rgba(0,0,0,.9)"/><circle cx="62" cy="28" r="2" fill="rgba(120,160,255,.5)"/>
+       <circle cx="60" cy="50" r="9.5" fill="rgba(20,20,25,.85)"/><circle cx="60" cy="50" r="6" fill="rgba(0,0,0,.9)"/><circle cx="62" cy="48" r="2" fill="rgba(120,160,255,.5)"/>
+       <circle cx="80" cy="40" r="9.5" fill="rgba(20,20,25,.85)"/><circle cx="80" cy="40" r="6" fill="rgba(0,0,0,.9)"/><circle cx="82" cy="38" r="2" fill="rgba(120,160,255,.5)"/>
+     </g>
+     <!-- вспышка + LiDAR -->
+     <circle cx="80" cy="23" r="3.4" fill="rgba(255,255,250,.85)"/>
+     <circle cx="80" cy="57" r="2.6" fill="rgba(40,40,45,.8)"/>` + end;
 }
 // список кандидатов-фото для товара: своё фото + все стоки категории (со сдвигом)
 function photoList(p) {
