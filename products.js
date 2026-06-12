@@ -54,12 +54,12 @@ window.SHOP_INSTAGRAM = {
   reviews: "1 248 отзывов",
   rating: "5.0",
   cards: [
-    { name: "Алексей М.", city: "Минск",   source: "site",      text: "Заказал iPhone 17 Pro, привезли в тот же день. Всё оригинальное, проверили серийник при мне. Рекомендую!" },
-    { name: "Дарья К.",   city: "Гомель",  source: "instagram", text: "Брала MacBook Air, помогли перенести данные со старого ноута. Очень довольна, спасибо за сервис." },
-    { name: "Сергей П.",  city: "Минск",   source: "telegram",  text: "Купил Apple Watch Ultra, цена ниже чем у других, гарантия на месте. Доставка быстрая." },
-    { name: "Ольга В.",   city: "Брест",   source: "site",      text: "Заказывала AirPods Pro, всё пришло в плёнке, чек и гарантия. Буду брать ещё." },
-    { name: "Иван Т.",    city: "Витебск", source: "instagram", text: "Взял б/у iPhone 16 Pro как новый — реально без единой царапины, батарея 99%. Честный магазин." },
-    { name: "Марина Л.",  city: "Минск",   source: "telegram",  text: "Понравилось, что всё прозрачно: цены, состояние, гарантия. Консультант ответил на все вопросы." }
+    { name: "Алексей М.", city: "Минск",   source: "site",      rating: 5,   text: "Заказал iPhone 17 Pro, привезли в тот же день. Всё оригинальное, проверили серийник при мне. Рекомендую!" },
+    { name: "Дарья К.",   city: "Гомель",  source: "instagram", rating: 4.5, text: "Брала MacBook Air, помогли перенести данные со старого ноута. Доставка чуть задержалась, но в целом довольна." },
+    { name: "Сергей П.",  city: "Минск",   source: "telegram",  rating: 5,   text: "Купил Apple Watch Ultra, цена ниже чем у других, гарантия на месте. Доставка быстрая." },
+    { name: "Ольга В.",   city: "Брест",   source: "site",      rating: 4.5, text: "Заказывала AirPods Pro, всё пришло в плёнке, чек и гарантия. Хотелось бы больше расцветок в наличии." },
+    { name: "Иван Т.",    city: "Витебск", source: "instagram", rating: 5,   text: "Взял б/у iPhone 16 Pro как новый — реально без единой царапины, батарея 99%. Честный магазин." },
+    { name: "Марина Л.",  city: "Минск",   source: "telegram",  rating: 5,   text: "Понравилось, что всё прозрачно: цены, состояние, гарантия. Консультант ответил на все вопросы." }
   ]
 };
 
@@ -299,6 +299,7 @@ window.DEFAULT_PRODUCTS = [
     condition:"Как новый", gradient:["#bfb8ad","#8a8378"], sim:true,
     colors:[["Natural Titanium","#bfb8ad"]],
     memory:[["256 ГБ",0]],
+    img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     photo:"img/iphone16-promax-natural-1.jpg",
     gallery:["img/iphone16-promax-natural-1.jpg","img/iphone16-promax-natural-2.jpg","img/iphone16-promax-natural-3.jpg","img/iphone16-promax-natural-4.jpg"],
     desc:"Natural Titanium, eSIM, АКБ 93%",
@@ -309,6 +310,7 @@ window.DEFAULT_PRODUCTS = [
     condition:"Как новый", gradient:["#e8e6e2","#c2bcb2"], sim:true,
     colors:[["White Titanium","#e8e6e2"]],
     memory:[["256 ГБ",0]],
+    img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     photo:"img/iphone16-promax-white-1.jpg",
     gallery:["img/iphone16-promax-white-1.jpg","img/iphone16-promax-white-2.jpg","img/iphone16-promax-white-3.jpg","img/iphone16-promax-white-4.jpg"],
     desc:"White Titanium, eSIM, АКБ 98%, циклов 191",

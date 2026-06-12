@@ -68,6 +68,30 @@ window.startPayment = function (order, onSuccess) {
   setTimeout(() => onSuccess(order), 900);
 };
 
+// ---------- уведомление о заказе «в 1 клик» (без онлайн-оплаты) ----------
+// Шлёт заявку на тот же воркер, что и bePaid (он пересылает в Telegram).
+// В демо-режиме просто молча проходит.
+window.notifyOrder = function (order) {
+  const cfg = (window.SHOP_CONFIG && window.SHOP_CONFIG.payment) || {};
+  const url = cfg.orderNotifyUrl || cfg.bepaidTokenUrl;
+  if (!url) return; // демо — ничего не шлём
+  try {
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      keepalive: true,
+      body: JSON.stringify({
+        notifyOnly: true,
+        oneClick: true,
+        customer: order.customer,
+        items: order.items,
+        total: order.total,
+        shop: (window.SHOP_CONFIG && window.SHOP_CONFIG.shopName) || ""
+      })
+    }).catch(() => {});
+  } catch (e) {}
+};
+
 function loadScript(src, cb) {
   if (document.querySelector('script[src="' + src + '"]')) { cb(); return; }
   const s = document.createElement("script");
