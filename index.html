@@ -222,6 +222,18 @@
   @media (max-width:760px){ .trust-inner { grid-template-columns:1fr 1fr; gap:16px; } }
   @media (max-width:420px){ .trust-inner { grid-template-columns:1fr; } }
 
+  /* ---------- счётчики ---------- */
+  .stats { background:#0a0a0c; max-width:none; padding:46px 22px; }
+  .stats-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .stat { text-align:center; }
+  .stat b {
+    font-family:var(--display); font-size:clamp(30px,4vw,46px); font-weight:600; letter-spacing:-.03em;
+    background:linear-gradient(120deg,#7fa8ff,#b88cff); -webkit-background-clip:text; background-clip:text; color:transparent;
+    display:block;
+  }
+  .stat span { color:#8a8a90; font-size:14px; margin-top:6px; display:block; }
+  @media (max-width:680px){ .stats-inner { grid-template-columns:1fr 1fr; gap:28px; } }
+
   /* ---------- секции ---------- */
   section { max-width:1100px; margin:0 auto; padding:80px 22px; }
   .sec-title { font-family:var(--display); font-size:clamp(30px,4vw,50px); font-weight:600; letter-spacing:-.03em; text-align:center; }
@@ -293,6 +305,23 @@
     font-size:15px; font-family:inherit; color:var(--text); cursor:pointer; outline:none;
   }
   .empty-result { text-align:center; color:var(--muted); font-size:17px; padding:50px 0; }
+
+  /* «осталось мало» */
+  .left-row { display:flex; align-items:center; gap:8px; margin-top:8px; font-size:12px; font-weight:600; color:var(--orange); }
+  .left-bar { flex:1; height:5px; background:#f0d8cc; border-radius:3px; overflow:hidden; max-width:90px; }
+  .left-bar i { display:block; height:100%; background:linear-gradient(90deg,#ff9a3c,#c1410b); border-radius:3px; }
+
+  /* таймер акции */
+  .sale-timer {
+    display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
+    background:linear-gradient(120deg,#1a0e0a,#2a1410); color:#fff; border-radius:18px;
+    padding:18px 24px; margin-top:22px;
+  }
+  .sale-timer .lbl { font-weight:600; font-size:15px; }
+  .sale-timer .clock { display:flex; gap:8px; }
+  .sale-timer .unit { background:rgba(255,255,255,.1); border-radius:10px; padding:8px 12px; min-width:54px; text-align:center; }
+  .sale-timer .unit b { font-family:var(--display); font-size:22px; font-weight:600; display:block; line-height:1; }
+  .sale-timer .unit span { font-size:11px; color:#c8a89a; }
 
   /* ---------- вкладки ---------- */
   .tabs { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:34px; }
@@ -468,8 +497,14 @@
   /* детальная карточка */
   .detail { display:grid; grid-template-columns:300px 1fr; gap:32px; }
   @media (max-width:680px) { .detail { grid-template-columns:1fr; } }
-  .detail-img { background:var(--bg-grey); border-radius:18px; display:flex; align-items:center; justify-content:center; padding:18px; min-height:280px; }
-  .detail-img img { max-width:100%; max-height:300px; object-fit:contain; }
+  .detail-img { position:relative; background:var(--bg-grey); border-radius:18px; display:flex; align-items:center; justify-content:center; padding:18px; min-height:280px; overflow:hidden; }
+  .detail-img img, .detail-img > svg { position:relative; z-index:1; max-width:100%; max-height:300px; object-fit:contain; }
+  /* живая подсветка под цвет выбранного варианта */
+  .detail-glow {
+    position:absolute; inset:0; z-index:0; border-radius:18px;
+    background:radial-gradient(closest-side, var(--glow), transparent 70%);
+    opacity:.32; filter:blur(24px); transition:background .45s ease, opacity .45s ease;
+  }
   .cond-chip { display:inline-block; margin-top:8px; font-size:12.5px; font-weight:600; padding:5px 12px; border-radius:8px; background:var(--text); color:#fff; }
   .detail .full { color:var(--muted); font-size:14.5px; line-height:1.6; margin-top:12px; }
   .specs { margin-top:6px; }
@@ -812,6 +847,16 @@
   </div>
 </div>
 
+<!-- СЧЁТЧИКИ -->
+<section id="stats" class="stats">
+  <div class="stats-inner">
+    <div class="stat"><b data-count="1248" data-suffix="">0</b><span>довольных клиентов</span></div>
+    <div class="stat"><b data-count="5000" data-suffix="+">0</b><span>доставок по Беларуси</span></div>
+    <div class="stat"><b data-count="50" data-suffix="">0</b><span>моделей в наличии</span></div>
+    <div class="stat"><b data-count="40" data-suffix="">0</b><span>пунктов проверки Б/У</span></div>
+  </div>
+</section>
+
 <!-- КАТАЛОГ -->
 <section id="catalog">
   <h2 class="store-title">Каталог</h2>
@@ -828,6 +873,14 @@
     </select>
   </div>
   <div class="tabs" id="tabs"></div>
+  <div class="sale-timer" id="saleTimer" style="display:none">
+    <span class="lbl">🔖 До конца акции:</span>
+    <div class="clock">
+      <div class="unit"><b id="tH">00</b><span>часов</span></div>
+      <div class="unit"><b id="tM">00</b><span>минут</span></div>
+      <div class="unit"><b id="tS">00</b><span>секунд</span></div>
+    </div>
+  </div>
   <div class="grid" id="productGrid"></div>
   <div id="emptyResult" class="empty-result" style="display:none">Ничего не найдено. Попробуйте изменить запрос.</div>
 </section>
@@ -1296,6 +1349,8 @@ function setTab(key) {
   activeCat = key;
   if (key !== "used") usedSub = "all";
   renderTabs(); renderCatalog();
+  const t = document.getElementById("saleTimer");
+  if (t) t.style.display = key === "sale" ? "flex" : "none";
   document.getElementById("catalog").scrollIntoView({behavior:"smooth"});
 }
 
@@ -1345,6 +1400,7 @@ function renderCatalog() {
         <div class="price">${p.memory && p.memory.length > 1 ? '<span class="from">от </span>' : ''}${fmt(p.price)}</div>
         ${p.oldPrice ? `<div class="old-price">${fmt(p.oldPrice)}</div>` : ""}
       </div>
+      ${p.left ? `<div class="left-row"><span class="left-bar"><i style="width:${Math.min(p.left*18,100)}%"></i></span>Осталось ${p.left} шт.</div>` : ""}
       <div class="card-btns">
         ${p.stock==="out"
           ? `<button class="buy-sm off" onclick="event.stopPropagation(); showToast('Ожидаем поставку — загляните позже')">Ожидаем</button>`
@@ -1454,9 +1510,14 @@ function renderDetail(p) {
     const v = r10(Math.abs(basePrice * d));
     return ` <small>${d > 0 ? "+" : "−"}${fmt(v)}</small>`;
   };
+  // цвет выбранного варианта для живой подсветки
+  const selHex = (p.colors && (p.colors.find(c => c[0] === selColor) || [])[1]) || p.gradient && p.gradient[0] || "#0066ff";
   document.getElementById("detailBody").innerHTML = `
     <div class="detail">
-      <div class="detail-img">${imgOrArt(p, 280)}</div>
+      <div class="detail-img" style="--glow:${selHex}">
+        <div class="detail-glow"></div>
+        ${imgOrArt(p, 280)}
+      </div>
       <div>
         <h2>${p.name}</h2>
         ${p.condition ? `<span class="cond-chip">${p.condition}</span>` : ""}
@@ -1744,6 +1805,43 @@ document.querySelectorAll(".overlay").forEach(o =>
     tilt.style.transform = "";
     if (shine) shine.style.opacity = "0";
   });
+})();
+
+// таймер акции — обратный отсчёт до конца суток
+(function () {
+  const el = document.getElementById("saleTimer");
+  if (!el) return;
+  const pad = n => String(n).padStart(2, "0");
+  setInterval(() => {
+    const now = new Date();
+    const end = new Date(now); end.setHours(23, 59, 59, 999);
+    let s = Math.max(0, Math.floor((end - now) / 1000));
+    document.getElementById("tH").textContent = pad(Math.floor(s / 3600));
+    document.getElementById("tM").textContent = pad(Math.floor((s % 3600) / 60));
+    document.getElementById("tS").textContent = pad(s % 60);
+  }, 1000);
+})();
+
+// анимированные счётчики
+(function () {
+  const nums = document.querySelectorAll(".stat b[data-count]");
+  if (!nums.length) return;
+  const run = el => {
+    const target = +el.getAttribute("data-count");
+    const suffix = el.getAttribute("data-suffix") || "";
+    const dur = 1400, t0 = performance.now();
+    const step = now => {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString("ru-RU") + (p === 1 ? suffix : "");
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+  }), { threshold: .6 });
+  nums.forEach(n => io.observe(n));
 })();
 
 // cookie-уведомление

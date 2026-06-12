@@ -150,7 +150,7 @@ window.CAT_PHOTOS = {
 window.DEFAULT_PRODUCTS = [
 
   // ================= iPHONE =================
-  { id:1, cat:"iphone", name:"iPhone 17 Pro Max", price:3850, oldPrice:4050, badge:"Хит",
+  { id:1, cat:"iphone", name:"iPhone 17 Pro Max", price:3850, oldPrice:4050, badge:"Хит", left:3,
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg",
     gradient:["#ff9a3c","#ff5e62"], sim:true,
     colors:[["Cosmic Orange","#e8762e"],["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -195,7 +195,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый доступный вход в экосистему Apple: флагманский чип A19, OLED-дисплей и поддержка Apple Intelligence.",
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A19","Камера 48 Мп 2-в-1","Face ID","До 26 часов видео"] },
 
-  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2890, oldPrice:3040, badge:"Выгодно",
+  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2890, oldPrice:3040, badge:"Выгодно", left:2,
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Титан пустыни","#bfa98a"],["Натуральный титан","#c2bcb2"],["Белый титан","#e8e6e2"],["Чёрный титан","#3a3c40"]],
