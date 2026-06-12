@@ -831,28 +831,100 @@ function art(p, w, h) {
   const head = `<svg width="${w}" height="${h}" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
     <defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>`;
-  const n = p.name, end = `</svg>`, st = `stroke="rgba(0,0,0,.12)" stroke-width="1.5"`;
+  const n = p.name, cat = p.cat, end = `</svg>`;
+  const st = `stroke="rgba(0,0,0,.10)" stroke-width="1.5"`;
+  const G = `url(#${id})`;
+
+  // ----- АКСЕССУАРЫ -----
   if (n.includes("Чехол") && !n.includes("Folio")) return head +
-    `<rect x="34" y="14" width="92" height="172" rx="22" fill="url(#${id})" ${st}/>
-     <rect x="44" y="24" width="36" height="36" rx="12" fill="rgba(0,0,0,.2)"/>` + end;
+    `<rect x="40" y="14" width="80" height="172" rx="24" fill="${G}" ${st}/>
+     <rect x="50" y="22" width="40" height="40" rx="13" fill="rgba(0,0,0,.22)"/>` + end;
   if (n.includes("Folio")) return head +
-    `<rect x="22" y="20" width="100" height="160" rx="12" fill="url(#${id})" ${st}/>
-     <rect x="46" y="28" width="92" height="152" rx="12" fill="${c1}" opacity=".55"/>` + end;
+    `<rect x="24" y="22" width="100" height="156" rx="12" fill="${G}" ${st}/>
+     <rect x="48" y="30" width="92" height="140" rx="12" fill="${c1}" opacity=".5"/>` + end;
   if (n.includes("MagSafe") && n.includes("Заряд")) return head +
-    `<circle cx="80" cy="86" r="44" fill="url(#${id})" ${st}/><circle cx="80" cy="86" r="28" fill="#fff" opacity=".7"/>
-     <path d="M80 130 v40 q0 10 12 10" fill="none" stroke="${c2}" stroke-width="7" stroke-linecap="round"/>` + end;
+    `<circle cx="80" cy="84" r="42" fill="${G}" ${st}/><circle cx="80" cy="84" r="26" fill="#fff" opacity=".65"/>
+     <path d="M80 126 v38 q0 10 12 10" fill="none" stroke="${c2}" stroke-width="7" stroke-linecap="round"/>` + end;
   if (n.includes("Адаптер")) return head +
-    `<rect x="40" y="50" width="80" height="80" rx="20" fill="url(#${id})" ${st}/>
-     <rect x="64" y="130" width="8" height="26" rx="3" fill="${c2}"/><rect x="88" y="130" width="8" height="26" rx="3" fill="${c2}"/>` + end;
+    `<rect x="44" y="54" width="72" height="72" rx="20" fill="${G}" ${st}/>
+     <rect x="66" y="126" width="7" height="24" rx="3" fill="${c2}"/><rect x="87" y="126" width="7" height="24" rx="3" fill="${c2}"/>` + end;
   if (n.includes("Кабель")) return head +
-    `<path d="M30 160 q50 -30 30 -60 t40 -60" fill="none" stroke="url(#${id})" stroke-width="9" stroke-linecap="round"/>
-     <rect x="92" y="20" width="18" height="30" rx="5" fill="${c2}"/>` + end;
+    `<path d="M34 162 q52 -28 30 -62 t40 -62" fill="none" stroke="${G}" stroke-width="9" stroke-linecap="round"/>
+     <rect x="96" y="22" width="16" height="28" rx="5" fill="${c2}"/>` + end;
   if (n.includes("Ремешок")) return head +
-    `<path d="M62 14 q-10 80 0 172 M98 14 q10 80 0 172" stroke="url(#${id})" stroke-width="26" fill="none" stroke-linecap="round"/>
-     <rect x="48" y="78" width="64" height="48" rx="12" fill="rgba(0,0,0,.25)"/>` + end;
-  // универсальная заглушка
-  return head + `<rect x="32" y="10" width="96" height="180" rx="22" fill="url(#${id})" ${st}/>
-    <rect x="40" y="18" width="80" height="164" rx="16" fill="rgba(0,0,0,.25)"/>` + end;
+    `<path d="M64 16 q-8 78 0 168 M96 16 q8 78 0 168" stroke="${G}" stroke-width="24" fill="none" stroke-linecap="round"/>
+     <rect x="50" y="80" width="60" height="44" rx="12" fill="rgba(0,0,0,.22)"/>` + end;
+
+  // ----- MAC -----
+  if (n.includes("MacBook")) return head +
+    `<rect x="22" y="58" width="116" height="74" rx="7" fill="${G}" ${st}/>
+     <rect x="29" y="65" width="102" height="60" rx="3" fill="rgba(0,0,0,.35)"/>
+     <path d="M12 132 h136 l8 14 q2 5 -5 5 H9 q-7 0 -5 -5 z" fill="${c1}"/>
+     <rect x="66" y="134" width="28" height="4" rx="2" fill="rgba(0,0,0,.25)"/>` + end;
+  if (n === "iMac") return head +
+    `<rect x="22" y="34" width="116" height="80" rx="9" fill="${G}" ${st}/>
+     <rect x="29" y="41" width="102" height="58" rx="4" fill="rgba(0,0,0,.35)"/>
+     <rect x="29" y="101" width="102" height="9" fill="rgba(255,255,255,.18)"/>
+     <path d="M68 114 h24 l5 30 H63 z" fill="${c1}"/><rect x="50" y="144" width="60" height="6" rx="3" fill="${G}"/>` + end;
+  if (n === "Mac mini") return head +
+    `<rect x="34" y="74" width="92" height="44" rx="12" fill="${G}" ${st}/>
+     <circle cx="80" cy="96" r="11" fill="rgba(255,255,255,.18)"/>` + end;
+  if (n === "Mac Studio") return head +
+    `<rect x="38" y="58" width="84" height="78" rx="14" fill="${G}" ${st}/>
+     <circle cx="80" cy="86" r="13" fill="rgba(255,255,255,.16)"/>
+     <circle cx="62" cy="124" r="4" fill="rgba(0,0,0,.3)"/><circle cx="78" cy="124" r="4" fill="rgba(0,0,0,.3)"/>` + end;
+  if (n === "Mac Pro") return head +
+    `<rect x="48" y="26" width="64" height="136" rx="14" fill="${G}" ${st}/>
+     ${[0,1,2].map(i=>[0,1,2,3].map(j=>`<circle cx="${64+i*16}" cy="${48+j*28}" r="6" fill="rgba(0,0,0,.28)"/>`).join("")).join("")}` + end;
+
+  // ----- iPAD -----
+  if (cat === "ipad" || n.includes("iPad")) return head +
+    `<rect x="30" y="20" width="100" height="160" rx="14" fill="${G}" ${st}/>
+     <rect x="38" y="28" width="84" height="144" rx="8" fill="rgba(0,0,0,.32)"/>
+     <circle cx="80" cy="24" r="2.4" fill="rgba(0,0,0,.5)"/>` + end;
+
+  // ----- WATCH -----
+  if (cat === "watch" || n.includes("Watch")) return head +
+    `<path d="M58 12 h44 l-4 34 h-36 z" fill="${G}" opacity=".8"/>
+     <path d="M58 188 h44 l-4 -34 h-36 z" fill="${G}" opacity=".8"/>
+     <rect x="44" y="44" width="72" height="112" rx="26" fill="${G}" ${st}/>
+     <rect x="52" y="52" width="56" height="96" rx="20" fill="rgba(0,0,0,.4)"/>
+     <rect x="116" y="86" width="6" height="20" rx="3" fill="${c2}"/>` + end;
+
+  // ----- AIRPODS / АУДИО -----
+  if (n.includes("Max")) return head +
+    `<path d="M40 110 a40 40 0 0 1 80 0" fill="none" stroke="${G}" stroke-width="12" stroke-linecap="round"/>
+     <rect x="28" y="100" width="30" height="56" rx="15" fill="${G}" ${st}/>
+     <rect x="102" y="100" width="30" height="56" rx="15" fill="${G}" ${st}/>` + end;
+  if (cat === "audio") return head +
+    `<g fill="${G}" ${st}>
+       <path d="M60 40 q14 0 14 16 v40 q0 10 -8 12 v22 q0 6 -6 6 t-6 -6 v-22 q-8 -2 -8 -12 v-40 q0 -16 14 -16 z"/>
+       <path d="M100 50 q12 0 12 14 v34 q0 9 -7 11 v18 q0 5 -5 5 t-5 -5 v-18 q-7 -2 -7 -11 v-34 q0 -14 12 -14 z" opacity=".8"/>
+     </g>` + end;
+
+  // ----- ТВ И ДОМ -----
+  if (n.includes("Vision")) return head +
+    `<path d="M30 78 q0 -26 30 -26 h40 q30 0 30 26 v14 q0 24 -24 24 q-12 0 -18 -9 q-5 -7 -8 -7 t-8 7 q-6 9 -18 9 q-24 0 -24 -24 z" fill="${G}" ${st}/>
+     <path d="M40 70 q24 -9 50 -9 t50 9" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="3"/>` + end;
+  if (n.includes("TV")) return head +
+    `<rect x="36" y="68" width="88" height="58" rx="14" fill="${G}" ${st}/>
+     <circle cx="80" cy="97" r="13" fill="rgba(255,255,255,.18)"/>` + end;
+  if (n.includes("HomePod")) return head +
+    `<path d="M52 64 q28 -12 56 0 v64 q-28 12 -56 0 z" fill="${G}" ${st}/>
+     <ellipse cx="80" cy="64" rx="28" ry="9" fill="rgba(255,255,255,.18)"/>` + end;
+  if (n.includes("AirTag")) return head +
+    `<circle cx="80" cy="96" r="40" fill="${G}" ${st}/><circle cx="80" cy="96" r="26" fill="rgba(255,255,255,.7)"/>` + end;
+
+  // ----- iPHONE (по умолчанию: задняя крышка с тройной камерой) -----
+  return head +
+    `<rect x="38" y="8" width="84" height="184" rx="26" fill="${G}" ${st}/>
+     <rect x="44" y="14" width="72" height="172" rx="21" fill="rgba(255,255,255,.08)"/>
+     <rect x="49" y="19" width="44" height="44" rx="13" fill="rgba(0,0,0,.28)"/>
+     <circle cx="61" cy="31" r="9" fill="rgba(0,0,0,.5)"/><circle cx="61" cy="31" r="4.5" fill="rgba(255,255,255,.22)"/>
+     <circle cx="61" cy="51" r="9" fill="rgba(0,0,0,.5)"/><circle cx="61" cy="51" r="4.5" fill="rgba(255,255,255,.22)"/>
+     <circle cx="81" cy="41" r="9" fill="rgba(0,0,0,.5)"/><circle cx="81" cy="41" r="4.5" fill="rgba(255,255,255,.22)"/>
+     <circle cx="100" cy="22" r="3.2" fill="rgba(255,255,255,.35)"/>
+     <rect x="118" y="60" width="3" height="34" rx="1.5" fill="rgba(255,255,255,.22)"/>` + end;
 }
 function imgOrArt(p, h) {
   if (p.img) return `<img src="${p.img}" alt="${p.name}" loading="lazy"
