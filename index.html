@@ -155,6 +155,31 @@
   }
   .cart-btn { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
   .fly-dot { pointer-events:none; }
+  /* кнопка кабинета */
+  .acc-btn { display:flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer;
+    color:#fff; padding:7px 9px; border-radius:20px; transition:color .35s, background .2s; -webkit-tap-highlight-color:transparent; }
+  .acc-btn svg { width:21px; height:21px; }
+  header.solid .acc-btn { color:var(--text); }
+  .acc-btn:hover { background:rgba(125,125,135,.12); }
+  .acc-name { font-size:13.5px; font-weight:600; max-width:90px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  @media (max-width:760px){ .acc-name { display:none; } }
+  /* кабинет / авторизация */
+  .auth-tabs { display:flex; gap:8px; background:var(--bg-grey); padding:4px; border-radius:13px; margin:6px 0 18px; }
+  .auth-tab { flex:1; padding:10px; border:none; background:none; border-radius:10px; cursor:pointer;
+    font-size:14px; font-weight:600; color:var(--muted); transition:.2s; font-family:inherit; }
+  .auth-tab.on { background:#fff; color:var(--text); box-shadow:0 1px 4px rgba(0,0,0,.08); }
+  .acc-head { display:flex; align-items:center; gap:14px; margin-bottom:6px; }
+  .acc-ava { width:52px; height:52px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center;
+    font-size:22px; font-weight:700; color:#fff; background:linear-gradient(135deg,var(--blue),#9b5cff); }
+  .acc-meta b { font-size:18px; } .acc-meta span { display:block; font-size:13px; color:var(--muted); margin-top:2px; }
+  .acc-orders { margin-top:18px; display:flex; flex-direction:column; gap:10px; }
+  .ao-card { border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
+  .ao-top { display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--muted); }
+  .ao-status { font-weight:700; color:var(--green); }
+  .ao-items { margin-top:8px; font-size:14px; line-height:1.5; }
+  .ao-total { margin-top:8px; font-weight:700; }
+  .acc-empty { text-align:center; color:var(--muted); padding:26px 0; line-height:1.6; }
+  .link-btn { background:none; border:none; color:var(--blue); cursor:pointer; font-size:13.5px; font-family:inherit; padding:0; }
   .cart-count.show { transform:scale(1); }
 
   /* мобильное меню */
@@ -887,6 +912,10 @@
       <a href="#contacts">Контакты</a>
     </nav>
     <div style="display:flex;align-items:center;gap:8px">
+      <button class="acc-btn" id="accBtn" onclick="openAccount()" aria-label="Личный кабинет">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg>
+        <span class="acc-name" id="accName"></span>
+      </button>
       <button class="cart-btn" onclick="openCart()">🛍 <span class="cart-count" id="cartCount">0</span></button>
       <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню">
         <span></span><span></span><span></span>
@@ -1228,6 +1257,14 @@
     <h2>Корзина</h2>
     <div id="cartItems"></div>
     <div id="cartFooter"></div>
+  </div>
+</div>
+
+<!-- Личный кабинет / авторизация -->
+<div class="overlay" id="accountOverlay">
+  <div class="modal">
+    <button class="close-x" onclick="closeAccount()">✕</button>
+    <div id="accountBody"></div>
   </div>
 </div>
 
@@ -1853,6 +1890,12 @@ function openCheckout() {
     <button class="btn btn-blue" id="coPayBtn" style="width:100%;margin-top:20px" onclick="submitOrder()">Оплатить ${fmt(cartTotal())}</button>
     <div class="pay-note">Безопасная оплата через <b>bePaid</b>: Visa · Mastercard · БЕЛКАРТ · ЕРИП · Apple Pay</div>`;
   renderDelivery();
+  const me = currentUser();
+  if (me) {
+    document.getElementById("coName").value = me.name || "";
+    document.getElementById("coPhone").value = me.phone || "";
+    document.getElementById("coEmail").value = me.email || "";
+  }
   document.getElementById("checkoutOverlay").classList.add("open");
 }
 // ---------- доставка ----------
@@ -1939,6 +1982,7 @@ const escHtml = s => String(s ?? "").replace(/[&<>"']/g,
 
 function onPaymentSuccess(order) {
   cart = {}; updateCartCount(); saveCart();
+  const saved = saveOrderToAccount(order);
   document.getElementById("checkoutBody").innerHTML = `
     <div class="success-anim">
       <div class="check">✓</div>
@@ -1949,7 +1993,10 @@ function onPaymentSuccess(order) {
         <b style="color:var(--text)">${escHtml(order.customer.phone)}</b><br>
         в ближайшее время, чтобы подтвердить детали и доставку.
       </p>
-      <button class="btn btn-blue" style="margin-top:26px" onclick="closeCheckout()">Отлично</button>
+      ${saved
+        ? `<p class="oc-fine" style="text-align:center;margin-top:14px">Заказ сохранён в вашем личном кабинете.</p>`
+        : `<p class="oc-fine" style="text-align:center;margin-top:14px"><button class="link-btn" onclick="closeCheckout();openAccount()">Зарегистрируйтесь</button>, чтобы отслеживать заказы.</p>`}
+      <button class="btn btn-blue" style="margin-top:18px" onclick="closeCheckout()">Отлично</button>
     </div>`;
 }
 
@@ -1983,6 +2030,8 @@ function oneClick(id){
       <p class="oc-fine">Нажимая кнопку, вы соглашаетесь на обработку данных для оформления заказа.</p>
     </div>`;
   requestAnimationFrame(()=>ov.classList.add("open"));
+  const me = currentUser();
+  if (me) { document.getElementById("ocName").value = me.name||""; document.getElementById("ocPhone").value = me.phone||""; }
   setTimeout(()=>{ const n=document.getElementById("ocName"); n&&n.focus(); }, 250);
 }
 function submitOneClick(id){
@@ -2002,6 +2051,7 @@ function submitOneClick(id){
     total: price
   };
   if (window.notifyOrder) { try { window.notifyOrder(order); } catch(e){} }
+  saveOrderToAccount(order);
   const ov = document.getElementById("oneClickOverlay");
   const sheet = ov.querySelector(".oneclick-modal") || ov.querySelector(".modal");
   sheet.innerHTML = `
@@ -2161,6 +2211,97 @@ document.querySelectorAll(".overlay").forEach(o =>
   nums.forEach(n => io.observe(n));
 })();
 
+// ============ ЛИЧНЫЙ КАБИНЕТ (хранение в браузере) ============
+const val = id => (document.getElementById(id)?.value || "").trim();
+async function sha256(str){
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
+}
+function loadUsers(){ try{ return JSON.parse(localStorage.getItem("ibrain_users")||"{}"); }catch(e){ return {}; } }
+function saveUsers(u){ try{ localStorage.setItem("ibrain_users", JSON.stringify(u)); }catch(e){} }
+function currentEmail(){ try{ return localStorage.getItem("ibrain_session")||""; }catch(e){ return ""; } }
+function currentUser(){ const u=loadUsers(), e=currentEmail(); return e && u[e] ? u[e] : null; }
+function setSession(email){ try{ email ? localStorage.setItem("ibrain_session",email) : localStorage.removeItem("ibrain_session"); }catch(e){} updateAccountBtn(); }
+function updateAccountBtn(){ const u=currentUser(), el=document.getElementById("accName"); if(el) el.textContent = u ? (u.name.split(" ")[0]||"Кабинет") : ""; }
+
+function openAccount(){ document.getElementById("accountOverlay").classList.add("open"); currentUser() ? renderCabinet() : renderAuth("login"); }
+function closeAccount(){ document.getElementById("accountOverlay").classList.remove("open"); }
+
+let authMode="login";
+function renderAuth(mode){
+  authMode = mode || authMode;
+  const reg = authMode==="register";
+  document.getElementById("accountBody").innerHTML = `
+    <h2>${reg?"Регистрация":"Вход в кабинет"}</h2>
+    <div class="auth-tabs">
+      <button class="auth-tab ${!reg?"on":""}" onclick="renderAuth('login')">Вход</button>
+      <button class="auth-tab ${reg?"on":""}" onclick="renderAuth('register')">Регистрация</button>
+    </div>
+    ${reg?`<div class="field"><label>Имя и фамилия</label><input id="auName" placeholder="Иван Иванов"></div>`:""}
+    <div class="field"><label>Email</label><input id="auEmail" type="email" placeholder="you@mail.com"></div>
+    ${reg?`<div class="field"><label>Телефон</label><input id="auPhone" type="tel" placeholder="+375 (29) 123-45-67"></div>`:""}
+    <div class="field"><label>Пароль</label><input id="auPass" type="password" placeholder="не менее 6 символов"></div>
+    <button class="btn btn-blue" style="width:100%;margin-top:8px" onclick="${reg?"doRegister()":"doLogin()"}">${reg?"Создать аккаунт":"Войти"}</button>
+    <p class="oc-fine" style="text-align:center;margin-top:14px">${reg
+      ? `Уже есть аккаунт? <button class="link-btn" onclick="renderAuth('login')">Войти</button>`
+      : `Нет аккаунта? <button class="link-btn" onclick="renderAuth('register')">Зарегистрироваться</button>`}</p>`;
+}
+async function doRegister(){
+  const name=val("auName"), email=val("auEmail").toLowerCase(), phone=val("auPhone"), pass=val("auPass");
+  if(!name) return showToast("Укажите имя");
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return showToast("Укажите корректный email");
+  if(pass.length<6) return showToast("Пароль — минимум 6 символов");
+  const users=loadUsers();
+  if(users[email]) return showToast("Этот email уже зарегистрирован");
+  users[email] = { name, email, phone, pass:await sha256(pass), orders:[] };
+  saveUsers(users); setSession(email);
+  showToast("Аккаунт создан 🎉"); renderCabinet();
+}
+async function doLogin(){
+  const email=val("auEmail").toLowerCase(), pass=val("auPass");
+  const u=loadUsers()[email];
+  if(!u || u.pass!==await sha256(pass)) return showToast("Неверный email или пароль");
+  setSession(email); showToast("С возвращением!"); renderCabinet();
+}
+function doLogout(){ setSession(""); renderAuth("login"); showToast("Вы вышли из кабинета"); }
+
+function renderCabinet(){
+  const u=currentUser(); if(!u) return renderAuth("login");
+  const orders=(u.orders||[]).slice().reverse();
+  document.getElementById("accountBody").innerHTML = `
+    <div class="acc-head">
+      <div class="acc-ava">${escHtml(u.name).charAt(0).toUpperCase()}</div>
+      <div class="acc-meta"><b>${escHtml(u.name)}</b><span>${escHtml(u.email)}${u.phone?" · "+escHtml(u.phone):""}</span></div>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:22px">
+      <h2 style="font-size:18px">Мои заказы</h2>
+      <button class="link-btn" onclick="doLogout()">Выйти</button>
+    </div>
+    <div class="acc-orders">
+      ${orders.length ? orders.map(o=>`
+        <div class="ao-card">
+          <div class="ao-top"><span>№ ${o.id} · ${o.date}</span><span class="ao-status">${escHtml(o.status||"Принят")}</span></div>
+          <div class="ao-items">${o.items.map(i=>escHtml(i.name)+" × "+i.qty).join("<br>")}</div>
+          <div class="ao-total">Итого: ${fmt(o.total)}${o.delivery?` · ${escHtml(o.delivery)}`:""}</div>
+        </div>`).join("")
+      : `<div class="acc-empty">Заказов пока нет.<br>Оформите первый — он появится здесь.</div>`}
+    </div>`;
+}
+function saveOrderToAccount(order){
+  const u=currentUser(); if(!u) return false;
+  const users=loadUsers();
+  users[u.email].orders = users[u.email].orders || [];
+  users[u.email].orders.push({
+    id: Date.now().toString().slice(-6),
+    date: new Date().toLocaleDateString("ru-RU"),
+    status: "Принят, ожидает звонка",
+    items: (order.items||[]).map(i=>({ name:i.name, qty:i.qty })),
+    total: order.total,
+    delivery: order.delivery ? order.delivery.method : ""
+  });
+  saveUsers(users); return true;
+}
+
 // cookie-уведомление
 function acceptCookie() {
   try { localStorage.setItem("ibrain_cookie", "1"); } catch(e) {}
@@ -2253,6 +2394,7 @@ renderInstagram();
 renderFab();
 initCookie();
 renderRecent();
+updateAccountBtn(); // показать имя, если пользователь вошёл в прошлый визит
 updateCartCount(); // показать счётчик, если корзина сохранилась с прошлого визита
 observeReveal();
 </script>
