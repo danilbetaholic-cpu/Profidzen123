@@ -164,14 +164,29 @@ function render() {
               ${Object.entries(CATS).map(([k,v])=>`<option value="${k}" ${p.cat===k?'selected':''}>${v}</option>`).join("")}
             </select>
           </div>
-          <div><label>Цвет</label><input value="${esc(p.color)}" onchange="upd(${i},'color',this.value)"></div>
           <div><label>Бейдж</label><input value="${esc(p.badge ?? '')}" placeholder="Хит / Новинка" onchange="upd(${i},'badge',this.value||null)"></div>
           <div><label>Состояние (для Б/У)</label><input value="${esc(p.condition ?? '')}" placeholder="Как новый" onchange="upd(${i},'condition',this.value||undefined)"></div>
+          <div><label>Наличие</label>
+            <select onchange="upd(${i},'stock',this.value||undefined)" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--border);background:#12141c;color:var(--text)">
+              <option value="" ${!p.stock?'selected':''}>В наличии</option>
+              <option value="soon" ${p.stock==='soon'?'selected':''}>Скоро в наличии</option>
+              <option value="out" ${p.stock==='out'?'selected':''}>Ожидаем поставку</option>
+            </select>
+          </div>
+          <div><label>Осталось, шт. (пусто = не показывать)</label><input type="number" value="${p.left ?? ''}" placeholder="—" onchange="upd(${i},'left',this.value?+this.value:undefined)"></div>
         </div>
         <label>Короткое описание</label>
         <input value="${esc(p.desc ?? '')}" onchange="upd(${i},'desc',this.value)">
-        <label>Варианты памяти — формат: 256 ГБ:0, 512 ГБ:450 (метка:доплата)</label>
-        <input value="${esc(memToStr(p.memory))}" placeholder="оставьте пустым, если без вариантов" onchange="upd(${i},'memory',strToMem(this.value))">
+        <label>Полное описание (в карточке товара)</label>
+        <input value="${esc(p.full ?? '')}" onchange="upd(${i},'full',this.value)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div><label>Варианты памяти — формат: 256 ГБ:0, 512 ГБ:450</label>
+            <input value="${esc(memToStr(p.memory))}" placeholder="пусто, если без вариантов" onchange="upd(${i},'memory',strToMem(this.value))"></div>
+          <div><label>Главное фото (img/файл.jpg)</label>
+            <input value="${esc(p.photo ?? '')}" placeholder="img/iphone-1.jpg" onchange="upd(${i},'photo',this.value||undefined)"></div>
+        </div>
+        <label>Галерея фото — через запятую (img/1.jpg, img/2.jpg, …)</label>
+        <input value="${esc((p.gallery||[]).join(', '))}" placeholder="img/1.jpg, img/2.jpg" onchange="upd(${i},'gallery',this.value.split(',').map(s=>s.trim()).filter(Boolean))">
       </div>
     </div>`).join("");
 }
