@@ -151,7 +151,10 @@
     background:var(--blue); color:#fff; border-radius:9px; font-size:11px; font-weight:700;
     display:flex; align-items:center; justify-content:center; padding:0 4px;
     transform:scale(0); transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+    pointer-events:none;
   }
+  .cart-btn { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+  .fly-dot { pointer-events:none; }
   .cart-count.show { transform:scale(1); }
 
   /* мобильное меню */
@@ -1052,7 +1055,7 @@
   <div class="insta-foot" style="margin:24px 0 0">
     <div class="insta-rating">
       <span class="stars">★★★★★</span>
-      <b id="instaRating">5.0</b>
+      <b id="instaRating">4.92</b>
       <span style="color:var(--muted);font-size:15px" id="instaReviews">отзывов</span>
     </div>
   </div>
@@ -1410,6 +1413,8 @@ function photoList(p) {
   if (p.img) list.push(p.img);
   return list;
 }
+// первое доступное фото товара (для корзины); если нет — пусто
+function photoFor(p) { return photoList(p)[0] || ""; }
 // перебор источников: не открылось одно фото → пробуем следующее → иллюстрация
 window.imgNext = function (el) {
   const list = JSON.parse(el.getAttribute("data-list") || "[]");
@@ -1553,7 +1558,17 @@ function renderInstagram() {
     return "★".repeat(full) + (half ? "<span class='half'>★</span>" : "") + "<span class='empty'>★</span>".repeat(5 - full - (half ? 1 : 0));
   };
 
-  grid.innerHTML = (cfg.cards || []).map(r => `
+  // пул отзывов: при каждом заходе показываем случайную «пачку»
+  let pool = (cfg.cards || []).slice();
+  if (cfg.rotate !== false) {
+    for (let i = pool.length - 1; i > 0; i--) {       // перемешивание Фишера–Йетса
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+  }
+  const show = cfg.showCount ? pool.slice(0, cfg.showCount) : pool;
+
+  grid.innerHTML = show.map(r => `
     <div class="review-card">
       <div class="rc-head">
         <div class="rc-ava">${escHtml(r.name).trim().charAt(0)}</div>
@@ -1565,7 +1580,7 @@ function renderInstagram() {
       <div class="rc-foot">${srcLabel(r.source)}</div>
     </div>`).join("");
   document.getElementById("instaReviews").textContent = cfg.reviews || "отзывов";
-  document.getElementById("instaRating").textContent = cfg.rating || "5.0";
+  document.getElementById("instaRating").textContent = cfg.rating || "4.92";
 }
 
 function renderNews() {
@@ -1782,7 +1797,16 @@ function chQty(key,d) {
   if (!cart[key]) delete cart[key];
   updateCartCount(); renderCart(); saveCart();
 }
-function openCart(){ renderCart(); document.getElementById("cartOverlay").classList.add("open"); }
+function openCart(){
+  // сначала открываем шторку, потом рендерим — чтобы ошибка рендера не блокировала корзину
+  document.getElementById("cartOverlay").classList.add("open");
+  try { renderCart(); }
+  catch(e){
+    document.getElementById("cartItems").innerHTML =
+      `<div class="empty-cart">Не удалось показать товары.<br>Обновите страницу.</div>`;
+    document.getElementById("cartFooter").innerHTML = "";
+  }
+}
 function closeCart(){ document.getElementById("cartOverlay").classList.remove("open"); }
 
 // ============ ОФОРМЛЕНИЕ ============
