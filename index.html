@@ -1925,6 +1925,14 @@ function toggleFaq(btn) {
   a.classList.toggle("open", !open);
 }
 
+// закрытие модальных окон клавишей Esc
+addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".overlay.open").forEach(o => o.classList.remove("open"));
+    closeMenu();
+  }
+});
+
 // плавное проявление фото: помечаем загруженные картинки
 addEventListener("load", e => {
   if (e.target && e.target.tagName === "IMG") e.target.classList.add("ld");
