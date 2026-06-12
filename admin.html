@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Админ-панель — iStore.by</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Панель управления</title>
 <style>
   :root { --bg:#07080c; --card:rgba(255,255,255,.05); --border:rgba(255,255,255,.1); --text:#f2f4f8; --muted:#9aa3b5; --accent:#4e7cff; --accent2:#9b5cff; --green:#34d399; --red:#f87171; }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -56,9 +57,9 @@
   <!-- Вход -->
   <div class="panel" id="loginPanel">
     <label>Пароль администратора</label>
-    <input type="password" id="pwd" placeholder="Введите пароль" onkeydown="if(event.key==='Enter')login()">
-    <div class="toolbar"><button class="btn" onclick="login()">Войти</button></div>
-    <p class="note">Пароль по умолчанию: <b>admin123</b> — смените его в файле products.js (поле adminPassword).</p>
+    <input type="password" id="pwd" placeholder="Введите пароль" autocomplete="current-password" onkeydown="if(event.key==='Enter')login()">
+    <div class="toolbar"><button class="btn" id="loginBtn" onclick="login()">Войти</button></div>
+    <p class="note" id="loginNote"></p>
   </div>
 
   <!-- Редактор -->
@@ -72,6 +73,7 @@
     <div class="toolbar">
       <button class="btn" onclick="saveAll()">💾 Сохранить изменения</button>
       <button class="btn btn-sec" onclick="downloadJS()">⬇️ Скачать products.js</button>
+      <button class="btn btn-sec" onclick="changePassword()">🔑 Сменить пароль</button>
       <button class="btn btn-danger" onclick="resetAll()">Сбросить к исходным</button>
     </div>
     <p class="note">
@@ -87,14 +89,56 @@
 <script>
 let products = [];
 
-function login() {
+// ---------- вход по SHA-256 хешу + защита от перебора ----------
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+}
+function lockState() {
+  try { return JSON.parse(localStorage.getItem("adm_lock") || "{}"); } catch(e){ return {}; }
+}
+function setLock(s) { localStorage.setItem("adm_lock", JSON.stringify(s)); }
+
+async function login() {
+  const st = lockState();
+  // после 5 неудач — блокировка на 5 минут
+  if (st.until && Date.now() < st.until) {
+    const min = Math.ceil((st.until - Date.now()) / 60000);
+    toast("Слишком много попыток. Подождите " + min + " мин.");
+    return;
+  }
   const pwd = document.getElementById("pwd").value;
-  if (pwd === window.SHOP_CONFIG.adminPassword) {
+  const hash = await sha256(pwd);
+  if (hash === window.SHOP_CONFIG.adminPasswordHash) {
+    setLock({});
+    sessionStorage.setItem("adm_ok", "1");
     document.getElementById("loginPanel").classList.add("hidden");
     document.getElementById("editor").classList.remove("hidden");
     loadProducts(); render();
-  } else toast("Неверный пароль");
+  } else {
+    const fails = (st.fails || 0) + 1;
+    setLock(fails >= 5 ? { fails: 0, until: Date.now() + 5*60*1000 } : { fails });
+    toast("Неверный пароль" + (fails >= 3 ? ` (попытка ${fails} из 5)` : ""));
+  }
 }
+
+// смена пароля: генерирует хеш для products.js
+async function changePassword() {
+  const p1 = prompt("Новый пароль (минимум 8 символов):");
+  if (!p1) return;
+  if (p1.length < 8) { toast("Минимум 8 символов"); return; }
+  const hash = await sha256(p1);
+  prompt("Скопируйте строку и замените ею значение adminPasswordHash в products.js:", '"' + hash + '"');
+}
+
+// если уже входили в этой вкладке — не спрашиваем пароль повторно
+window.addEventListener("DOMContentLoaded", () => {
+  if (sessionStorage.getItem("adm_ok") === "1") {
+    document.getElementById("loginPanel").classList.add("hidden");
+    document.getElementById("editor").classList.remove("hidden");
+    loadProducts(); render();
+  }
+});
 
 const KEY = "shop_products_v3";
 const CATS = Object.fromEntries(window.SHOP_CATEGORIES.filter(c=>c[0]!=="all"));
@@ -160,10 +204,16 @@ function resetAll(){
   }
 }
 function downloadJS(){
-  const cfg = JSON.stringify(window.SHOP_CONFIG, null, 2);
-  const prods = JSON.stringify(products, null, 2);
-  const content = "// Файл сгенерирован админ-панелью " + new Date().toLocaleString("ru-RU") +
-    "\nwindow.SHOP_CONFIG = " + cfg + ";\n\nwindow.DEFAULT_PRODUCTS = " + prods + ";\n";
+  const j = o => JSON.stringify(o, null, 2);
+  const content =
+    "// Файл сгенерирован админ-панелью " + new Date().toLocaleString("ru-RU") + "\n" +
+    "window.SHOP_CONFIG = " + j(window.SHOP_CONFIG) + ";\n\n" +
+    "window.SHOP_CATEGORIES = " + j(window.SHOP_CATEGORIES) + ";\n\n" +
+    "window.SIM_OPTIONS = " + j(window.SIM_OPTIONS) + ";\n" +
+    "window.SIM_DEFAULT = " + j(window.SIM_DEFAULT || "eSIM + физ. SIM") + ";\n\n" +
+    "window.SHOP_NEWS = " + j(window.SHOP_NEWS || []) + ";\n\n" +
+    "window.CAT_BENEFITS = " + j(window.CAT_BENEFITS || {}) + ";\n\n" +
+    "window.DEFAULT_PRODUCTS = " + j(products) + ";\n";
   const blob = new Blob([content], {type:"text/javascript"});
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob); a.download = "products.js"; a.click();

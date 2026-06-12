@@ -182,6 +182,10 @@
   .tab:hover { color:var(--text); border-color:#aaa; }
   .tab.active { background:var(--text); color:#fff; border-color:var(--text); }
   .tab.sale-tab.active { background:var(--orange); border-color:var(--orange); }
+  .sub-tabs { width:100%; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:12px; }
+  .tab.sub { font-size:13.5px; padding:8px 15px; background:var(--bg-grey); }
+  .tab.sub.active { background:var(--blue); border-color:var(--blue); color:#fff; }
+  @media (max-width:760px) { .sub-tabs { justify-content:flex-start; } }
 
   /* ---------- каталог ---------- */
   .grid { margin-top:38px; display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); }
@@ -198,6 +202,10 @@
     text-transform:uppercase; letter-spacing:.4px;
   }
   .badge.cond { color:#fff; background:var(--text); padding:4px 10px; border-radius:8px; }
+  .badge.soon { color:var(--blue); }
+  .badge.out { color:#86868b; }
+  .buy-sm.off { background:#e8e8ed; color:#86868b; cursor:default; }
+  .buy-sm.off:hover { background:#e8e8ed; }
   .card-img {
     height:185px; display:flex; align-items:center; justify-content:center; margin:14px 0 6px;
     background:var(--bg-grey); border-radius:14px; padding:12px;
@@ -450,7 +458,7 @@
 <div class="hero">
   <div class="eyebrow">Новый iPhone 17 Pro</div>
   <h1><span class="grad">Невероятно Pro.</span></h1>
-  <p class="sub">Оригинал с гарантией 12 месяцев. Доставка по всей Беларуси.<br>Оплата картой, ЕРИП или в рассрочку.</p>
+  <p class="sub">Оригинал с гарантией · Доставка по Беларуси · Рассрочка</p>
   <div class="cta">
     <a class="btn btn-blue" href="#catalog" onclick="setTab('iphone')">Купить</a>
     <a class="btn btn-outline" href="#catalog" onclick="openDetail(2);return false;">Подробнее</a>
@@ -664,13 +672,26 @@ function imgOrArt(p, h) {
 window.artById = (id, w, h) => art(byId(id), w, h);
 
 // ============ ВКЛАДКИ ============
+let usedSub = "all"; // подкатегория Б/У: all | iphone | mac
+const usedKind = p => /Mac|iMac/i.test(p.name) ? "mac" : "iphone";
+
 function renderTabs() {
-  document.getElementById("tabs").innerHTML = window.SHOP_CATEGORIES.map(([key, label]) =>
+  let html = window.SHOP_CATEGORIES.map(([key, label]) =>
     `<button class="tab ${key==='sale'?'sale-tab':''} ${key===activeCat?'active':''}" onclick="setTab('${key}')">${key==='sale'?'🔖 ':''}${label}</button>`
   ).join("");
+  if (activeCat === "used") {
+    html += `<div class="sub-tabs">` + [["all","Вся б/у техника"],["iphone","Б/У iPhone"],["mac","Б/У Mac"]].map(([k,l]) =>
+      `<button class="tab sub ${k===usedSub?'active':''}" onclick="setUsedSub('${k}')">${l}</button>`).join("") + `</div>`;
+  }
+  document.getElementById("tabs").innerHTML = html;
+}
+function setUsedSub(k) {
+  usedSub = k;
+  renderTabs(); renderCatalog();
 }
 function setTab(key) {
   activeCat = key;
+  if (key !== "used") usedSub = "all";
   renderTabs(); renderCatalog();
   document.getElementById("catalog").scrollIntoView({behavior:"smooth"});
 }
@@ -679,13 +700,18 @@ function setTab(key) {
 function listFor(cat) {
   if (cat === "all") return PRODUCTS;
   if (cat === "sale") return PRODUCTS.filter(p => p.oldPrice);
-  return PRODUCTS.filter(p => p.cat === cat);
+  let list = PRODUCTS.filter(p => p.cat === cat);
+  if (cat === "used" && usedSub !== "all") list = list.filter(p => usedKind(p) === usedSub);
+  return list;
 }
 function renderCatalog() {
   const list = listFor(activeCat);
   document.getElementById("productGrid").innerHTML = list.map(p => `
     <div class="card" onclick="openDetail(${p.id})">
-      ${p.condition ? `<div class="badge cond">${p.condition}</div>` : (p.badge ? `<div class="badge">${p.badge}</div>` : "")}
+      ${p.stock==="out" ? `<div class="badge out">Ожидаем поставку</div>`
+        : p.stock==="soon" ? `<div class="badge soon">Скоро в наличии</div>`
+        : p.condition ? `<div class="badge cond">${p.condition}</div>`
+        : (p.badge ? `<div class="badge">${p.badge}</div>` : "")}
       <div class="card-img">${imgOrArt(p, 170)}</div>
       <h3>${p.name}</h3>
       <div class="colors-row">${(p.colors||[]).slice(0,6).map(c=>`<span class="dot" style="background:${c[1]}"></span>`).join("")}</div>
@@ -695,7 +721,9 @@ function renderCatalog() {
         ${p.oldPrice ? `<div class="old-price">${fmt(p.oldPrice)}</div>` : ""}
       </div>
       <div class="card-btns">
-        <button class="buy-sm" onclick="event.stopPropagation(); quickAdd(${p.id}, this)">Купить</button>
+        ${p.stock==="out"
+          ? `<button class="buy-sm off" onclick="event.stopPropagation(); showToast('Ожидаем поставку — загляните позже')">Ожидаем</button>`
+          : `<button class="buy-sm" onclick="event.stopPropagation(); quickAdd(${p.id}, this)">${p.stock==="soon"?"Предзаказ":"Купить"}</button>`}
         <button class="more-sm" onclick="event.stopPropagation(); openDetail(${p.id})">Подробнее ›</button>
       </div>
     </div>
@@ -773,9 +801,11 @@ function renderDetail(p) {
           ${p.oldPrice ? `<span class="old-price">${fmt(oldPriceOf(p, selMem, selSim))}</span>` : ""}
           <span class="month">или ${fmt(Math.round(price/12))} / мес. в рассрочку на 12 мес.</span>
         </div>
-        <button class="btn btn-blue" style="width:100%;margin-top:18px" onclick="addToCart(${p.id}, selMem, selSim, selColor); closeDetail();">
-          Добавить в корзину
-        </button>
+        ${p.stock==="out"
+          ? `<button class="btn" style="width:100%;margin-top:18px;background:#e8e8ed;color:#86868b;cursor:default">Закончились — ожидаем поставку</button>`
+          : `<button class="btn btn-blue" style="width:100%;margin-top:18px" onclick="addToCart(${p.id}, selMem, selSim, selColor); closeDetail();">
+          ${p.stock==="soon" ? "Оформить предзаказ" : "Добавить в корзину"}
+        </button>`}
       </div>
     </div>`;
 }
@@ -890,6 +920,10 @@ function submitOrder() {
   };
   window.startPayment(order, onPaymentSuccess);
 }
+// экранирование пользовательского ввода (защита от XSS)
+const escHtml = s => String(s ?? "").replace(/[&<>"']/g,
+  c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+
 function onPaymentSuccess(order) {
   cart = {}; updateCartCount();
   document.getElementById("checkoutBody").innerHTML = `
@@ -897,7 +931,7 @@ function onPaymentSuccess(order) {
       <div class="check">✓</div>
       <h2 style="margin-top:22px">Заказ оформлен!</h2>
       <p style="color:var(--muted);margin-top:10px;line-height:1.6">
-        Спасибо, ${order.customer.name}!<br>Мы свяжемся с вами по номеру<br><b style="color:var(--text)">${order.customer.phone}</b> в ближайшее время.
+        Спасибо, ${escHtml(order.customer.name)}!<br>Мы свяжемся с вами по номеру<br><b style="color:var(--text)">${escHtml(order.customer.phone)}</b> в ближайшее время.
       </p>
       <button class="btn btn-blue" style="margin-top:26px" onclick="closeCheckout()">Отлично</button>
     </div>`;

@@ -1,0 +1,9 @@
+# служебные файлы — не публикуются на сайте
+worker.js
+АНОНИМНАЯ-выгрузка.md
+WORDPRESS-инструкция.md
+woocommerce-import.csv
+README.md
+.DS_Store
+istore-site/
+*.zip
