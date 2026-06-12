@@ -446,6 +446,16 @@
   .success-anim .check { width:80px; height:80px; margin:0 auto; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:40px; color:#fff; animation:pop .5s cubic-bezier(.34,1.56,.64,1); }
   @keyframes pop { from { transform:scale(0); } to { transform:scale(1); } }
 
+  /* ---------- похожие товары ---------- */
+  .similar-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:12px; }
+  .similar-card { background:var(--bg-grey); border-radius:14px; padding:14px; cursor:pointer; text-align:center; transition:transform .3s, box-shadow .3s; }
+  .similar-card:hover { transform:translateY(-4px); box-shadow:var(--card-shadow); }
+  .similar-img { height:90px; display:flex; align-items:center; justify-content:center; margin-bottom:8px; }
+  .similar-img img, .similar-img svg { max-height:90px; max-width:100%; object-fit:contain; }
+  .similar-card b { display:block; font-size:13px; line-height:1.3; }
+  .similar-card span { display:block; color:var(--muted); font-size:13px; margin-top:4px; font-weight:600; }
+  @media (max-width:680px){ .similar-grid { grid-template-columns:1fr 1fr; } }
+
   /* ---------- FAQ ---------- */
   .faq-list { max-width:780px; margin:40px auto 0; }
   .faq-item { border-bottom:1px solid var(--border); }
@@ -500,6 +510,36 @@
   footer a { color:var(--muted); }
   footer a:hover { color:var(--text); }
   .copyright { max-width:1100px; margin:34px auto 0; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:#a1a1a6; }
+
+  /* ---------- плавающая кнопка связи ---------- */
+  .fab-wrap { position:fixed; right:22px; bottom:24px; z-index:150; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+  .fab {
+    width:58px; height:58px; border-radius:50%; border:none; cursor:pointer;
+    background:linear-gradient(135deg,#0066ff,#9b5cff); box-shadow:0 8px 26px rgba(0,102,255,.4);
+    display:flex; align-items:center; justify-content:center; transition:transform .3s; }
+  .fab:hover { transform:scale(1.08); }
+  .fab svg { width:26px; height:26px; }
+  .fab-menu { display:flex; flex-direction:column; gap:10px; align-items:flex-end;
+    opacity:0; transform:translateY(10px) scale(.9); pointer-events:none; transition:.3s cubic-bezier(.16,1,.3,1); }
+  .fab-menu.open { opacity:1; transform:none; pointer-events:auto; }
+  .fab-link {
+    display:flex; align-items:center; gap:10px; background:#fff; color:var(--text);
+    padding:10px 16px; border-radius:980px; box-shadow:var(--card-shadow); font-size:14px; font-weight:600;
+    text-decoration:none; transition:transform .2s; white-space:nowrap; }
+  .fab-link:hover { transform:translateX(-3px); text-decoration:none; }
+  .fab-link .ic { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .fab-link.tg .ic { background:#229ed9; } .fab-link.wa .ic { background:#25d366; } .fab-link.ph .ic { background:#0a7d44; }
+  .fab-link .ic svg { width:17px; height:17px; }
+
+  /* ---------- кнопка наверх ---------- */
+  .to-top {
+    position:fixed; right:24px; bottom:92px; z-index:140; width:46px; height:46px; border-radius:50%;
+    background:#fff; border:1px solid var(--border); color:var(--text); cursor:pointer;
+    box-shadow:var(--card-shadow); display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transform:translateY(10px); transition:.3s; }
+  .to-top.show { opacity:1; pointer-events:auto; transform:none; }
+  .to-top svg { width:20px; height:20px; }
+  @media (max-width:760px){ .to-top { bottom:90px; right:20px; } .fab-wrap { right:18px; bottom:20px; } }
 
   .toast {
     position:fixed; bottom:30px; left:50%; transform:translate(-50%,80px);
@@ -900,6 +940,19 @@
   </div>
 </div>
 
+<!-- плавающая кнопка связи -->
+<div class="fab-wrap" id="fabWrap">
+  <div class="fab-menu" id="fabMenu"></div>
+  <button class="fab" id="fabBtn" onclick="toggleFab()" aria-label="Связаться">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.1-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg>
+  </button>
+</div>
+
+<!-- кнопка наверх -->
+<button class="to-top" id="toTop" onclick="scrollTo({top:0,behavior:'smooth'})" aria-label="Наверх">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
 <div class="toast" id="toast"></div>
 
 <script src="products.js"></script>
@@ -1256,7 +1309,22 @@ function renderDetail(p) {
           ${p.stock==="soon" ? "Оформить предзаказ" : "Добавить в корзину"}
         </button>`}
       </div>
-    </div>`;
+    </div>
+    ${similarBlock(p)}`;
+}
+// похожие товары (та же категория, исключая текущий)
+function similarBlock(p) {
+  const sim = PRODUCTS.filter(x => x.cat === p.cat && x.id !== p.id && x.stock !== "out").slice(0, 4);
+  if (!sim.length) return "";
+  return `<div class="similar">
+    <div class="opt-label" style="margin-top:26px">Похожие товары</div>
+    <div class="similar-grid">${sim.map(s => `
+      <div class="similar-card" onclick="openDetail(${s.id})">
+        <div class="similar-img">${imgOrArt(s, 120)}</div>
+        <b>${escHtml(s.name)}</b>
+        <span>${s.memory && s.memory.length>1 ? "от " : ""}${fmt(s.price)}</span>
+      </div>`).join("")}</div>
+  </div>`;
 }
 function closeDetail(){ document.getElementById("detailOverlay").classList.remove("open"); }
 
@@ -1464,6 +1532,24 @@ document.querySelectorAll(".overlay").forEach(o =>
   }, { passive: true });
 })();
 
+// плавающая кнопка связи
+function renderFab() {
+  const c = (window.SHOP_CONFIG.contacts) || {};
+  const items = [];
+  if (c.telegram) items.push(`<a class="fab-link tg" href="${c.telegram}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="#fff"><path d="M21.9 4.3l-3.3 15.6c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.3-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13.4 1.5 11.9c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg></span>Telegram</a>`);
+  if (c.whatsapp) items.push(`<a class="fab-link wa" href="${c.whatsapp}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-1-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.2.2-.3.4-.1.7.5.8 1 1.3 1.7 1.8.4.3.7.4.9.5.2.1.4.1.5-.1l.6-.8c.2-.2.4-.2.6-.1l1.8.9c.2.1.4.2.4.3.1.2.1.6 0 .9z"/></svg></span>WhatsApp</a>`);
+  if (c.phone) items.push(`<a class="fab-link ph" href="tel:${c.phone}"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>Позвонить</a>`);
+  document.getElementById("fabMenu").innerHTML = items.join("");
+}
+function toggleFab() {
+  document.getElementById("fabMenu").classList.toggle("open");
+}
+
+// кнопка наверх
+addEventListener("scroll", () => {
+  document.getElementById("toTop")?.classList.toggle("show", scrollY > 600);
+}, { passive: true });
+
 // FAQ-аккордеон
 function toggleFaq(btn) {
   const a = btn.nextElementSibling;
@@ -1493,6 +1579,7 @@ renderTabs();
 renderCatalog();
 renderNews();
 renderInstagram();
+renderFab();
 updateCartCount(); // показать счётчик, если корзина сохранилась с прошлого визита
 observeReveal();
 </script>
