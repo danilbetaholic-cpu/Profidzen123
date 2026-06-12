@@ -183,8 +183,6 @@ window.DEFAULT_PRODUCTS = [
 
   // ================= iPHONE =================
   { id:1, cat:"iphone", name:"iPhone 17 Pro Max", price:3850, oldPrice:4050, badge:"Хит", left:7,
-    photo:"img/iphone17-promax-orange-1.jpg",
-    gallery:["img/iphone17-promax-orange-1.jpg","img/iphone17-promax-orange-2.jpg","img/iphone17-promax-orange-3.jpg","img/iphone17-promax-orange-4.jpg"],
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg",
     gradient:["#ff9a3c","#ff5e62"], sim:true,
     colors:[["Cosmic Orange","#e8762e"],["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -276,6 +274,8 @@ window.DEFAULT_PRODUCTS = [
 
   // ================= Б/У iPHONE =================
   { id:101, cat:"used", name:"iPhone 17 Pro Max", price:3080, oldPrice:null, badge:"Как новый",
+    photo:"img/iphone17-promax-orange-1.jpg",
+    gallery:["img/iphone17-promax-orange-1.jpg","img/iphone17-promax-orange-2.jpg","img/iphone17-promax-orange-3.jpg","img/iphone17-promax-orange-4.jpg"],
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg",
     condition:"Как новый", gradient:["#ff9a3c","#ff5e62"], sim:true,
     colors:[["Cosmic Orange","#e8762e"],["Deep Blue","#1f2a44"]],
