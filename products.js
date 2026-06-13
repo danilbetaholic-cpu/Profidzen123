@@ -90,7 +90,7 @@ window.SHOP_INSTAGRAM = {
     { name: "Максим Г.",   city: "Орша",      source: "telegram",  rating: 4.5, text: "Apple Watch SE для бега — то что надо. Всё хорошо, только хотелось бы больше ремешков в наличии." },
     { name: "Ирина В.", avatar: "img/review-avatar-21.jpg",    city: "Минск",     source: "site",      rating: 5,   text: "Заказала iPhone 17 Pro и чехол, собрали в один заказ, привезли вечером. Сервис на уровне Apple Store." },
     { name: "Денис Ф.",    city: "Жлобин",    source: "instagram", rating: 5,   text: "Взял б/у iPhone 13 Pro Max. Состояние супер, цена ниже рынка. Спасибо за честное описание!" },
-    { name: "Алина Р.", avatar: "img/review-avatar-22.jpg",    city: "Минск",     source: "telegram",  rating: 5,   text: "Покупала iPad для ребёнка, помогли с настройкой родительского контроля прямо при получении. Класс!" }
+    { name: "Алина Р.",    city: "Минск",     source: "telegram",  rating: 5,   text: "Покупала iPad для ребёнка, помогли с настройкой родительского контроля прямо при получении. Класс!" }
   ]
 };
 
