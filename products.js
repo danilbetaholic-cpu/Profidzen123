@@ -764,7 +764,6 @@ window.DEFAULT_PRODUCTS = [
 
   { id:74, cat:"acc", name:"Кабель USB-C — USB-C (1 м)", price:49, oldPrice:null, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
-    photo:"img/acc-cable-usbc.jpg",
     desc:"Плетёный кабель для зарядки и данных",
     full:"Прочный плетёный кабель Apple: зарядка до 60 Вт и передача данных для iPhone, iPad и Mac.",
     specs:["Длина 1 м","До 60 Вт","Плетёная оплётка"] },
@@ -807,7 +806,6 @@ window.DEFAULT_PRODUCTS = [
 
   { id:80, cat:"acc", name:"Адаптер питания 70 Вт USB-C", price:129, oldPrice:null, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
-    photo:"img/acc-adapter-70w.jpg",
     desc:"Для MacBook Air и MacBook Pro 14″",
     full:"Адаптер Apple на 70 Вт для быстрой зарядки MacBook Air 15″ и MacBook Pro 14″. Один порт USB-C.",
     specs:["70 Вт, USB-C","Для MacBook Air/Pro","Быстрая зарядка","Оригинал Apple"] },
@@ -821,28 +819,24 @@ window.DEFAULT_PRODUCTS = [
 
   { id:82, cat:"acc", name:"Автомобильный адаптер 36 Вт (2 × USB-C)", price:79, oldPrice:null, badge:null,
     gradient:["#cdd5e0","#8a93a6"],
-    photo:"img/acc-adapter-car.jpg",
     desc:"Зарядка в авто на два устройства",
     full:"Автомобильный адаптер с двумя портами USB-C 36 Вт: быстрая зарядка iPhone и iPad прямо в дороге.",
     specs:["36 Вт, 2 × USB-C","Для автомобиля","Быстрая зарядка","Два устройства сразу"] },
 
   { id:83, cat:"acc", name:"Кабель USB-C — Lightning (1 м)", price:45, oldPrice:null, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
-    photo:"img/acc-cable-lightning.jpg",
     desc:"Для iPhone 14 и более ранних, AirPods",
     full:"Оригинальный кабель Apple USB-C — Lightning для быстрой зарядки iPhone 14 и более ранних моделей, а также AirPods.",
     specs:["Длина 1 м","USB-C — Lightning","Быстрая зарядка","Оригинал Apple"] },
 
   { id:84, cat:"acc", name:"Кабель USB-C — USB-C (2 м)", price:65, oldPrice:null, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
-    photo:"img/acc-cable-usbc-2m.jpg",
     desc:"Плетёный кабель увеличенной длины",
     full:"Прочный плетёный кабель Apple длиной 2 метра: зарядка до 60 Вт и передача данных для iPhone 15/16/17, iPad и Mac.",
     specs:["Длина 2 м","До 60 Вт","Плетёная оплётка","USB-C — USB-C"] },
 
   { id:85, cat:"acc", name:"Кабель Thunderbolt 4 USB-C (1,8 м)", price:219, oldPrice:null, badge:null,
     gradient:["#cdd5e0","#8a93a6"],
-    photo:"img/acc-cable-thunderbolt.jpg",
     desc:"До 40 Гбит/с и 100 Вт зарядки",
     full:"Профессиональный кабель Apple Thunderbolt 4: передача данных до 40 Гбит/с, вывод видео и зарядка до 100 Вт. Для Mac, дисплеев и накопителей.",
     specs:["Thunderbolt 4 / USB-C","До 40 Гбит/с","Зарядка до 100 Вт","Длина 1,8 м"] },
@@ -873,7 +867,6 @@ window.DEFAULT_PRODUCTS = [
   { id:89, cat:"acc", name:"Чехол-книжка с отделением для карт", price:120, oldPrice:null, badge:null,
     gradient:["#3a2e26","#1d1712"],
     colors:[["Чёрный","#1d1e22"],["Коричневый","#6b4a2e"]],
-    photo:"img/acc-case-wallet-1.jpg",
     desc:"Эко-кожа, карман для карт, MagSafe",
     full:"Чехол-книжка из качественной эко-кожи с отделением для банковских карт. Поддержка MagSafe, защита экрана и камеры, удобная подставка.",
     specs:["Поддержка MagSafe","Отделение для карт","Эко-кожа","Защита экрана"] },
@@ -881,7 +874,6 @@ window.DEFAULT_PRODUCTS = [
   { id:90, cat:"acc", name:"Противоударный чехол", price:79, oldPrice:null, badge:null,
     gradient:["#2a2c31","#4a4c52"],
     colors:[["Чёрный","#1d1e22"],["Прозрачный","#e8ecf2"]],
-    photo:"img/acc-case-armor-1.jpg",
     desc:"Усиленная защита от падений",
     full:"Прочный чехол с противоударными углами и приподнятыми бортами вокруг экрана и камеры. Защищает iPhone при падении с высоты до 2 метров.",
     specs:["Защита от падений","Усиленные углы","Приподнятые борта","Антискользящее покрытие"] }
