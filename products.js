@@ -261,7 +261,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Аппарат в идеальном состоянии: без царапин и сколов, аккумулятор от 98%. Проверка по 40 пунктам, гарантия 6 месяцев.",
     specs:["Состояние 10/10 «как новый»","АКБ 98–100%","Полный комплект, коробка","Гарантия 6 месяцев"] },
 
-  { id:102, cat:"used", name:"iPhone 17 Pro", price:1950, oldPrice:null, badge:"Как новый",
+  { id:102, cat:"used", name:"iPhone 17 Pro", photo:"img/iphone17-pro-new.jpg", price:1950, oldPrice:null, badge:"Как новый",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-color-lineup-250909_inline.jpg.large.jpg",
     condition:"Как новый", gradient:["#4e7cff","#2b4bcf"], sim:true,
     colors:[["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -270,7 +270,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Витринный образец или аппарат с минимальным пробегом. Внешне неотличим от нового, гарантия 6 месяцев.",
     specs:["Состояние 10/10","АКБ 97–100%","Полный комплект","Гарантия 6 месяцев"] },
 
-  { id:103, cat:"used", name:"iPhone 17 Pro Max (восст.)", price:1890, oldPrice:null, badge:"Восстановленный",
+  { id:103, cat:"used", name:"iPhone 17 Pro Max (восст.)", photo:"img/iphone17-promax-new.jpg", price:1890, oldPrice:null, badge:"Восстановленный",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-color-lineup-250909_inline.jpg.large.jpg",
     condition:"Восстановленный", gradient:["#8a93a6","#3a4150"], sim:true,
     colors:[["Silver","#d6dade"],["Deep Blue","#1f2a44"]],
@@ -279,7 +279,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Профессионально восстановленный флагман: новый аккумулятор, новый корпус, оригинальные комплектующие. Работает как новый — стоит заметно дешевле.",
     specs:["Новый аккумулятор (100%)","Новый корпус и стекло","Оригинальные запчасти","Гарантия 6 месяцев"] },
 
-  { id:104, cat:"used", name:"iPhone 17", price:1410, oldPrice:null, badge:"Как новый",
+  { id:104, cat:"used", name:"iPhone 17", photo:"img/iphone17-new.jpg", price:1410, oldPrice:null, badge:"Как новый",
     img:"https://www.apple.com/v/iphone-17/f/images/meta/iphone-17_overview__cg0rlzmbhl7m_og.png",
     condition:"Как новый", gradient:["#c9b6e4","#8e6fe8"], sim:true,
     colors:[["Lavender","#c9b6e4"],["Black","#1d1e22"]],
@@ -288,7 +288,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Практически новый iPhone 17 ощутимо дешевле. Полная проверка, гарантия 6 месяцев.",
     specs:["Состояние 10/10","АКБ 98–100%","Гарантия 6 месяцев"] },
 
-  { id:105, cat:"used", name:"iPhone 16 Pro", price:1720, oldPrice:null, badge:"Как новый",
+  { id:105, cat:"used", name:"iPhone 16 Pro", photo:"img/iphone16-pro-new.jpg", price:1720, oldPrice:null, badge:"Как новый",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     condition:"Как новый", gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Natural Titanium","#bfa98a"],["Black Titanium","#3a3c40"]],
@@ -297,7 +297,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Флагман 2025 года: титановый корпус, камера 48 Мп, кнопка Camera Control. АКБ от 95%, гарантия 6 месяцев.",
     specs:["Дисплей 6,3″ ProMotion","Чип A18 Pro","АКБ от 95%","Гарантия 6 месяцев"] },
 
-  { id:106, cat:"used", name:"iPhone 16", price:1090, oldPrice:null, badge:"Восстановленный",
+  { id:106, cat:"used", name:"iPhone 16", photo:"img/iphone16-new.jpg", price:1090, oldPrice:null, badge:"Восстановленный",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg",
     condition:"Восстановленный", gradient:["#5a6cff","#2b3bbf"], sim:true,
     colors:[["Ultramarine","#4a5ccf"],["Black","#1d1e22"]],
@@ -466,7 +466,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 15 Plus 128 ГБ, состояние «как новый». Большой дисплей 6,7″ Super Retina XDR, Dynamic Island, камера 48 Мп, USB-C и увеличенная батарея. Доступен в чёрном, голубом, зелёном и розовом. Гарантия 6 месяцев.",
     specs:["Дисплей 6,7″ Super Retina XDR","Dynamic Island","Чип A16 Bionic","Камера 48 Мп","Увеличенная батарея","USB-C","Гарантия 6 месяцев"] },
 
-  { id:107, cat:"used", name:"iPhone 15", price:840, oldPrice:null, badge:"Восстановленный",
+  { id:107, cat:"used", name:"iPhone 15", photo:"img/iphone15-new.jpg", price:840, oldPrice:null, badge:"Восстановленный",
     img:"https://www.apple.com/newsroom/images/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/tile/Apple-iPhone-15-lineup-hero-230912.jpg.og.jpg",
     condition:"Восстановленный", gradient:["#3d4356","#191c26"], sim:true,
     colors:[["Black","#1d1e22"],["Blue","#b5c9dd"]],

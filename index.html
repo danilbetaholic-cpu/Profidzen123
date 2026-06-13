@@ -1647,7 +1647,7 @@ function imgOrArt(p, h) {
   if (!list.length) return art(p, 140, h);
   return `<img src="${list[0]}" alt="${escHtml(p.name)}" loading="lazy" decoding="async"
     data-list='${JSON.stringify(list).replace(/'/g, "&#39;")}' data-i="0" data-id="${p.id}" data-h="${h}"
-    onerror="window.imgNext(this)">`;
+    onload="this.classList.add('ld')" onerror="window.imgNext(this)">`;
 }
 window.artById = (id, w, h) => art(byId(id), w, h);
 
