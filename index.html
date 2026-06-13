@@ -687,11 +687,7 @@
   .thumb.on { border-color:var(--blue); outline:1px solid var(--blue); }
   .thumb img { width:100%; height:100%; object-fit:cover; }
   /* живая подсветка под цвет выбранного варианта */
-  .detail-glow {
-    position:absolute; inset:0; z-index:0; border-radius:18px;
-    background:radial-gradient(closest-side, var(--glow), transparent 70%);
-    opacity:.32; filter:blur(24px); transition:background .45s ease, opacity .45s ease;
-  }
+  .detail-glow { display:none; }  /* убран цветной глоу — фон фото чисто белый */
   .cond-chip { display:inline-block; margin-top:8px; font-size:12.5px; font-weight:600; padding:5px 12px; border-radius:8px; background:var(--text); color:#fff; }
   .detail .full { color:var(--muted); font-size:14.5px; line-height:1.6; margin-top:12px; }
   .specs { margin-top:6px; }

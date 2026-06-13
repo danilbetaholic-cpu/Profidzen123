@@ -689,14 +689,14 @@ window.DEFAULT_PRODUCTS = [
 
   // ================= AIRPODS =================
   { id:51, cat:"audio", name:"AirPods 4", price:290, oldPrice:410, badge:null,
-    img:"https://www.apple.com/v/airpods-4/g/images/meta/airpods-4__gnjh1t3yjxm6_og.png",
+    img:"",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
     desc:"Новая посадка, чип H2, пространственное аудио",
     full:"Самые удобные AirPods: переработанная форма, пространственное аудио и до 30 часов с кейсом.",
     specs:["Чип Apple H2","Пространственное аудио","USB-C кейс","До 30 часов с кейсом","IP54"] },
   { id:55, cat:"audio", name:"AirPods 4 (с шумоподавлением)", price:400, oldPrice:570, badge:null,
-    img:"https://www.apple.com/v/airpods-4/g/images/meta/airpods-4__gnjh1t3yjxm6_og.png",
+    img:"",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
     desc:"То же, что AirPods 4, плюс активное шумоподавление",
@@ -713,7 +713,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Шумоподавление ×2","Датчик пульса","Адаптивное аудио","До 8 часов на заряде","IP57"] },
 
   { id:53, cat:"audio", name:"AirPods Max", price:1110, oldPrice:1590, badge:null,
-    img:"https://www.apple.com/v/airpods-max/k/images/meta/airpods-max_overview__c2mz40a3bugm_og.png",
+    img:"",
     gradient:["#2e3650","#141927"],
     colors:[["Midnight","#2e3650"],["Starlight","#e8dcc8"],["Blue","#7a93b8"],["Purple","#c9bfe0"],["Orange","#e8a05c"]],
     desc:"Полноразмерные наушники Hi-Fi класса",
