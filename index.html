@@ -183,9 +183,10 @@
   header.solid nav a:hover { color:var(--text); }
   .cart-btn {
     position:relative; background:none; border:none; cursor:pointer; font-size:21px; padding:8px 10px;
-    line-height:1; filter:grayscale(1) brightness(2); transition:filter .35s; z-index:2;
+    line-height:1; color:#fff; transition:color .35s; z-index:2;
   }
-  header.solid .cart-btn { filter:none; }
+  header.solid .cart-btn { color:var(--text); }
+  .cart-btn svg { width:23px; height:23px; display:block; }
   .cart-count {
     position:absolute; top:-4px; right:-7px; min-width:17px; height:17px;
     background:var(--blue); color:#fff; border-radius:9px; font-size:11px; font-weight:700;
@@ -501,8 +502,8 @@
   .fav-btn.on { background:#fff; }
   .fav-btn.on svg { fill:var(--like); stroke:var(--like); }
   .badge.soon { color:var(--blue); }
-  .badge.out { color:var(--faint); }
-  .buy-sm.off { background:#e8e8ed; color:var(--faint); cursor:default; }
+  .badge.out { color:var(--muted); }
+  .buy-sm.off { background:#e8e8ed; color:var(--muted); cursor:default; }
   .buy-sm.off:hover { background:#e8e8ed; }
   .card-img {
     aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; margin:14px 0 6px;
@@ -801,7 +802,7 @@
   .info-card h3 { font-family:var(--display); font-size:20px; font-weight:600; letter-spacing:-.02em; }
   .info-card p { color:var(--muted); font-size:14.5px; line-height:1.6; margin-top:12px; }
   .info-card .req { color:var(--text); font-size:14px; line-height:1.8; }
-  .info-small { font-size:12.5px !important; color:var(--faint) !important; }
+  .info-small { font-size:12.5px !important; color:var(--muted) !important; }
   @media (max-width:760px){ .info-grid { grid-template-columns:1fr; } }
 
   /* логотипы платёжных систем */
@@ -992,6 +993,9 @@
     .card:hover .card-img img, .tile:hover img { transform:none; }
     .card:active { transform:scale(.985); transition:transform .15s; }
   }
+  .ic-inline { width:15px; height:15px; vertical-align:-2px; margin-right:3px; }
+  .ti-ico svg { width:88px; height:88px; display:block; }
+  @media (max-width:680px){ .ti-ico svg { width:60px; height:60px; margin:0 auto; } }
 </style>
 </head>
 <body>
@@ -1016,7 +1020,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg>
         <span class="acc-name" id="accName"></span>
       </button>
-      <button class="cart-btn" onclick="openCart()" aria-label="Корзина">🛍 <span class="cart-count" id="cartCount">0</span></button>
+      <button class="cart-btn" onclick="openCart()" aria-label="Корзина"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg> <span class="cart-count" id="cartCount">0</span></button>
       <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
@@ -1027,7 +1031,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#catalog" onclick="closeMenu()">Каталог</a>
   <a href="#catalog" onclick="setTab('iphone');closeMenu()">iPhone</a>
-  <a href="#catalog" onclick="setTab('sale');closeMenu()">🔖 Акции</a>
+  <a href="#catalog" onclick="setTab('sale');closeMenu()">Акции</a>
   <a href="#catalog" onclick="setTab('acc');closeMenu()">Аксессуары</a>
   <a href="#news" onclick="closeMenu()">Новости</a>
   <a href="#contacts" onclick="closeMenu()">Контакты</a>
@@ -1037,7 +1041,7 @@
 
 <!-- ПЛАШКА АКЦИИ -->
 <a class="promo-strip" href="#catalog" onclick="setTab('sale')">
-  <span class="promo-track">🔥 Ликвидация склада — цены снижены. Успейте забрать выгодные модели →</span>
+  <span class="promo-track">Ликвидация склада — цены снижены. Успейте забрать выгодные модели →</span>
 </a>
 
 <!-- HERO -->
@@ -1110,7 +1114,7 @@
   </div>
   <div class="tabs" id="tabs"></div>
   <div class="sale-timer" id="saleTimer" style="display:none">
-    <span class="lbl">🔖 До конца акции:</span>
+    <span class="lbl">До конца акции:</span>
     <div class="clock">
       <div class="unit"><b id="tH">00</b><span>часов</span></div>
       <div class="unit"><b id="tM">00</b><span>минут</span></div>
@@ -1240,7 +1244,7 @@
       <p>Сдайте свой прежний iPhone, iPad или Mac — и получите скидку на новое устройство. Оценим его состояние бесплатно и честно, а стоимость зачтём сразу при покупке.</p>
       <a class="btn btn-blue" id="tiBtn">Узнать стоимость</a>
     </div>
-    <div class="ti-ico">♻️</div>
+    <div class="ti-ico"><svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div>
   </div>
 </section>
 
@@ -1465,7 +1469,7 @@ function toggleFav(id, btn, ev) {
   if (ev) ev.stopPropagation();
   const i = favs.indexOf(id);
   if (i >= 0) { favs.splice(i, 1); showToast("Удалено из избранного"); }
-  else { favs.push(id); showToast("Добавлено в избранное ♥"); }
+  else { favs.push(id); showToast("Добавлено в избранное"); }
   try { localStorage.setItem("ibrain_fav", JSON.stringify(favs)); } catch(e) {}
   if (btn) btn.classList.toggle("on", isFav(id));
 }
@@ -1651,7 +1655,7 @@ const usedKind = p => /Mac|iMac/i.test(p.name) ? "mac" : "iphone";
 
 function renderTabs() {
   let html = window.SHOP_CATEGORIES.map(([key, label]) =>
-    `<button class="tab ${key==='sale'?'sale-tab':''} ${key===activeCat?'active':''}" onclick="setTab('${key}')">${key==='sale'?'🔖 ':''}${label}</button>`
+    `<button class="tab ${key==='sale'?'sale-tab':''} ${key===activeCat?'active':''}" onclick="setTab('${key}')">${label}</button>`
   ).join("");
   if (activeCat === "used") {
     html += `<div class="sub-tabs">` + [["all","Вся б/у техника"],["iphone","Б/У iPhone"],["mac","Б/У Mac"]].map(([k,l]) =>
@@ -1905,7 +1909,7 @@ function renderDetail(p) {
               <button class="btn btn-blue" style="flex:1" onclick="addToCart(${p.id}, selMem, selSim, selColor); closeDetail();">
                 ${p.stock==="soon" ? "Оформить предзаказ" : "Добавить в корзину"}
               </button>
-              <button class="btn btn-outline oneclick" onclick="oneClick(${p.id})">⚡ Купить в 1 клик</button>
+              <button class="btn btn-outline oneclick" onclick="oneClick(${p.id})"><svg class="ic-inline" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg> Купить в 1 клик</button>
             </div>`}
       </div>
     </div>
@@ -2094,7 +2098,7 @@ function recalcTotals(){
   const btn=document.getElementById("coPayBtn"); if(btn) btn.textContent="Оплатить "+fmt(total);
   const note=document.getElementById("delivNote");
   if(note){
-    if(free) note.innerHTML="🎉 Заказ от "+fmt(c.freeFrom)+" — <b>доставка бесплатно</b>.";
+    if(free) note.innerHTML="Заказ от "+fmt(c.freeFrom)+" — <b>доставка бесплатно</b>.";
     else if(m.byTariff) note.textContent="Доставку оплачиваете перевозчику при получении — по его тарифам.";
     else note.textContent = c.freeFrom ? ("Бесплатная доставка от "+fmt(c.freeFrom)+".") : "";
   }
@@ -2177,7 +2181,7 @@ function oneClick(id){
     <div class="modal oneclick-modal">
       <button class="close-x" aria-label="Закрыть" onclick="document.getElementById('oneClickOverlay').classList.remove('open')">✕</button>
       <div class="oc-head">
-        <span class="oc-bolt">⚡</span>
+        <span class="oc-bolt"><svg viewBox="0 0 24 24" fill="var(--violet)" style="width:26px;height:26px"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></span>
         <div>
           <h2 style="font-size:22px">Покупка в 1 клик</h2>
           <p class="oc-prod">${escHtml(p.name)} — <b>${fmt(price)}</b></p>
@@ -2418,7 +2422,7 @@ async function doRegister(){
   if(users[email]) return showToast("Этот email уже зарегистрирован");
   users[email] = { name, email, phone, pass:await sha256(pass), orders:[] };
   saveUsers(users); setSession(email);
-  showToast("Аккаунт создан 🎉"); renderCabinet();
+  showToast("Аккаунт создан"); renderCabinet();
 }
 async function doLogin(){
   const email=val("auEmail").toLowerCase(), pass=val("auPass");
