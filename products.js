@@ -428,13 +428,6 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 15 128 ГБ в розовом цвете, состояние «как новый». Dynamic Island, дисплей 6,1″ Super Retina XDR, камера 48 Мп, USB-C. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,1″ Super Retina XDR","Dynamic Island","Чип A16 Bionic","Камера 48 Мп","USB-C","Гарантия 6 месяцев"] },
 
-  { id:125, cat:"used", name:"iPhone 14 Pro", price:1390, oldPrice:null, badge:"Как новый", stock:"out",
-    condition:"Как новый", gradient:["#e8e6e2","#bcbcbc"], sim:true,
-    colors:[["Silver","#e8e6e2"]],
-    memory:[["256 ГБ",0]],
-    desc:"Silver, 256 ГБ — ожидаем поставку",
-    full:"iPhone 14 Pro 256 ГБ в цвете Silver. Dynamic Island, дисплей 6,1″ ProMotion 120 Гц с Always-On, тройная камера Pro 48 Мп. Сейчас нет в наличии — ожидаем поставку, оставьте заявку и мы сообщим о поступлении.",
-    specs:["Дисплей 6,1″ ProMotion 120 Гц, Always-On","Dynamic Island","Чип A16 Bionic","Камера 48 Мп Pro","Стальная рамка","Гарантия 6 месяцев"] },
 
   { id:124, cat:"used", name:"iPhone 14 Pro", price:1290, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#2a2c31","#4a4c52"], sim:true,
@@ -695,6 +688,13 @@ window.DEFAULT_PRODUCTS = [
     desc:"Новая посадка, чип H2, пространственное аудио",
     full:"Самые удобные AirPods: переработанная форма, пространственное аудио и до 30 часов с кейсом.",
     specs:["Чип Apple H2","Пространственное аудио","USB-C кейс","До 30 часов с кейсом","IP54"] },
+  { id:55, cat:"audio", name:"AirPods 4 (с шумоподавлением)", price:400, oldPrice:570, badge:null,
+    img:"https://www.apple.com/v/airpods-4/g/images/meta/airpods-4__gnjh1t3yjxm6_og.png",
+    gradient:["#e8ecf2","#aab4c4"],
+    colors:[["White","#f2f2ef"]],
+    desc:"То же, что AirPods 4, плюс активное шумоподавление",
+    full:"AirPods 4 с активным шумоподавлением: чип H2, пространственное аудио, режим прозрачности и адаптивный звук. До 30 часов с кейсом.",
+    specs:["Чип Apple H2","Активное шумоподавление","Режим прозрачности","Пространственное аудио","USB-C кейс","До 30 часов с кейсом"] },
 
   { id:52, cat:"audio", name:"AirPods Pro 3", price:470, oldPrice:670, badge:"Хит",
     photo:"img/airpods-pro-new.jpg",
@@ -724,13 +724,6 @@ window.DEFAULT_PRODUCTS = [
 
   // ================= ТВ И ДОМ =================
   // stock: "soon" — скоро в наличии (предзаказ), "out" — закончились, ожидаем
-  { id:61, cat:"home", name:"Apple Vision Pro", price:10500, oldPrice:null, badge:"Будущее", stock:"soon",
-    img:"",
-    gradient:["#8a93a6","#3a4150"],
-    memory:[["256 ГБ",0],["512 ГБ",450],["1 ТБ",900]],
-    desc:"Пространственный компьютер Apple, чип M5",
-    full:"Компьютер новой эры: приложения парят в воздухе вокруг вас, экраны любого размера, кино как в IMAX.",
-    specs:["micro-OLED 23 млн пикселей","Чип M5 + R1","Управление глазами и жестами","visionOS","3D-фото и видео"] },
 
   { id:62, cat:"home", name:"Apple TV 4K", price:560, oldPrice:null, badge:null,
     img:"https://www.apple.com/v/apple-tv-4k/am/images/meta/apple-tv-4k__efpszaiqoh2e_og.png",
@@ -784,25 +777,8 @@ window.DEFAULT_PRODUCTS = [
     full:"Компактный оригинальный адаптер: заряжает iPhone до 50% за 30 минут.",
     specs:["20 Вт, USB-C","Быстрая зарядка","Оригинал Apple"] },
 
-  { id:74, cat:"acc", name:"Кабель USB-C — USB-C (1 м)", price:49, oldPrice:70, badge:null,
-    gradient:["#e8ecf2","#aab4c4"],
-    desc:"Плетёный кабель для зарядки и данных",
-    full:"Прочный плетёный кабель Apple: зарядка до 60 Вт и передача данных для iPhone, iPad и Mac.",
-    specs:["Длина 1 м","До 60 Вт","Плетёная оплётка"] },
 
-  { id:75, cat:"acc", name:"Ремешок Sport Band", price:79, oldPrice:115, badge:null,
-    gradient:["#4e7cff","#2b4bcf"],
-    colors:[["Blue","#4a6cdf"],["Black","#1d1e22"],["Звёздный свет","#e8dcc8"],["Pink","#e8c4d0"]],
-    desc:"Спортивный ремешок для Apple Watch",
-    full:"Фирменный ремешок из фторэластомера: прочный, удобный, не боится воды и пота.",
-    specs:["Фторэластомер","Размеры S/M и M/L","Для всех Apple Watch"] },
 
-  { id:76, cat:"acc", name:"Чехол Smart Folio для iPad", price:159, oldPrice:225, badge:null,
-    gradient:["#9fb4d8","#5e76a8"],
-    colors:[["Black","#1d1e22"],["Blue","#b8d3e8"],["Лавандовый","#c9b6e4"]],
-    desc:"Обложка-подставка с магнитным креплением",
-    full:"Тонкая обложка защищает iPad с двух сторон и складывается в удобную подставку для просмотра и набора текста.",
-    specs:["Магнитное крепление","Режимы подставки","Автопробуждение"] },
 
   // ---------- ЗАРЯДНЫЕ БЛОКИ И КАБЕЛИ ----------
   { id:77, cat:"acc", name:"Адаптер питания 30 Вт USB-C", price:65, oldPrice:95, badge:null,
@@ -839,29 +815,9 @@ window.DEFAULT_PRODUCTS = [
     full:"Мощный адаптер Apple на 96 Вт: максимально быстрая зарядка MacBook Pro 14″ и 16″. Совместим с кабелями USB-C и MagSafe 3.",
     specs:["96 Вт, USB-C","Для MacBook Pro 16″","Максимальная скорость","Оригинал Apple"] },
 
-  { id:82, cat:"acc", name:"Автомобильный адаптер 36 Вт (2 × USB-C)", price:79, oldPrice:115, badge:null,
-    gradient:["#cdd5e0","#8a93a6"],
-    desc:"Зарядка в авто на два устройства",
-    full:"Автомобильный адаптер с двумя портами USB-C 36 Вт: быстрая зарядка iPhone и iPad прямо в дороге.",
-    specs:["36 Вт, 2 × USB-C","Для автомобиля","Быстрая зарядка","Два устройства сразу"] },
 
-  { id:83, cat:"acc", name:"Кабель USB-C — Lightning (1 м)", price:40, oldPrice:55, badge:null,
-    gradient:["#e8ecf2","#aab4c4"],
-    desc:"Для iPhone 14 и более ранних, AirPods",
-    full:"Оригинальный кабель Apple USB-C — Lightning для быстрой зарядки iPhone 14 и более ранних моделей, а также AirPods.",
-    specs:["Длина 1 м","USB-C — Lightning","Быстрая зарядка","Оригинал Apple"] },
 
-  { id:84, cat:"acc", name:"Кабель USB-C — USB-C (2 м)", price:65, oldPrice:95, badge:null,
-    gradient:["#e8ecf2","#aab4c4"],
-    desc:"Плетёный кабель увеличенной длины",
-    full:"Прочный плетёный кабель Apple длиной 2 метра: зарядка до 60 Вт и передача данных для iPhone 15/16/17, iPad и Mac.",
-    specs:["Длина 2 м","До 60 Вт","Плетёная оплётка","USB-C — USB-C"] },
 
-  { id:85, cat:"acc", name:"Кабель Thunderbolt 4 USB-C (1,8 м)", price:219, oldPrice:315, badge:null,
-    gradient:["#cdd5e0","#8a93a6"],
-    desc:"До 40 Гбит/с и 100 Вт зарядки",
-    full:"Профессиональный кабель Apple Thunderbolt 4: передача данных до 40 Гбит/с, вывод видео и зарядка до 100 Вт. Для Mac, дисплеев и накопителей.",
-    specs:["Thunderbolt 4 / USB-C","До 40 Гбит/с","Зарядка до 100 Вт","Длина 1,8 м"] },
 
   { id:86, cat:"acc", name:"Зарядное устройство MagSafe (2-е поколение)", price:135, oldPrice:195, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
@@ -886,17 +842,6 @@ window.DEFAULT_PRODUCTS = [
     full:"Прозрачный чехол, который показывает цвет вашего iPhone и не желтеет со временем. Встроенные магниты MagSafe, усиленные борта и защита камеры.",
     specs:["Поддержка MagSafe","Не желтеет","Усиленные борта","Защита камеры"] },
 
-  { id:89, cat:"acc", name:"Чехол-книжка с отделением для карт", price:120, oldPrice:170, badge:null,
-    gradient:["#3a2e26","#1d1712"],
-    colors:[["Чёрный","#1d1e22"],["Коричневый","#6b4a2e"]],
-    desc:"Эко-кожа, карман для карт, MagSafe",
-    full:"Чехол-книжка из качественной эко-кожи с отделением для банковских карт. Поддержка MagSafe, защита экрана и камеры, удобная подставка.",
-    specs:["Поддержка MagSafe","Отделение для карт","Эко-кожа","Защита экрана"] },
 
-  { id:90, cat:"acc", name:"Противоударный чехол", price:79, oldPrice:115, badge:null,
-    gradient:["#2a2c31","#4a4c52"],
-    colors:[["Чёрный","#1d1e22"],["Прозрачный","#e8ecf2"]],
-    desc:"Усиленная защита от падений",
-    full:"Прочный чехол с противоударными углами и приподнятыми бортами вокруг экрана и камеры. Защищает iPhone при падении с высоты до 2 метров.",
-    specs:["Защита от падений","Усиленные углы","Приподнятые борта","Антискользящее покрытие"] }
+
 ];
