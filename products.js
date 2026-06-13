@@ -149,7 +149,7 @@ window.CAT_BENEFITS = {
 window.DEFAULT_PRODUCTS = [
 
   // ================= iPHONE =================
-  { id:1, cat:"iphone", name:"iPhone 17 Pro Max", price:2360, oldPrice:2480, badge:"Хит", left:7,
+  { id:1, cat:"iphone", name:"iPhone 17 Pro Max", price:2360, oldPrice:3370, badge:"Хит", left:7,
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg",
     gradient:["#ff9a3c","#ff5e62"], sim:true,
     colors:[["Cosmic Orange","#e8762e"],["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -158,7 +158,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Максимальный iPhone: самая большая батарея в истории iPhone, телеобъектив с 8-кратным оптическим зумом и система охлаждения с испарительной камерой — мощность не падает даже под нагрузкой.",
     specs:["Дисплей 6,9″ ProMotion 120 Гц, 3000 нит","Чип Apple A19 Pro","Камеры 48+48+48 Мп, зум 8×","Селфи 18 Мп Center Stage","До 39 часов видео","Ceramic Shield 2"] },
 
-  { id:2, cat:"iphone", name:"iPhone 17 Pro", price:2220, oldPrice:null, badge:"Новинка",
+  { id:2, cat:"iphone", name:"iPhone 17 Pro", price:2220, oldPrice:3170, badge:"Новинка",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-color-lineup-250909_inline.jpg.large.jpg",
     gradient:["#4e7cff","#2b4bcf"], sim:true,
     colors:[["Cosmic Orange","#e8762e"],["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -167,7 +167,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Вся мощность Pro в компактном корпусе: тройная камера 48 Мп, съёмка ProRes RAW и рекордная автономность.",
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A19 Pro","Камеры 48+48+48 Мп, зум 8×","До 33 часов видео","USB-C 3.2"] },
 
-  { id:3, cat:"iphone", name:"iPhone 17 Air", price:1810, oldPrice:null, badge:"Самый тонкий",
+  { id:3, cat:"iphone", name:"iPhone 17 Air", price:1810, oldPrice:2590, badge:"Самый тонкий",
     img:"https://www.apple.com/v/iphone-air/f/images/meta/iphone-air_overview__dwhg6l117yqa_og.png",
     gradient:["#7fd6ff","#4a9fe8"], sim:true,
     colors:[["Sky Blue","#b8d3e8"],["Light Gold","#e6d8b8"],["Cloud White","#eceae6"],["Space Black","#2a2c31"]],
@@ -176,7 +176,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый тонкий iPhone в истории — всего 5,6 мм и 165 граммов. Титановая рама и полноценный чип A19 Pro.",
     specs:["Толщина 5,6 мм, 165 г","Дисплей 6,5″ ProMotion 120 Гц","Чип Apple A19 Pro","Камера 48 Мп Fusion","Титановая рама"] },
 
-  { id:4, cat:"iphone", name:"iPhone 17", price:1600, oldPrice:null, badge:null,
+  { id:4, cat:"iphone", name:"iPhone 17", price:1600, oldPrice:2280, badge:null,
     img:"https://www.apple.com/v/iphone-17/f/images/meta/iphone-17_overview__cg0rlzmbhl7m_og.png",
     gradient:["#c9b6e4","#8e6fe8"], sim:true,
     colors:[["Lavender","#c9b6e4"],["Mist Blue","#b5c9dd"],["Sage","#b9c4a8"],["Black","#1d1e22"],["White","#f2f2ef"]],
@@ -185,7 +185,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Золотая середина линейки: впервые в базовой модели — дисплей ProMotion 120 Гц и стартовые 256 ГБ памяти.",
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A19","Камеры 48+48 Мп","Селфи 18 Мп Center Stage","До 30 часов видео"] },
 
-  { id:5, cat:"iphone", name:"iPhone 17e", price:1250, oldPrice:1310, badge:null,
+  { id:5, cat:"iphone", name:"iPhone 17e", price:1250, oldPrice:1790, badge:null,
     img:"https://www.apple.com/v/iphone-17e/a/images/overview/welcome/hero_endframe__eafizd06t6qa_large.jpg",
     gradient:["#5f6b7a","#2c3440"], sim:true,
     colors:[["Black","#1d1e22"],["White","#f2f2ef"]],
@@ -194,7 +194,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый доступный вход в экосистему Apple: флагманский чип A19, OLED-дисплей и поддержка Apple Intelligence.",
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A19","Камера 48 Мп 2-в-1","Face ID","До 26 часов видео"] },
 
-  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2300, oldPrice:2420, badge:"Выгодно", left:5,
+  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2300, oldPrice:3280, badge:"Выгодно", left:5,
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Desert Titanium","#bfa98a"],["Natural Titanium","#c2bcb2"],["Белый титан","#e8e6e2"],["Black Titanium","#3a3c40"]],
@@ -533,7 +533,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 15,3″ Liquid Retina","Чип Apple M4","16 ГБ объединённой памяти","SSD 512 ГБ","АКБ 100%","Гарантия 6 месяцев"] },
 
   // ================= iPAD =================
-  { id:21, cat:"ipad", name:"iPad", price:810, oldPrice:850, badge:null,
+  { id:21, cat:"ipad", name:"iPad", price:810, oldPrice:1160, badge:null,
     img:"https://www.apple.com/v/ipad-11/d/images/meta/ipad-11_overview__brh97xhhd8b6_og.png",
     gradient:["#9fb4d8","#5e76a8"],
     colors:[["Silver","#d6dade"],["Blue","#b8d3e8"],["Pink","#e8c4d0"],["Жёлтый","#e8dc9a"]],
@@ -551,7 +551,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Целый iPad в одной руке: 298 граммов. Идеален для чтения, заметок и поездок.",
     specs:["Дисплей 8,3″ Liquid Retina","Чип A17 Pro","Apple Pencil Pro","Wi-Fi 6E","298 грамм"] },
 
-  { id:23, cat:"ipad", name:"iPad Air", price:1310, oldPrice:null, badge:"Хит",
+  { id:23, cat:"ipad", name:"iPad Air", price:1310, oldPrice:1870, badge:"Хит",
     img:"https://www.apple.com/v/ipad-air/ah/images/meta/ipad-air_overview__bc2fd15uec0y_og.png",
     gradient:["#7fd6ff","#4a9fe8"],
     colors:[["Blue","#b8d3e8"],["Purple","#c9bfe0"],["Starlight","#e8dcc8"],["Space Gray","#5f6368"]],
@@ -560,7 +560,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Мощность чипа M4 в тонком планшете: монтаж видео, рисование, многозадачность. Поддержка Magic Keyboard.",
     specs:["Дисплей 11″ Liquid Retina","Чип Apple M4","Apple Pencil Pro","Камера 12 Мп","Touch ID"] },
 
-  { id:24, cat:"ipad", name:"iPad Pro", price:2260, oldPrice:null, badge:"Pro",
+  { id:24, cat:"ipad", name:"iPad Pro", price:2260, oldPrice:3230, badge:"Pro",
     img:"https://www.apple.com/v/ipad-pro/aw/images/meta/ipad-pro_overview__bu4cql27diaa_og.png",
     gradient:["#3d4356","#15171f"],
     colors:[["Space Black","#2a2c31"],["Silver","#d6dade"]],
@@ -579,7 +579,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый доступный Mac: корпус 12,7 × 12,7 см, чип M4 и порты Thunderbolt. Подключите монитор — и готово.",
     specs:["Чип Apple M4","16 ГБ объединённой памяти","Thunderbolt 4 × 3, HDMI","Wi-Fi 6E"] },
 
-  { id:32, cat:"mac", name:"MacBook Air 13", price:2200, oldPrice:2310, badge:"Хит",
+  { id:32, cat:"mac", name:"MacBook Air 13", price:2200, oldPrice:3150, badge:"Хит",
     img:"https://www.apple.com/v/macbook-air/z/images/meta/macbook_air_mx__ez5y0k5yy7au_og.png",
     gradient:["#2e3650","#141927"],
     colors:[["Sky Blue","#b8d3e8"],["Midnight","#2e3650"],["Starlight","#e8dcc8"],["Silver","#d6dade"]],
@@ -588,7 +588,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый популярный ноутбук Apple: тонкий, бесшумный (без вентилятора) и работает весь день от батареи.",
     specs:["Дисплей 13,6″ Liquid Retina","Чип Apple M4","16 ГБ памяти","До 18 часов работы","1,24 кг"] },
 
-  { id:33, cat:"mac", name:"MacBook Air 15", price:2380, oldPrice:null, badge:null,
+  { id:33, cat:"mac", name:"MacBook Air 15", price:2380, oldPrice:3400, badge:null,
     img:"https://www.apple.com/v/macbook-air/z/images/meta/macbook_air_mx__ez5y0k5yy7au_og.png",
     gradient:["#e8dcc8","#b8a888"],
     colors:[["Sky Blue","#b8d3e8"],["Midnight","#2e3650"],["Starlight","#e8dcc8"],["Silver","#d6dade"]],
@@ -597,7 +597,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Тот же тонкий и лёгкий Air, но с большим экраном 15,3″ — для тех, кому нужно больше пространства.",
     specs:["Дисплей 15,3″ Liquid Retina","Чип Apple M4","16 ГБ памяти","До 18 часов работы","1,51 кг"] },
 
-  { id:34, cat:"mac", name:"MacBook Pro 14", price:3900, oldPrice:null, badge:"Pro",
+  { id:34, cat:"mac", name:"MacBook Pro 14", price:3910, oldPrice:5580, badge:"Pro",
     img:"https://www.apple.com/v/macbook-pro/ax/images/meta/macbook-pro__difvbgz1plsi_og.png",
     gradient:["#3d4356","#15171f"],
     colors:[["Space Black","#2a2c31"],["Silver","#d6dade"]],
@@ -643,7 +643,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Чип Apple M3 Ultra","До 512 ГБ памяти","7 слотов PCIe","Thunderbolt × 8"] },
 
   // ================= WATCH =================
-  { id:41, cat:"watch", name:"Apple Watch SE", price:560, oldPrice:580, badge:null,
+  { id:41, cat:"watch", name:"Apple Watch SE", price:560, oldPrice:800, badge:null,
     img:"https://www.apple.com/v/apple-watch-se-3/b/images/meta/apple-watch-se-3__d0wwc67lzg02_og.png",
     gradient:["#2e3650","#141927"],
     colors:[["Midnight","#2e3650"],["Starlight","#e8dcc8"],["Silver","#d6dade"]],
@@ -651,7 +651,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Уведомления, тренировки, пульс, обнаружение падений — всё важное по самой доступной цене.",
     specs:["Дисплей Retina","Пульс и тренировки","Обнаружение падений","Влагозащита 50 м","До 18 часов работы"] },
 
-  { id:42, cat:"watch", name:"Apple Watch Series 11", price:760, oldPrice:null, badge:"Новинка",
+  { id:42, cat:"watch", name:"Apple Watch Series 11", price:760, oldPrice:1090, badge:"Новинка",
     img:"https://www.apple.com/v/apple-watch-series-11/c/images/meta/apple-watch-series-11__cim89z1i9spe_og.png",
     gradient:["#f0c4d8","#c88aa8"],
     colors:[["Rose Gold","#e0b8c4"],["Silver","#d6dade"],["Графитовый","#3a3c40"],["Угольный","#1d1e22"]],
@@ -668,7 +668,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Титановый корпус 49 мм","Спутниковая связь","Погружения до 100 м","До 42 часов работы"] },
 
   // ================= AIRPODS =================
-  { id:51, cat:"audio", name:"AirPods 4", price:290, oldPrice:null, badge:null,
+  { id:51, cat:"audio", name:"AirPods 4", price:290, oldPrice:410, badge:null,
     img:"https://www.apple.com/v/airpods-4/g/images/meta/airpods-4__gnjh1t3yjxm6_og.png",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
@@ -676,7 +676,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самые удобные AirPods: переработанная форма, пространственное аудио и до 30 часов с кейсом.",
     specs:["Чип Apple H2","Пространственное аудио","USB-C кейс","До 30 часов с кейсом","IP54"] },
 
-  { id:52, cat:"audio", name:"AirPods Pro 3", price:470, oldPrice:490, badge:"Хит",
+  { id:52, cat:"audio", name:"AirPods Pro 3", price:470, oldPrice:670, badge:"Хит",
     img:"https://www.apple.com/v/airpods-pro/r/images/meta/og__c0ceegchesom_overview.png",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
@@ -684,7 +684,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Шумоподавление в 2 раза мощнее предыдущего поколения, измерение пульса в ушах и функция слухового аппарата.",
     specs:["Шумоподавление ×2","Датчик пульса","Адаптивное аудио","До 8 часов на заряде","IP57"] },
 
-  { id:53, cat:"audio", name:"AirPods Max", price:1120, oldPrice:null, badge:null,
+  { id:53, cat:"audio", name:"AirPods Max", price:1110, oldPrice:1590, badge:null,
     img:"https://www.apple.com/v/airpods-max/k/images/meta/airpods-max_overview__c2mz40a3bugm_og.png",
     gradient:["#2e3650","#141927"],
     colors:[["Midnight","#2e3650"],["Starlight","#e8dcc8"],["Blue","#7a93b8"],["Purple","#c9bfe0"],["Orange","#e8a05c"]],
@@ -692,7 +692,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Полноразмерные наушники Apple: фирменное звучание, шумоподавление, алюминий и премиальные материалы.",
     specs:["Динамики Apple 40 мм","Активное шумоподавление","Пространственное аудио","До 20 часов работы","USB-C"] },
 
-  { id:54, cat:"audio", name:"AirPods Pro 2", price:390, oldPrice:410, badge:null, stock:"out",
+  { id:54, cat:"audio", name:"AirPods Pro 2", price:390, oldPrice:560, badge:null, stock:"out",
     img:"https://www.apple.com/v/airpods-pro/r/images/meta/og__c0ceegchesom_overview.png",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
@@ -755,7 +755,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Магнитная беспроводная зарядка для iPhone и AirPods: идеально выравнивается и заряжает до 25 Вт.",
     specs:["Мощность до 25 Вт","Кабель USB-C 1 м","Совместима с чехлами MagSafe"] },
 
-  { id:73, cat:"acc", name:"Адаптер питания 20 Вт USB-C", price:55, oldPrice:null, badge:null,
+  { id:73, cat:"acc", name:"Адаптер питания 20 Вт USB-C", price:60, oldPrice:80, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
     photo:"img/acc-adapter-20w.jpg",
     desc:"Быстрая зарядка iPhone и iPad",
@@ -823,7 +823,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Автомобильный адаптер с двумя портами USB-C 36 Вт: быстрая зарядка iPhone и iPad прямо в дороге.",
     specs:["36 Вт, 2 × USB-C","Для автомобиля","Быстрая зарядка","Два устройства сразу"] },
 
-  { id:83, cat:"acc", name:"Кабель USB-C — Lightning (1 м)", price:45, oldPrice:null, badge:null,
+  { id:83, cat:"acc", name:"Кабель USB-C — Lightning (1 м)", price:40, oldPrice:60, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
     desc:"Для iPhone 14 и более ранних, AirPods",
     full:"Оригинальный кабель Apple USB-C — Lightning для быстрой зарядки iPhone 14 и более ранних моделей, а также AirPods.",
