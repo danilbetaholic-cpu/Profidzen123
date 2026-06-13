@@ -725,7 +725,7 @@ window.DEFAULT_PRODUCTS = [
   // ================= ТВ И ДОМ =================
   // stock: "soon" — скоро в наличии (предзаказ), "out" — закончились, ожидаем
   { id:61, cat:"home", name:"Apple Vision Pro", price:10500, oldPrice:null, badge:"Будущее", stock:"soon",
-    img:"https://www.apple.com/v/apple-vision-pro/k/images/meta/apple-vision-pro-us__f28gp8ey4vam_og.png",
+    img:"",
     gradient:["#8a93a6","#3a4150"],
     memory:[["256 ГБ",0],["512 ГБ",450],["1 ТБ",900]],
     desc:"Пространственный компьютер Apple, чип M5",
