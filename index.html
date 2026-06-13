@@ -480,8 +480,10 @@
   .card.visible { opacity:1; transform:none; transition:opacity .7s, transform .7s cubic-bezier(.16,1,.3,1), box-shadow .5s; }
   .card:hover { transform:translateY(-8px); box-shadow:var(--card-shadow-hover); border-color:rgba(0,102,255,.12); }
   .badge {
-    position:absolute; top:16px; left:20px; font-size:12px; font-weight:600; color:var(--orange); z-index:2;
+    position:absolute; top:14px; left:16px; font-size:11.5px; font-weight:700; color:var(--orange); z-index:2;
     text-transform:uppercase; letter-spacing:.4px;
+    background:rgba(255,255,255,.82); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    padding:4px 10px; border-radius:8px; box-shadow:0 2px 8px rgba(20,20,40,.07);
   }
   .badge.cond { color:#fff; background:var(--text); padding:4px 10px; border-radius:8px; }
   /* семантика бейджей: цвет = смысл */
@@ -504,8 +506,9 @@
   .buy-sm.off:hover { background:#e8e8ed; }
   .card-img {
     aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; margin:14px 0 6px;
-    background:radial-gradient(120% 120% at 50% 25%, #fafafb 0%, #eef0f3 100%);
+    background:linear-gradient(180deg, #ffffff 0%, #f7f8fa 100%);
     border-radius:16px; padding:14px; overflow:hidden;
+    box-shadow:inset 0 0 0 1px rgba(20,20,40,.045);
   }
   .card-img img { max-height:100%; max-width:100%; object-fit:contain; transition:transform .6s cubic-bezier(.16,1,.3,1); }
   .card:hover .card-img img { transform:scale(1.06); }
@@ -940,7 +943,7 @@
     .card .desc { display:none; }
     .card .colors-row { margin-top:6px; min-height:11px; }
     .dot { width:10px; height:10px; }
-    .badge { top:11px; left:13px; font-size:10px; }
+    .badge { top:11px; left:11px; font-size:10px; padding:3px 7px; border-radius:6px; }
     .badge.cond { padding:3px 7px; border-radius:6px; }
     .price-row { margin-top:8px; gap:5px; }
     .price { font-size:15.5px; }

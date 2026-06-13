@@ -747,7 +747,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Колонка, которая заполняет звуком всю комнату и управляет умным домом.",
     specs:["5 высокочастотных динамиков","Пространственное аудио","Датчики температуры","Стереопара"] },
 
-  { id:64, cat:"home", name:"HomePod mini", price:350, oldPrice:365, badge:null,
+  { id:64, cat:"home", name:"HomePod mini", price:350, oldPrice:500, badge:null,
     img:"https://www.apple.com/v/homepod-mini/j/images/meta/homepod-mini__bnxwvz5xrtpy_og.png",
     gradient:["#ff9a3c","#ff5e62"],
     colors:[["Orange","#e8762e"],["Blue","#7a93b8"],["Жёлтый","#e8dc9a"],["White","#f2f2ef"],["Midnight","#2e3650"]],
