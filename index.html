@@ -940,7 +940,7 @@
     /* каталог: 2 компактные карточки в ряд, как в App Store */
     .grid { grid-template-columns:repeat(2,1fr); gap:12px; margin-top:24px; }
     .card { padding:14px 13px 16px; border-radius:18px; }
-    .card-img { height:150px; margin:14px 0 6px; border-radius:14px; padding:10px; }
+    .card-img { aspect-ratio:auto; width:100%; box-sizing:border-box; height:150px; margin:14px 0 6px; border-radius:14px; padding:10px; }
     .card-img img { max-height:130px; }
     .card h3 { font-size:14.5px; margin-top:4px; line-height:1.25; }
     .card .desc { display:none; }
