@@ -177,6 +177,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Толщина 5,6 мм, 165 г","Дисплей 6,5″ ProMotion 120 Гц","Чип Apple A19 Pro","Камера 48 Мп Fusion","Титановая рама"] },
 
   { id:4, cat:"iphone", name:"iPhone 17", price:1600, oldPrice:2280, badge:null,
+    img:"https://www.apple.com/v/iphone-17/f/images/meta/iphone-17_overview__cg0rlzmbhl7m_og.png",
     gradient:["#c9b6e4","#8e6fe8"], sim:true,
     colors:[["Lavender","#c9b6e4"],["Mist Blue","#b5c9dd"],["Sage","#b9c4a8"],["Black","#1d1e22"],["White","#f2f2ef"]],
     memory:[["256 ГБ",0],["512 ГБ",450]],
@@ -185,6 +186,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A19","Камеры 48+48 Мп","Селфи 18 Мп Center Stage","До 30 часов видео"] },
 
   { id:5, cat:"iphone", name:"iPhone 17e", price:1250, oldPrice:1790, badge:null,
+    img:"https://www.apple.com/v/iphone-17e/a/images/overview/welcome/hero_endframe__eafizd06t6qa_large.jpg",
     gradient:["#5f6b7a","#2c3440"], sim:true,
     colors:[["Black","#1d1e22"],["White","#f2f2ef"]],
     memory:[["128 ГБ",0],["256 ГБ",250],["512 ГБ",700]],
