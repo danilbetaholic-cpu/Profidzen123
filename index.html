@@ -484,6 +484,11 @@
     text-transform:uppercase; letter-spacing:.4px;
   }
   .badge.cond { color:#fff; background:var(--text); padding:4px 10px; border-radius:8px; }
+  /* семантика бейджей: цвет = смысл */
+  .badge.deal { color:var(--orange); }   /* выгода / акция */
+  .badge.hit  { color:var(--blue); }     /* хит продаж */
+  .badge.new  { color:var(--violet); }   /* новинка */
+  .badge.feat { color:var(--ink); }      /* фича: Pro / Ultra / тонкий */
   .fav-btn {
     position:absolute; top:14px; right:14px; z-index:3; width:34px; height:34px; border-radius:50%;
     background:rgba(255,255,255,.85); border:1px solid var(--border); cursor:pointer; padding:0;
@@ -1619,10 +1624,19 @@ window.imgNext = function (el) {
   if (i < list.length) { el.setAttribute("data-i", i); el.src = list[i]; }
   else { el.outerHTML = artById(id, 140, h); }
 };
+// семантический класс бейджа: цвет кодирует смысл
+function badgeClass(b){
+  const t = (b||"").toLowerCase();
+  if (/выгод|акци|скидк/.test(t)) return "deal";
+  if (/хит/.test(t)) return "hit";
+  if (/новин|будущ/.test(t)) return "new";
+  if (/pro|ultra|тонк|max|air/.test(t)) return "feat";
+  return "";
+}
 function imgOrArt(p, h) {
   const list = photoList(p);
   if (!list.length) return art(p, 140, h);
-  return `<img src="${list[0]}" alt="${escHtml(p.name)}" loading="lazy"
+  return `<img src="${list[0]}" alt="${escHtml(p.name)}" loading="lazy" decoding="async"
     data-list='${JSON.stringify(list).replace(/'/g, "&#39;")}' data-i="0" data-id="${p.id}" data-h="${h}"
     onerror="window.imgNext(this)">`;
 }
@@ -1702,7 +1716,7 @@ function renderCatalog() {
       ${p.stock==="out" ? `<div class="badge out">Ожидаем поставку</div>`
         : p.stock==="soon" ? `<div class="badge soon">Скоро в наличии</div>`
         : p.condition ? `<div class="badge cond">${p.condition}</div>`
-        : (p.badge ? `<div class="badge">${p.badge}</div>` : "")}
+        : (p.badge ? `<div class="badge ${badgeClass(p.badge)}">${p.badge}</div>` : "")}
       <button class="fav-btn ${isFav(p.id)?'on':''}" onclick="toggleFav(${p.id}, this, event)" aria-label="В избранное">
         <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
       </button>
@@ -2571,12 +2585,15 @@ function relightMarketing(){
     card.classList.remove('dark');  // плитка больше не тёмная
     if (localPhoto) {
       img.src = localPhoto;
+      if (p && p.name) img.alt = p.name;            // alt для доступности/SEO
       img.removeAttribute('loading');
       img.style.objectFit = 'contain';
       img.style.background = '#fff';
     } else {
       const wrap = document.createElement('div');
       wrap.className = card.classList.contains('tile') ? 'tile-art' : 'hl-art';
+      wrap.setAttribute('role', 'img');
+      if (p && p.name) wrap.setAttribute('aria-label', p.name);
       if (p) wrap.innerHTML = art(p, 360, 360);
       img.replaceWith(wrap);
     }
