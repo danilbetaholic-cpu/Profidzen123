@@ -16,8 +16,8 @@
 <meta property="og:image" content="https://techpro.by/og-preview.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Favicon: буква i в фирменном стиле (inline SVG, грузится со своего домена) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230066ff'/%3E%3Ctext x='50' y='72' font-size='38' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3ETP%3C/text%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230066ff'/%3E%3Ctext x='50' y='72' font-size='38' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'%3ETP%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
 <!-- Микроразметка для поисковиков (карточка магазина в Google) -->
 <script type="application/ld+json">
 {
@@ -158,10 +158,14 @@
     border-bottom:1px solid rgba(0,0,0,.08);
   }
   .hwrap { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:14px 22px; }
-  .logo { font-family:var(--display); font-size:22px; font-weight:600; letter-spacing:-.04em; color:#fff; transition:color .35s; }
+  .logo { display:flex; align-items:center; gap:9px; font-family:var(--display); font-size:22px; font-weight:600; letter-spacing:-.04em; color:#fff; transition:color .35s; }
   header.solid .logo { color:var(--text); }
   .logo:hover { text-decoration:none; }
-  .logo span { color:var(--blue); }
+  .logo .logo-word span { color:var(--blue); }
+  .logo-img { height:30px; width:auto; display:block; }
+  .logo-black { display:none; }
+  header.solid .logo-white { display:none; }
+  header.solid .logo-black { display:block; }
   nav { display:flex; gap:26px; }
   nav a { color:rgba(255,255,255,.8); font-size:14px; transition:color .2s; }
   header.solid nav a { color:#424245; }
@@ -946,14 +950,18 @@
 
 <header>
   <div class="hwrap">
-    <a class="logo" href="#">Tech<span>Pro</span></a>
+    <a class="logo" href="#" aria-label="TechPro">
+      <img class="logo-img logo-white" src="img/logo-icon-white.png" alt="TechPro" width="34" height="34">
+      <img class="logo-img logo-black" src="img/logo-icon-black.png" alt="" width="34" height="34">
+      <span class="logo-word">Tech<span>Pro</span></span>
+    </a>
     <nav>
       <a href="#catalog">Каталог</a>
       <a href="#catalog" onclick="setTab('iphone')">iPhone</a>
-      <a href="#catalog" onclick="setTab('used')">Б/У</a>
       <a href="#catalog" onclick="setTab('sale')">Акции</a>
       <a href="#news">Новости</a>
       <a href="#contacts">Контакты</a>
+      <a href="#catalog" onclick="setTab('used')">Б/У</a>
     </nav>
     <div style="display:flex;align-items:center;gap:8px">
       <button class="acc-btn" id="accBtn" onclick="openAccount()" aria-label="Личный кабинет">
@@ -971,11 +979,11 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#catalog" onclick="closeMenu()">Каталог</a>
   <a href="#catalog" onclick="setTab('iphone');closeMenu()">iPhone</a>
-  <a href="#catalog" onclick="setTab('used');closeMenu()">Б/У iPhone</a>
   <a href="#catalog" onclick="setTab('sale');closeMenu()">🔖 Акции</a>
   <a href="#catalog" onclick="setTab('acc');closeMenu()">Аксессуары</a>
   <a href="#news" onclick="closeMenu()">Новости</a>
   <a href="#contacts" onclick="closeMenu()">Контакты</a>
+  <a href="#catalog" onclick="setTab('used');closeMenu()">Б/У техника</a>
   <a class="mm-account" href="javascript:void(0)" onclick="closeMenu();openAccount()" id="mmAccount">Личный кабинет · Вход</a>
 </div>
 
