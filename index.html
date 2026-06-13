@@ -756,6 +756,12 @@
 
   /* логотипы платёжных систем */
   .pay-logos { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+  .ver-label { font-size:12.5px; color:var(--muted); margin-top:16px; }
+  .ver-logos { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+  .vl { display:inline-flex; align-items:center; height:30px; padding:0 11px; border-radius:7px;
+    border:1px solid var(--border); background:var(--bg-grey); font-size:12px; color:#555; letter-spacing:.01em; }
+  .vl b { font-weight:800; margin-left:3px; }
+  .vl-visa b { color:#1a1f71; } .vl-mc b { color:#eb5b0a; } .vl-belkart b { color:#e2231a; } .vl-3ds b { color:#0a7d44; }
   .pl {
     display:inline-flex; align-items:center; gap:5px; height:34px; padding:0 14px;
     border:1px solid var(--border); border-radius:8px; background:#fff;
@@ -1200,6 +1206,13 @@
         <span class="pl pl-erip">ЕРИП</span>
         <span class="pl pl-pay"> Pay</span>
       </div>
+      <p class="ver-label">Безопасность подтверждается технологиями верификации:</p>
+      <div class="ver-logos">
+        <span class="vl vl-visa">Verified by <b>VISA</b></span>
+        <span class="vl vl-mc">Mastercard <b>ID&nbsp;Check</b></span>
+        <span class="vl vl-belkart">Интернет-пароль <b>БЕЛКАРТ</b></span>
+        <span class="vl vl-3ds"><b>3-D</b> Secure</span>
+      </div>
       <p class="info-small">
         Оплата проходит через защищённый платёжный сервис <b>bePaid</b>. При оплате вы
         перенаправляетесь на авторизационную страницу банка для ввода реквизитов карты.
@@ -1220,11 +1233,13 @@
     <div class="info-card">
       <h3>Возврат и обмен</h3>
       <p>Возврат и обмен товара осуществляется в соответствии с законодательством Республики
-      Беларусь. Товар надлежащего качества можно вернуть или обменять в течение 14 дней при
-      сохранении товарного вида, потребительских свойств, упаковки и документов.</p>
+      Беларусь. Товар надлежащего качества можно вернуть либо обменять на аналогичный
+      (взаимозаменяемый) товар в течение 14 дней при сохранении товарного вида, потребительских
+      свойств, упаковки и документов. При отказе покупателя от товара денежные средства
+      возвращаются в полном объёме.</p>
       <p>Возврат денежных средств производится тем же способом, которым была произведена оплата,
-      в срок до 7 банковских дней с момента согласования возврата. Для оформления возврата
-      свяжитесь с нами по телефону или email, указанным в контактах.</p>
+      в срок до 7 банковских дней с момента согласования возврата. Для оформления возврата или
+      обмена свяжитесь с нами по телефону или email, указанным в реквизитах и контактах.</p>
     </div>
 
     <div class="info-card">
