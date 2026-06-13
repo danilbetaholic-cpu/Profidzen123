@@ -199,7 +199,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый доступный вход в экосистему Apple: флагманский чип A19, OLED-дисплей и поддержка Apple Intelligence.",
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A19","Камера 48 Мп 2-в-1","Face ID","До 26 часов видео"] },
 
-  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2300, oldPrice:3280, badge:"Выгодно", left:5,
+  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2100, oldPrice:3280, badge:"Выгодно", left:5,
     photo:"img/iphone16-promax-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     gradient:["#bfa98a","#7a6a4f"], sim:true,
@@ -250,7 +250,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,1″ Super Retina XDR","Чип A16 Bionic","Камера 48 Мп","Dynamic Island","USB-C"] },
 
   // ================= Б/У iPHONE =================
-  { id:101, cat:"used", name:"iPhone 17 Pro Max", price:3080, oldPrice:null, badge:"Как новый",
+  { id:101, cat:"used", name:"iPhone 17 Pro Max", price:2080, oldPrice:null, badge:"Как новый",
     photo:"img/iphone17-promax-orange-1.jpg",
     gallery:["img/iphone17-promax-orange-1.jpg","img/iphone17-promax-orange-2.jpg","img/iphone17-promax-orange-3.jpg","img/iphone17-promax-orange-4.jpg"],
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg",
@@ -261,7 +261,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Аппарат в идеальном состоянии: без царапин и сколов, аккумулятор от 98%. Проверка по 40 пунктам, гарантия 6 месяцев.",
     specs:["Состояние 10/10 «как новый»","АКБ 98–100%","Полный комплект, коробка","Гарантия 6 месяцев"] },
 
-  { id:102, cat:"used", name:"iPhone 17 Pro", price:2580, oldPrice:null, badge:"Как новый",
+  { id:102, cat:"used", name:"iPhone 17 Pro", price:1950, oldPrice:null, badge:"Как новый",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-color-lineup-250909_inline.jpg.large.jpg",
     condition:"Как новый", gradient:["#4e7cff","#2b4bcf"], sim:true,
     colors:[["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -270,7 +270,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Витринный образец или аппарат с минимальным пробегом. Внешне неотличим от нового, гарантия 6 месяцев.",
     specs:["Состояние 10/10","АКБ 97–100%","Полный комплект","Гарантия 6 месяцев"] },
 
-  { id:103, cat:"used", name:"iPhone 17 Pro Max (восст.)", price:2690, oldPrice:null, badge:"Восстановленный",
+  { id:103, cat:"used", name:"iPhone 17 Pro Max (восст.)", price:1890, oldPrice:null, badge:"Восстановленный",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-color-lineup-250909_inline.jpg.large.jpg",
     condition:"Восстановленный", gradient:["#8a93a6","#3a4150"], sim:true,
     colors:[["Silver","#d6dade"],["Deep Blue","#1f2a44"]],
@@ -279,7 +279,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Профессионально восстановленный флагман: новый аккумулятор, новый корпус, оригинальные комплектующие. Работает как новый — стоит заметно дешевле.",
     specs:["Новый аккумулятор (100%)","Новый корпус и стекло","Оригинальные запчасти","Гарантия 6 месяцев"] },
 
-  { id:104, cat:"used", name:"iPhone 17", price:1680, oldPrice:null, badge:"Как новый",
+  { id:104, cat:"used", name:"iPhone 17", price:1410, oldPrice:null, badge:"Как новый",
     img:"https://www.apple.com/v/iphone-17/f/images/meta/iphone-17_overview__cg0rlzmbhl7m_og.png",
     condition:"Как новый", gradient:["#c9b6e4","#8e6fe8"], sim:true,
     colors:[["Lavender","#c9b6e4"],["Black","#1d1e22"]],
@@ -288,7 +288,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Практически новый iPhone 17 ощутимо дешевле. Полная проверка, гарантия 6 месяцев.",
     specs:["Состояние 10/10","АКБ 98–100%","Гарантия 6 месяцев"] },
 
-  { id:105, cat:"used", name:"iPhone 16 Pro", price:1890, oldPrice:null, badge:"Как новый",
+  { id:105, cat:"used", name:"iPhone 16 Pro", price:1720, oldPrice:null, badge:"Как новый",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     condition:"Как новый", gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Natural Titanium","#bfa98a"],["Black Titanium","#3a3c40"]],
@@ -306,7 +306,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Восстановленный iPhone 16: новый аккумулятор, новый корпус. Лучшее соотношение цены и возможностей.",
     specs:["Новый аккумулятор","Новый корпус","Чип A18","Гарантия 6 месяцев"] },
 
-  { id:117, cat:"used", name:"iPhone 16 Pro Max", price:2190, oldPrice:null, badge:"Как новый", left:1,
+  { id:117, cat:"used", name:"iPhone 16 Pro Max", price:1850, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#bfb8ad","#8a8378"], sim:true,
     colors:[["Natural Titanium","#bfb8ad"]],
     memory:[["256 ГБ",0]],
@@ -317,7 +317,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 16 Pro Max 256 ГБ в цвете Natural Titanium, версия eSIM. Состояние «как новый», аккумулятор 93%. Дисплей 6,9″ ProMotion 120 Гц, кнопка Camera Control, титановый корпус. Гарантия 6 месяцев.",
     specs:["Дисплей 6,9″ ProMotion 120 Гц","Чип A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","АКБ 93%","Только eSIM","Гарантия 6 месяцев"] },
 
-  { id:116, cat:"used", name:"iPhone 16 Pro Max", price:2290, oldPrice:null, badge:"Как новый", left:1,
+  { id:116, cat:"used", name:"iPhone 16 Pro Max", price:1870, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#e8e6e2","#c2bcb2"], sim:true,
     colors:[["White Titanium","#e8e6e2"]],
     memory:[["256 ГБ",0]],
@@ -348,7 +348,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 13 Pro Max 256 ГБ в цвете Sierra Blue, состояние «как новый» — без царапин и сколов. Дисплей 6,7″ ProMotion 120 Гц, тройная камера Pro, ёмкость аккумулятора от 90%. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,7″ ProMotion 120 Гц","Чип A15 Bionic","Тройная камера Pro 12 Мп","АКБ от 90%","Полный комплект","Гарантия 6 месяцев"] },
 
-  { id:126, cat:"used", name:"iPhone 16 Pro Max", price:2240, oldPrice:null, badge:"Как новый", left:1,
+  { id:126, cat:"used", name:"iPhone 16 Pro Max", price:1830, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#c9a86a","#9a7b44"], sim:true,
     colors:[["Desert Titanium","#c9a86a"]],
     memory:[["256 ГБ",0]],
@@ -532,7 +532,7 @@ window.DEFAULT_PRODUCTS = [
     full:"MacBook Pro 13″ 2015 года на Intel Core i5, 16 ГБ оперативной памяти и 256 ГБ SSD, цвет Silver. Рабочее состояние, ёмкость аккумулятора 84%. Надёжный вариант для учёбы, документов и интернета по доступной цене.",
     specs:["Дисплей 13,3″ Retina","Intel Core i5","16 ГБ ОЗУ","SSD 256 ГБ","АКБ 84%","Гарантия 3 месяца"] },
 
-  { id:130, cat:"used", name:"MacBook Air 15″ (2025) M4", price:3690, oldPrice:null, badge:"Как новый", left:2,
+  { id:130, cat:"used", name:"MacBook Air 15″ (2025) M4", price:2090, oldPrice:null, badge:"Как новый", left:2,
     condition:"Как новый", gradient:["#d6dade","#a6abb2"],
     colors:[["Silver","#d6dade"]],
     memory:[["512 ГБ SSD",0]],
@@ -763,9 +763,9 @@ window.DEFAULT_PRODUCTS = [
     specs:["Точный поиск (UWB 2)","Сеть Локатора","Батарейка на год+","IP67"] },
 
   // ================= АКСЕССУАРЫ =================
-  { id:71, cat:"acc", name:"Чехол MagSafe для iPhone 17 Pro", price:105, oldPrice:null, badge:null,
+  { id:71, cat:"acc", name:"Чехол MagSafe для iPhone 17 Pro", photo:"img/acc-case-silicone-purple.jpg", price:105, oldPrice:null, badge:null,
     gradient:["#3d4356","#15171f"],
-    colors:[["Black","#1d1e22"],["Blue","#1f2a44"],["Orange","#e8762e"],["Прозрачный","#e8ecf2"]],
+    colors:[["Сливовый","#5a3a52"],["Чёрный","#1d1e22"],["Синий","#1f2a44"],["Прозрачный","#e8ecf2"]],
     desc:"Оригинальный чехол с поддержкой MagSafe",
     full:"Фирменный чехол Apple: точные вырезы, приятный на ощупь материал и магниты MagSafe для зарядки и аксессуаров.",
     specs:["Поддержка MagSafe","Оригинал Apple","Защита камеры","Микрофибра внутри"] },

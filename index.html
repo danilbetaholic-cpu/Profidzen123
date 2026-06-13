@@ -53,15 +53,15 @@
     --faint-dark: #a1a1a6;     /* подписи на тёмном фоне */
     --border: #e3e3e6;
     /* ——— акценты бренда ——— */
-    --blue: #0066ff;           /* главный акцент */
+    --blue: var(--blue);           /* главный акцент */
     --blue-dark: #0a5be0;
     --blue-soft: #eef3ff;      /* мягкий фон-акцент */
-    --violet: var(--violet);         /* вторичный декоративный акцент */
+    --violet: #9b5cff;         /* вторичный декоративный акцент */
     /* ——— семантические цвета ——— */
     --green: #0a7d44;          /* в наличии / успех */
     --orange: #c1410b;         /* акции / распродажа */
-    --star: var(--star);           /* рейтинг */
-    --like: var(--like);           /* избранное */
+    --star: #ffb703;           /* рейтинг */
+    --like: #ff3b5c;           /* избранное */
     /* ——— тени / форма ——— */
     --card-shadow: 0 2px 10px rgba(20,20,40,.05), 0 14px 40px rgba(20,20,40,.05);
     --card-shadow-hover: 0 8px 24px rgba(20,20,50,.10), 0 26px 70px rgba(20,20,50,.13);
@@ -139,7 +139,7 @@
   .cart-count.bump { animation:cartPop .45s cubic-bezier(.34,1.56,.64,1); }
   /* «улетающая» точка в корзину при добавлении товара */
   .fly-dot { position:fixed; z-index:300; width:14px; height:14px; border-radius:50%;
-    background:linear-gradient(135deg,#0066ff,var(--violet)); pointer-events:none;
+    background:linear-gradient(135deg,var(--blue),var(--violet)); pointer-events:none;
     box-shadow:0 4px 14px rgba(0,102,255,.5); will-change:transform,opacity; }
 
   /* плавное появление при скролле */
@@ -512,6 +512,7 @@
   .price { font-size:20px; font-weight:700; }
   .from { font-size:13px; color:var(--muted); font-weight:400; }
   .old-price { color:var(--muted); text-decoration:line-through; font-size:14px; }
+  .disc { font-size:12px; font-weight:800; color:#fff; background:var(--orange); border-radius:7px; padding:2px 7px; line-height:1.5; letter-spacing:.01em; }
   .card-btns { display:flex; gap:10px; margin-top:14px; }
   .buy-sm { flex:1; background:var(--blue); color:#fff; border:none; border-radius:980px; padding:10px; font-size:14px; font-weight:500; cursor:pointer; transition:.25s; font-family:inherit; }
   .buy-sm:hover { background:var(--blue-dark); }
@@ -551,7 +552,7 @@
     color:#fff; gap:8px;
   }
   .insta-ph .mark { font-family:var(--display); font-weight:600; font-size:clamp(15px,2vw,22px); letter-spacing:-.03em; }
-  .insta-ph .mark span { background:linear-gradient(90deg,#0066ff,var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .insta-ph .mark span { background:linear-gradient(90deg,var(--blue),var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .insta-ph .ig { width:24px; height:24px; opacity:.55; }
   .insta-foot {
     margin-top:30px; display:flex; align-items:center; justify-content:center; gap:34px; flex-wrap:wrap;
@@ -588,7 +589,7 @@
   .rc-head { display:flex; align-items:center; gap:12px; }
   .rc-ava {
     width:44px; height:44px; border-radius:50%; flex-shrink:0;
-    background:linear-gradient(135deg,#0066ff,var(--violet)); color:#fff;
+    background:linear-gradient(135deg,var(--blue),var(--violet)); color:#fff;
     display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px;
   }
   .rc-who { flex:1; line-height:1.3; }
@@ -940,6 +941,7 @@
     .price { font-size:15.5px; }
     .from { font-size:11px; }
     .old-price { font-size:11.5px; }
+    .disc { font-size:10.5px; padding:1px 5px; }
     .card-btns { margin-top:10px; gap:6px; }
     .buy-sm { padding:9px 6px; font-size:12.5px; }
     .more-sm { display:none; }   /* вся карточка и так кликабельна */
@@ -1711,6 +1713,7 @@ function renderCatalog() {
       <div class="price-row">
         <div class="price">${p.memory && p.memory.length > 1 ? '<span class="from">от </span>' : ''}${fmt(p.price)}</div>
         ${p.oldPrice ? `<div class="old-price">${fmt(p.oldPrice)}</div>` : ""}
+        ${p.oldPrice && p.oldPrice > p.price ? `<span class="disc">−${Math.round((1 - p.price / p.oldPrice) * 100)}%</span>` : ""}
       </div>
       ${p.left ? `<div class="left-row"><span class="left-bar"><i style="width:${Math.max(12,Math.min(p.left/10*100,100))}%"></i></span>Осталось ${p.left} шт.</div>` : ""}
       <div class="card-btns">
@@ -1827,7 +1830,7 @@ function renderDetail(p) {
     return ` <small>${d > 0 ? "+" : "−"}${fmt(v)}</small>`;
   };
   // цвет выбранного варианта для живой подсветки
-  const selHex = (p.colors && (p.colors.find(c => c[0] === selColor) || [])[1]) || p.gradient && p.gradient[0] || "#0066ff";
+  const selHex = (p.colors && (p.colors.find(c => c[0] === selColor) || [])[1]) || p.gradient && p.gradient[0] || "var(--blue)";
   document.getElementById("detailBody").innerHTML = `
     <div class="detail">
       <div class="detail-media">
@@ -1876,6 +1879,7 @@ function renderDetail(p) {
 
         <div class="detail-price">${fmt(price)}
           ${p.oldPrice ? `<span class="old-price">${fmt(oldPriceOf(p, selMem, selSim))}</span>` : ""}
+          ${p.oldPrice && oldPriceOf(p, selMem, selSim) > price ? `<span class="disc">−${Math.round((1 - price / oldPriceOf(p, selMem, selSim)) * 100)}%</span>` : ""}
         </div>
         ${p.left ? `<div class="left-row" style="margin-top:10px"><span class="left-bar"><i style="width:${Math.max(12,Math.min(p.left/10*100,100))}%"></i></span>Осталось ${p.left} шт. — успейте купить</div>` : ""}
         ${p.stock==="out"
@@ -2240,7 +2244,7 @@ document.querySelectorAll(".overlay").forEach(o =>
 (function () {
   const bar = document.createElement("div");
   bar.style.cssText = "position:fixed;top:0;left:0;height:2px;width:0;z-index:200;" +
-    "background:linear-gradient(90deg,#0066ff,var(--violet));transition:width .1s ease-out";
+    "background:linear-gradient(90deg,var(--blue),var(--violet));transition:width .1s ease-out";
   document.body.appendChild(bar);
   addEventListener("scroll", () => {
     const h = document.documentElement;
@@ -2534,8 +2538,9 @@ window.addEventListener("scroll", () => {
 function renderPhotoReviews(){
   const n = (window.SHOP_CONFIG && window.SHOP_CONFIG.photoReviews) || 19;
   const el = document.getElementById("photoReviews"); if(!el) return;
+  const skip = (window.SHOP_CONFIG && window.SHOP_CONFIG.photoReviewsSkip) || [18]; // дубликаты
   let h="";
-  for(let i=1;i<=n;i++) h += `<img src="img/review-photo-${i}.jpg" alt="Фото-отзыв клиента TechPro" loading="lazy" onclick="openPhoto(this.src)" onerror="this.style.display='none'">`;
+  for(let i=1;i<=n;i++){ if(skip.indexOf(i)!==-1) continue; h += `<img src="img/review-photo-${i}.jpg" alt="Фото-отзыв клиента TechPro" loading="lazy" onclick="openPhoto(this.src)" onerror="this.style.display='none'">`; }
   el.innerHTML = h;
 }
 function openPhoto(src){ const o=document.getElementById("photoOverlay"); document.getElementById("photoBig").src=src; o.classList.add("open"); }
