@@ -77,20 +77,20 @@ window.SHOP_INSTAGRAM = {
     { name: "Екатерина С.", avatar: "img/review-avatar-8.jpg",city: "Минск",     source: "instagram", rating: 5,   text: "Купила iPad Air для учёбы, помогли с выбором памяти и аксессуарами. Всё запечатано, гарантия есть." },
     { name: "Артём В.", avatar: "img/review-avatar-10.jpg",    city: "Могилёв",   source: "telegram",  rating: 4.5, text: "Брал AirPods Pro 2. Звук отличный, всё ок. Единственное — хотелось чуть быстрее доставку в область." },
     { name: "Юлия Н.", avatar: "img/review-avatar-9.jpg",     city: "Минск",     source: "site",      rating: 5,   text: "Очень довольна Apple Watch Series 10. Настроили прямо при получении, показали как пользоваться. Спасибо!" },
-    { name: "Павел Р.",    city: "Брест",     source: "instagram", rating: 5,   text: "Взял б/у iPhone 14 Pro в идеале. Состояние честно описано, батарея как заявлено. Рекомендую за честность." },
+    { name: "Павел Р.", avatar: "img/review-avatar-13.jpg",    city: "Брест",     source: "instagram", rating: 5,   text: "Взял б/у iPhone 14 Pro в идеале. Состояние честно описано, батарея как заявлено. Рекомендую за честность." },
     { name: "Анна Ж.", avatar: "img/review-avatar-11.jpg",     city: "Витебск",   source: "telegram",  rating: 5,   text: "Заказывала чехол и зарядку MagSafe, всё оригинал. Приятно, что мелочи тоже привозят быстро." },
-    { name: "Виктор Л.",   city: "Гомель",    source: "site",      rating: 4.5, text: "MacBook Pro M4 — мощь. Цена приятно удивила. Немного ждал доставку, но это мелочь на фоне сервиса." },
+    { name: "Виктор Л.", avatar: "img/review-avatar-14.jpg",   city: "Гомель",    source: "site",      rating: 4.5, text: "MacBook Pro M4 — мощь. Цена приятно удивила. Немного ждал доставку, но это мелочь на фоне сервиса." },
     { name: "Наталья Б.", avatar: "img/review-avatar-12.jpg",  city: "Минск",     source: "instagram", rating: 5,   text: "Меняла старый телефон по trade-in, оценили честно, доплата вышла небольшая. Очень удобно!" },
-    { name: "Кирилл М.",   city: "Гродно",    source: "telegram",  rating: 5,   text: "iPhone 17 Pro Max в оранжевом титане — огонь. Проверили всё при мне, дали чек и гарантию. Топ." },
-    { name: "Светлана Д.", city: "Минск",     source: "site",      rating: 5,   text: "Заказывала маме iPhone 16 — простой и понятный. Менеджер всё объяснил без навязывания. Спасибо большое!" },
-    { name: "Олег Т.",     city: "Бобруйск",  source: "instagram", rating: 4.5, text: "Купил iPad Pro. Всё отлично, придраться не к чему. Хотелось бы пункт самовывоза поближе." },
-    { name: "Татьяна К.",  city: "Минск",     source: "telegram",  rating: 5,   text: "Очень вежливые ребята, ответили на кучу моих вопросов про память и eSIM. Купила iPhone 17, всё работает." },
-    { name: "Андрей С.",   city: "Пинск",     source: "site",      rating: 5,   text: "Брал AirPods Max. Оригинал 100%, серийник пробивается в Apple. Доставка в область быстрее, чем ожидал." },
-    { name: "Вероника П.", city: "Минск",     source: "instagram", rating: 5,   text: "Долго не решалась заказывать технику онлайн, но тут всё прозрачно. iPhone 15 пришёл идеальный." },
+    { name: "Кирилл М.", avatar: "img/review-avatar-15.jpg",   city: "Гродно",    source: "telegram",  rating: 5,   text: "iPhone 17 Pro Max в оранжевом титане — огонь. Проверили всё при мне, дали чек и гарантию. Топ." },
+    { name: "Светлана Д.", avatar: "img/review-avatar-18.jpg", city: "Минск",     source: "site",      rating: 5,   text: "Заказывала маме iPhone 16 — простой и понятный. Менеджер всё объяснил без навязывания. Спасибо большое!" },
+    { name: "Олег Т.", avatar: "img/review-avatar-16.jpg",     city: "Бобруйск",  source: "instagram", rating: 4.5, text: "Купил iPad Pro. Всё отлично, придраться не к чему. Хотелось бы пункт самовывоза поближе." },
+    { name: "Татьяна К.", avatar: "img/review-avatar-19.jpg",  city: "Минск",     source: "telegram",  rating: 5,   text: "Очень вежливые ребята, ответили на кучу моих вопросов про память и eSIM. Купила iPhone 17, всё работает." },
+    { name: "Андрей С.", avatar: "img/review-avatar-17.jpg",   city: "Пинск",     source: "site",      rating: 5,   text: "Брал AirPods Max. Оригинал 100%, серийник пробивается в Apple. Доставка в область быстрее, чем ожидал." },
+    { name: "Вероника П.", avatar: "img/review-avatar-20.jpg", city: "Минск",     source: "instagram", rating: 5,   text: "Долго не решалась заказывать технику онлайн, но тут всё прозрачно. iPhone 15 пришёл идеальный." },
     { name: "Максим Г.",   city: "Орша",      source: "telegram",  rating: 4.5, text: "Apple Watch SE для бега — то что надо. Всё хорошо, только хотелось бы больше ремешков в наличии." },
-    { name: "Ирина В.",    city: "Минск",     source: "site",      rating: 5,   text: "Заказала iPhone 17 Pro и чехол, собрали в один заказ, привезли вечером. Сервис на уровне Apple Store." },
+    { name: "Ирина В.", avatar: "img/review-avatar-21.jpg",    city: "Минск",     source: "site",      rating: 5,   text: "Заказала iPhone 17 Pro и чехол, собрали в один заказ, привезли вечером. Сервис на уровне Apple Store." },
     { name: "Денис Ф.",    city: "Жлобин",    source: "instagram", rating: 5,   text: "Взял б/у iPhone 13 Pro Max. Состояние супер, цена ниже рынка. Спасибо за честное описание!" },
-    { name: "Алина Р.",    city: "Минск",     source: "telegram",  rating: 5,   text: "Покупала iPad для ребёнка, помогли с настройкой родительского контроля прямо при получении. Класс!" }
+    { name: "Алина Р.", avatar: "img/review-avatar-22.jpg",    city: "Минск",     source: "telegram",  rating: 5,   text: "Покупала iPad для ребёнка, помогли с настройкой родительского контроля прямо при получении. Класс!" }
   ]
 };
 
