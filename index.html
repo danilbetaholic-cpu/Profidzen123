@@ -407,7 +407,7 @@
   .hl.small .hl-text { padding:38px 38px 8px; }
   .hl.small h3 { font-size:clamp(26px,3vw,38px); }
   .hl.small img { min-height:240px; max-height:300px; object-fit:cover; }
-  .hl.light { background:var(--bg-grey); color:var(--text); }
+  .hl.light { background:#fff; color:var(--text); }
   .hl.light p { color:var(--muted); }
   .g-air  { background:linear-gradient(100deg,#9fd8ff,#5aa2f0,#bfaaff); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .g-cam  { background:linear-gradient(100deg,#f7e8c3,#f0a04b,#e8762e); -webkit-background-clip:text; background-clip:text; color:transparent; }
@@ -532,7 +532,7 @@
   .more-sm:hover { text-decoration:underline; }
 
   /* ---------- новости ---------- */
-  #news { background:var(--bg-grey); max-width:none; }
+  #news { background:var(--bg); max-width:none; }
   .news-inner { max-width:1100px; margin:0 auto; }
   .news-grid { margin-top:38px; display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); }
   .news-card {
@@ -676,7 +676,7 @@
   /* детальная карточка */
   .detail { display:grid; grid-template-columns:300px 1fr; gap:32px; }
   @media (max-width:680px) { .detail { grid-template-columns:1fr; } }
-  .detail-img { position:relative; background:var(--bg-grey); border-radius:18px; display:flex; align-items:center; justify-content:center; padding:18px; min-height:280px; overflow:hidden; }
+  .detail-img { position:relative; background:linear-gradient(180deg,#fff 0%,#f7f8fa 100%); box-shadow:inset 0 0 0 1px rgba(20,20,40,.045); border-radius:18px; display:flex; align-items:center; justify-content:center; padding:18px; min-height:280px; overflow:hidden; }
   .detail-img img, .detail-img > svg { position:relative; z-index:1; max-width:100%; max-height:300px; object-fit:contain; }
   /* галерея фото товара */
   .thumbs { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
@@ -724,7 +724,7 @@
 
   /* корзина */
   .cart-item { display:flex; align-items:center; gap:14px; padding:16px 0; border-bottom:1px solid var(--bg-grey); }
-  .ci-art { width:46px; height:60px; border-radius:10px; flex-shrink:0; overflow:hidden; background:var(--bg-grey); }
+  .ci-art { width:46px; height:60px; border-radius:10px; flex-shrink:0; overflow:hidden; background:#f7f8fa; }
   .ci-art img { width:100%; height:100%; object-fit:cover; }
   .ci-ph { width:100%; height:100%; }
   .ci-info { flex:1; min-width:0; }
@@ -770,7 +770,7 @@
 
   /* ---------- похожие товары ---------- */
   .similar-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:12px; }
-  .similar-card { background:var(--bg-grey); border-radius:14px; padding:14px; cursor:pointer; text-align:center; transition:transform .3s, box-shadow .3s; }
+  .similar-card { background:#fff; border-radius:14px; padding:14px; cursor:pointer; text-align:center; transition:transform .3s, box-shadow .3s; box-shadow:var(--card-shadow); border:1px solid rgba(20,20,40,.05); }
   .similar-card:hover { transform:translateY(-4px); box-shadow:var(--card-shadow); }
   .similar-img { height:90px; display:flex; align-items:center; justify-content:center; margin-bottom:8px; }
   .similar-img img, .similar-img svg { max-height:90px; max-width:100%; object-fit:contain; }
@@ -795,7 +795,7 @@
   .faq-a.open { max-height:300px; padding:0 0 20px; }
 
   /* ---------- инфо-блоки (оплата, возврат, реквизиты) ---------- */
-  .info-sec { background:var(--bg-grey); max-width:none; }
+  .info-sec { background:var(--bg); max-width:none; }
   .info-grid {
     max-width:1100px; margin:0 auto; display:grid; gap:18px;
     grid-template-columns:1fr 1fr;
@@ -831,7 +831,7 @@
   .pl-pay { color:#000; font-weight:700; }
 
   /* ---------- футер ---------- */
-  footer { background:var(--bg-grey); border-top:1px solid rgba(0,0,0,.06); padding:50px 22px 30px; font-size:13px; color:var(--muted); }
+  footer { background:var(--bg); border-top:1px solid rgba(0,0,0,.06); padding:50px 22px 30px; font-size:13px; color:var(--muted); }
   .fwrap { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:30px; }
   footer h5 { font-size:13px; color:var(--text); margin-bottom:12px; }
   footer li { list-style:none; margin:8px 0; }
@@ -1043,7 +1043,7 @@
 
 <!-- ПЛАШКА АКЦИИ -->
 <a class="promo-strip" href="#catalog" onclick="setTab('sale')">
-  <span class="promo-track">Ликвидация склада — цены снижены. Успейте забрать выгодные модели →</span>
+  <span class="promo-track">Ликвидация склада — цены снижены. Успейте забрать выгодные модели</span>
 </a>
 
 <!-- HERO -->
