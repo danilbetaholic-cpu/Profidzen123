@@ -361,9 +361,8 @@
   /* ---------- плитки-промо ---------- */
   .tiles { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:1100px; margin:14px auto 0; padding:0 22px; }
   .tile {
-    background:#fff; border-radius:var(--radius); text-align:center; padding:42px 26px 0;
+    background:var(--bg-grey); border-radius:var(--radius); text-align:center; padding:42px 26px 0;
     overflow:hidden; opacity:0; transform:translateY(36px);
-    box-shadow:var(--card-shadow); border:1px solid rgba(20,20,40,.05);
   }
   .tile.visible { opacity:1; transform:none; transition:opacity .8s, transform .8s cubic-bezier(.22,1,.36,1); }
   .tile h3 { font-size:30px; font-weight:700; letter-spacing:-.5px; }
@@ -384,10 +383,9 @@
   /* ---------- хайлайты (фото-блоки в стиле Apple) ---------- */
   .hl-wrap { max-width:1100px; margin:0 auto; padding:0 22px 80px; display:grid; gap:16px; }
   .hl {
-    background:#fff; color:var(--text); border-radius:24px; overflow:hidden;
+    background:var(--bg-grey); color:var(--text); border-radius:24px; overflow:hidden;
     display:grid; grid-template-columns:1fr 1.1fr; align-items:center; gap:10px;
     opacity:0; transform:translateY(36px);
-    box-shadow:var(--card-shadow); border:1px solid rgba(20,20,40,.05);
   }
   .hl.visible { opacity:1; transform:none; transition:opacity .8s, transform .8s cubic-bezier(.22,1,.36,1); }
   .hl-text { padding:48px 20px 48px 48px; }
@@ -1022,7 +1020,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg>
         <span class="acc-name" id="accName"></span>
       </button>
-      <button class="cart-btn" onclick="openCart()" aria-label="Корзина"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9h10v10a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9z"/><path d="M9.5 9V7a2.5 2.5 0 0 1 5 0v2"/></svg> <span class="cart-count" id="cartCount">0</span></button>
+      <button class="cart-btn" onclick="openCart()" aria-label="Корзина"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg> <span class="cart-count" id="cartCount">0</span></button>
       <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
