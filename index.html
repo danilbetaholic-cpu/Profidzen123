@@ -1016,7 +1016,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3.1-6 7-6s7 2.5 7 6"/></svg>
         <span class="acc-name" id="accName"></span>
       </button>
-      <button class="cart-btn" onclick="openCart()">🛍 <span class="cart-count" id="cartCount">0</span></button>
+      <button class="cart-btn" onclick="openCart()" aria-label="Корзина">🛍 <span class="cart-count" id="cartCount">0</span></button>
       <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Меню">
         <span></span><span></span><span></span>
       </button>
@@ -1374,7 +1374,7 @@
 <!-- Детальная карточка -->
 <div class="overlay" id="detailOverlay">
   <div class="modal wide">
-    <button class="close-x" onclick="closeDetail()">✕</button>
+    <button class="close-x" aria-label="Закрыть" onclick="closeDetail()">✕</button>
     <div id="detailBody"></div>
   </div>
 </div>
@@ -1382,7 +1382,7 @@
 <!-- Корзина -->
 <div class="overlay" id="cartOverlay">
   <div class="modal">
-    <button class="close-x" onclick="closeCart()">✕</button>
+    <button class="close-x" aria-label="Закрыть" onclick="closeCart()">✕</button>
     <h2>Корзина</h2>
     <div id="cartItems"></div>
     <div id="cartFooter"></div>
@@ -1391,14 +1391,14 @@
 
 <!-- Лайтбокс для фото-отзывов -->
 <div class="overlay" id="photoOverlay" onclick="closePhoto()">
-  <button class="close-x" style="position:absolute;top:18px;right:18px;z-index:2" onclick="closePhoto()">✕</button>
+  <button class="close-x" aria-label="Закрыть" style="position:absolute;top:18px;right:18px;z-index:2" onclick="closePhoto()">✕</button>
   <img id="photoBig" alt="Фото-отзыв" style="max-width:92vw;max-height:88vh;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5)">
 </div>
 
 <!-- Личный кабинет / авторизация -->
 <div class="overlay" id="accountOverlay">
   <div class="modal">
-    <button class="close-x" onclick="closeAccount()">✕</button>
+    <button class="close-x" aria-label="Закрыть" onclick="closeAccount()">✕</button>
     <div id="accountBody"></div>
   </div>
 </div>
@@ -1406,7 +1406,7 @@
 <!-- Оформление -->
 <div class="overlay" id="checkoutOverlay">
   <div class="modal">
-    <button class="close-x" onclick="closeCheckout()">✕</button>
+    <button class="close-x" aria-label="Закрыть" onclick="closeCheckout()">✕</button>
     <div id="checkoutBody"></div>
   </div>
 </div>
@@ -2175,7 +2175,7 @@ function oneClick(id){
   }
   ov.innerHTML = `
     <div class="modal oneclick-modal">
-      <button class="close-x" onclick="document.getElementById('oneClickOverlay').classList.remove('open')">✕</button>
+      <button class="close-x" aria-label="Закрыть" onclick="document.getElementById('oneClickOverlay').classList.remove('open')">✕</button>
       <div class="oc-head">
         <span class="oc-bolt">⚡</span>
         <div>
