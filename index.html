@@ -539,6 +539,11 @@
   @media (max-width:480px){ .insta-grid { grid-template-columns:repeat(2,1fr); } .insta-stat { flex-direction:column; gap:10px; } }
 
   /* карточки-отзывы (фирменные) */
+  .insta-btn { display:inline-flex; align-items:center; gap:9px; padding:13px 26px; border-radius:980px;
+    font-weight:700; font-size:15px; color:#fff; text-decoration:none; transition:.25s, transform .25s;
+    background:linear-gradient(98deg,#f58529,#dd2a7b 50%,#8134af 90%); box-shadow:0 8px 24px rgba(221,42,123,.32); }
+  .insta-btn svg { width:20px; height:20px; }
+  .insta-btn:hover { transform:translateY(-1px); box-shadow:0 12px 30px rgba(221,42,123,.42); text-decoration:none; }
   .review-grid { margin-top:40px; display:grid; gap:18px; grid-template-columns:repeat(3,1fr); }
   .review-card {
     background:#fff; border:1px solid rgba(20,20,40,.05); border-radius:20px; padding:24px;
@@ -1145,6 +1150,12 @@
     </div>
   </div>
   <div class="review-grid" id="instaGrid"></div>
+  <div style="text-align:center;margin-top:30px">
+    <a class="insta-btn" href="https://www.instagram.com/tp.otzyvy/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Все отзывы в Instagram
+    </a>
+  </div>
 </section>
 
 <!-- ПОЧЕМУ МЫ -->

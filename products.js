@@ -36,7 +36,6 @@ window.SHOP_CONFIG = {
 
 window.SHOP_CATEGORIES = [
   ["iphone", "iPhone"],
-  ["used",   "Б/У техника"],
   ["ipad",   "iPad"],
   ["mac",    "Mac"],
   ["watch",  "Watch"],
@@ -44,7 +43,8 @@ window.SHOP_CATEGORIES = [
   ["home",   "ТВ и дом"],
   ["acc",    "Аксессуары"],
   ["sale",   "Акции"],
-  ["all",    "Все"]
+  ["all",    "Все"],
+  ["used",   "Б/У техника"]
 ];
 
 // Варианты SIM: [название, наценка/скидка к цене]
