@@ -43,19 +43,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
+    /* ——— фоны и текст ——— */
     --bg: #fbfbfc;
     --bg-grey: #f3f3f5;
     --text: #0a0a0c;
-    --muted: #65656b;
-    --blue: #0066ff;
-    --blue-dark: #0a5be0;
+    --ink: #0a0a0c;
+    --muted: #65656b;          /* вторичный текст */
+    --faint: #8a8a92;          /* третичный текст / подписи */
+    --faint-dark: #a1a1a6;     /* подписи на тёмном фоне */
     --border: #e3e3e6;
+    /* ——— акценты бренда ——— */
+    --blue: #0066ff;           /* главный акцент */
+    --blue-dark: #0a5be0;
+    --blue-soft: #eef3ff;      /* мягкий фон-акцент */
+    --violet: var(--violet);         /* вторичный декоративный акцент */
+    /* ——— семантические цвета ——— */
+    --green: #0a7d44;          /* в наличии / успех */
+    --orange: #c1410b;         /* акции / распродажа */
+    --star: var(--star);           /* рейтинг */
+    --like: var(--like);           /* избранное */
+    /* ——— тени / форма ——— */
     --card-shadow: 0 2px 10px rgba(20,20,40,.05), 0 14px 40px rgba(20,20,40,.05);
     --card-shadow-hover: 0 8px 24px rgba(20,20,50,.10), 0 26px 70px rgba(20,20,50,.13);
     --radius: 22px;
-    --green: #0a7d44;
-    --orange: #c1410b;
-    --ink: #0a0a0c;
     --display: "Unbounded", "Manrope", sans-serif;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -129,7 +139,7 @@
   .cart-count.bump { animation:cartPop .45s cubic-bezier(.34,1.56,.64,1); }
   /* «улетающая» точка в корзину при добавлении товара */
   .fly-dot { position:fixed; z-index:300; width:14px; height:14px; border-radius:50%;
-    background:linear-gradient(135deg,#0066ff,#9b5cff); pointer-events:none;
+    background:linear-gradient(135deg,#0066ff,var(--violet)); pointer-events:none;
     box-shadow:0 4px 14px rgba(0,102,255,.5); will-change:transform,opacity; }
 
   /* плавное появление при скролле */
@@ -200,7 +210,7 @@
   .auth-tab.on { background:#fff; color:var(--text); box-shadow:0 1px 4px rgba(0,0,0,.08); }
   .acc-head { display:flex; align-items:center; gap:14px; margin-bottom:6px; }
   .acc-ava { width:52px; height:52px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center;
-    font-size:22px; font-weight:700; color:#fff; background:linear-gradient(135deg,var(--blue),#9b5cff); }
+    font-size:22px; font-weight:700; color:#fff; background:linear-gradient(135deg,var(--blue),var(--violet)); }
   .acc-meta b { font-size:18px; } .acc-meta span { display:block; font-size:13px; color:var(--muted); margin-top:2px; }
   .acc-orders { margin-top:18px; display:flex; flex-direction:column; gap:10px; }
   .ao-card { border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
@@ -270,11 +280,11 @@
     background:linear-gradient(108deg,#f7e8c3 0%,#f3b886 30%,#e98aa8 55%,#cf86f3 78%,#8fb8f6 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .hero p.sub { font-size:clamp(19px,2.4vw,26px); color:#a1a1a6; margin-top:10px; font-weight:500;
+  .hero p.sub { font-size:clamp(19px,2.4vw,26px); color:var(--faint-dark); margin-top:10px; font-weight:500;
     opacity:0; animation:rise .8s .35s cubic-bezier(.22,1,.36,1) forwards; }
   .hero .btn-outline { color:#fff; border-color:rgba(255,255,255,.4); }
   .hero .btn-outline:hover { background:rgba(255,255,255,.12); border-color:#fff; }
-  .hero .sub-note { color:#8a8a90; font-size:14.5px; margin-top:8px; font-weight:500;
+  .hero .sub-note { color:var(--faint); font-size:14.5px; margin-top:8px; font-weight:500;
     opacity:0; animation:rise .8s .45s cubic-bezier(.22,1,.36,1) forwards; }
   .hero .cta { margin-top:24px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
     opacity:0; animation:rise .8s .5s cubic-bezier(.22,1,.36,1) forwards; }
@@ -326,7 +336,7 @@
   .trust-item:hover .ti-i { color:#fff; border-color:rgba(127,168,255,.4); }
   .trust-item .ti-i svg { width:22px; height:22px; }
   .trust-item b { display:block; color:#f5f5f7; font-size:14.5px; }
-  .trust-item span { display:block; color:#8a8a90; font-size:12.5px; margin-top:2px; }
+  .trust-item span { display:block; color:var(--faint); font-size:12.5px; margin-top:2px; }
   @media (max-width:760px){ .trust-inner { grid-template-columns:1fr 1fr; gap:16px; } }
   @media (max-width:420px){ .trust-inner { grid-template-columns:1fr; } }
 
@@ -339,7 +349,7 @@
     background:linear-gradient(120deg,#7fa8ff,#b88cff); -webkit-background-clip:text; background-clip:text; color:transparent;
     display:block;
   }
-  .stat span { color:#8a8a90; font-size:14px; margin-top:6px; display:block; }
+  .stat span { color:var(--faint); font-size:14px; margin-top:6px; display:block; }
   @media (max-width:680px){ .stats-inner { grid-template-columns:1fr 1fr; gap:28px; } }
 
   /* ---------- секции ---------- */
@@ -360,7 +370,7 @@
   .tile img { margin-top:14px; width:100%; max-height:300px; object-fit:contain; object-position:bottom; transition:transform .6s cubic-bezier(.22,1,.36,1); }
   .tile:hover img { transform:scale(1.04); }
   .tile.dark { background:#0b0b0d; color:#f5f5f7; }
-  .tile.dark p { color:#a1a1a6; }
+  .tile.dark p { color:var(--faint-dark); }
   @media (max-width:760px) { .tiles { grid-template-columns:1fr; } }
 
   /* ---------- заголовок каталога (как в Apple Store) ---------- */
@@ -480,12 +490,12 @@
     display:flex; align-items:center; justify-content:center; transition:transform .2s, background .2s;
   }
   .fav-btn:hover { transform:scale(1.12); }
-  .fav-btn svg { width:18px; height:18px; fill:none; stroke:#86868b; stroke-width:2; }
+  .fav-btn svg { width:18px; height:18px; fill:none; stroke:var(--faint); stroke-width:2; }
   .fav-btn.on { background:#fff; }
-  .fav-btn.on svg { fill:#ff3b5c; stroke:#ff3b5c; }
+  .fav-btn.on svg { fill:var(--like); stroke:var(--like); }
   .badge.soon { color:var(--blue); }
-  .badge.out { color:#86868b; }
-  .buy-sm.off { background:#e8e8ed; color:#86868b; cursor:default; }
+  .badge.out { color:var(--faint); }
+  .buy-sm.off { background:#e8e8ed; color:var(--faint); cursor:default; }
   .buy-sm.off:hover { background:#e8e8ed; }
   .card-img {
     aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; margin:14px 0 6px;
@@ -522,7 +532,7 @@
   .news-tag { display:inline-block; font-size:12px; font-weight:600; color:var(--blue); text-transform:uppercase; letter-spacing:.5px; }
   .news-card h4 { font-size:19px; font-weight:700; letter-spacing:-.3px; margin-top:10px; line-height:1.25; }
   .news-card p { color:var(--muted); font-size:14px; line-height:1.55; margin-top:10px; }
-  .news-date { color:#a1a1a6; font-size:12.5px; margin-top:14px; }
+  .news-date { color:var(--faint-dark); font-size:12.5px; margin-top:14px; }
 
   /* ---------- Мы в Instagram ---------- */
   .insta-grid {
@@ -541,7 +551,7 @@
     color:#fff; gap:8px;
   }
   .insta-ph .mark { font-family:var(--display); font-weight:600; font-size:clamp(15px,2vw,22px); letter-spacing:-.03em; }
-  .insta-ph .mark span { background:linear-gradient(90deg,#0066ff,#9b5cff); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .insta-ph .mark span { background:linear-gradient(90deg,#0066ff,var(--violet)); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .insta-ph .ig { width:24px; height:24px; opacity:.55; }
   .insta-foot {
     margin-top:30px; display:flex; align-items:center; justify-content:center; gap:34px; flex-wrap:wrap;
@@ -549,7 +559,7 @@
   .insta-stat { display:flex; align-items:center; gap:16px; }
   .insta-stat b { font-size:17px; }
   .insta-rating { display:flex; align-items:center; gap:8px; }
-  .insta-rating .stars { color:#ffb703; font-size:19px; letter-spacing:2px; }
+  .insta-rating .stars { color:var(--star); font-size:19px; letter-spacing:2px; }
   .insta-rating b { font-size:19px; }
   @media (max-width:900px){ .insta-grid { grid-template-columns:repeat(3,1fr); } }
   @media (max-width:480px){ .insta-grid { grid-template-columns:repeat(2,1fr); } .insta-stat { flex-direction:column; gap:10px; } }
@@ -578,7 +588,7 @@
   .rc-head { display:flex; align-items:center; gap:12px; }
   .rc-ava {
     width:44px; height:44px; border-radius:50%; flex-shrink:0;
-    background:linear-gradient(135deg,#0066ff,#9b5cff); color:#fff;
+    background:linear-gradient(135deg,#0066ff,var(--violet)); color:#fff;
     display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px;
   }
   .rc-who { flex:1; line-height:1.3; }
@@ -590,10 +600,10 @@
   .rc-src.ig { background:linear-gradient(135deg,#feda75,#d62976,#962fbf); color:#fff; }
   .rc-src.tg { background:#229ed9; color:#fff; }
   .rc-src.site { background:rgba(10,125,68,.12); color:var(--green); }
-  .rc-stars { color:#ffb703; font-size:16px; letter-spacing:2px; margin-top:14px; }
+  .rc-stars { color:var(--star); font-size:16px; letter-spacing:2px; margin-top:14px; }
   .rc-stars .empty { color:#e0e0e3; }
   .rc-stars .half { position:relative; color:#e0e0e3; }
-  .rc-stars .half::before { content:"★"; position:absolute; left:0; width:50%; overflow:hidden; color:#ffb703; }
+  .rc-stars .half::before { content:"★"; position:absolute; left:0; width:50%; overflow:hidden; color:var(--star); }
   .rc-text { color:var(--text); font-size:14.5px; line-height:1.55; margin-top:8px; }
   .rc-foot { margin-top:12px; padding-top:12px; border-top:1px solid var(--bg-grey); font-size:12px; color:var(--muted); font-weight:600; }
   @media (max-width:900px){ .review-grid { grid-template-columns:1fr 1fr; } }
@@ -782,7 +792,7 @@
   .info-card h3 { font-family:var(--display); font-size:20px; font-weight:600; letter-spacing:-.02em; }
   .info-card p { color:var(--muted); font-size:14.5px; line-height:1.6; margin-top:12px; }
   .info-card .req { color:var(--text); font-size:14px; line-height:1.8; }
-  .info-small { font-size:12.5px !important; color:#86868b !important; }
+  .info-small { font-size:12.5px !important; color:var(--faint) !important; }
   @media (max-width:760px){ .info-grid { grid-template-columns:1fr; } }
 
   /* логотипы платёжных систем */
@@ -815,13 +825,13 @@
   footer li { list-style:none; margin:8px 0; }
   footer a { color:var(--muted); }
   footer a:hover { color:var(--text); }
-  .copyright { max-width:1100px; margin:34px auto 0; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:#a1a1a6; }
+  .copyright { max-width:1100px; margin:34px auto 0; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:var(--faint-dark); }
 
   /* ---------- плавающая кнопка связи ---------- */
   .fab-wrap { position:fixed; right:22px; bottom:24px; z-index:150; display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
   .fab {
     width:58px; height:58px; border-radius:50%; border:none; cursor:pointer;
-    background:linear-gradient(135deg,#0066ff,#9b5cff); box-shadow:0 8px 26px rgba(0,102,255,.4);
+    background:linear-gradient(135deg,#0066ff,var(--violet)); box-shadow:0 8px 26px rgba(0,102,255,.4);
     display:flex; align-items:center; justify-content:center; transition:transform .3s; }
   .fab:hover { transform:scale(1.08); }
   .fab svg { width:26px; height:26px; }
@@ -1860,7 +1870,7 @@ function renderDetail(p) {
         </div>
         ${p.left ? `<div class="left-row" style="margin-top:10px"><span class="left-bar"><i style="width:${Math.max(12,Math.min(p.left/10*100,100))}%"></i></span>Осталось ${p.left} шт. — успейте купить</div>` : ""}
         ${p.stock==="out"
-          ? `<button class="btn" style="width:100%;margin-top:18px;background:#e8e8ed;color:#86868b;cursor:default">Закончились — ожидаем поставку</button>`
+          ? `<button class="btn" style="width:100%;margin-top:18px;background:#e8e8ed;color:var(--faint);cursor:default">Закончились — ожидаем поставку</button>`
           : `<div class="detail-buy">
               <button class="btn btn-blue" style="flex:1" onclick="addToCart(${p.id}, selMem, selSim, selColor); closeDetail();">
                 ${p.stock==="soon" ? "Оформить предзаказ" : "Добавить в корзину"}
@@ -2221,7 +2231,7 @@ document.querySelectorAll(".overlay").forEach(o =>
 (function () {
   const bar = document.createElement("div");
   bar.style.cssText = "position:fixed;top:0;left:0;height:2px;width:0;z-index:200;" +
-    "background:linear-gradient(90deg,#0066ff,#9b5cff);transition:width .1s ease-out";
+    "background:linear-gradient(90deg,#0066ff,var(--violet));transition:width .1s ease-out";
   document.body.appendChild(bar);
   addEventListener("scroll", () => {
     const h = document.documentElement;
