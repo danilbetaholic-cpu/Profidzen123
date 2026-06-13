@@ -544,6 +544,7 @@ window.DEFAULT_PRODUCTS = [
 
   // ================= iPAD =================
   { id:21, cat:"ipad", name:"iPad", price:810, oldPrice:1160, badge:null,
+    photo:"img/ipad-new.jpg",
     img:"https://www.apple.com/v/ipad-11/d/images/meta/ipad-11_overview__brh97xhhd8b6_og.png",
     gradient:["#9fb4d8","#5e76a8"],
     colors:[["Silver","#d6dade"],["Blue","#b8d3e8"],["Pink","#e8c4d0"],["Жёлтый","#e8dc9a"]],
@@ -562,6 +563,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 8,3″ Liquid Retina","Чип A17 Pro","Apple Pencil Pro","Wi-Fi 6E","298 грамм"] },
 
   { id:23, cat:"ipad", name:"iPad Air", price:1310, oldPrice:1870, badge:"Хит",
+    photo:"img/ipad-new.jpg",
     img:"https://www.apple.com/v/ipad-air/ah/images/meta/ipad-air_overview__bc2fd15uec0y_og.png",
     gradient:["#7fd6ff","#4a9fe8"],
     colors:[["Blue","#b8d3e8"],["Purple","#c9bfe0"],["Starlight","#e8dcc8"],["Space Gray","#5f6368"]],
@@ -571,6 +573,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 11″ Liquid Retina","Чип Apple M4","Apple Pencil Pro","Камера 12 Мп","Touch ID"] },
 
   { id:24, cat:"ipad", name:"iPad Pro", price:2260, oldPrice:3230, badge:"Pro",
+    photo:"img/ipad-pro-new.jpg",
     img:"https://www.apple.com/v/ipad-pro/aw/images/meta/ipad-pro_overview__bu4cql27diaa_og.png",
     gradient:["#3d4356","#15171f"],
     colors:[["Space Black","#2a2c31"],["Silver","#d6dade"]],
@@ -694,6 +697,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Чип Apple H2","Пространственное аудио","USB-C кейс","До 30 часов с кейсом","IP54"] },
 
   { id:52, cat:"audio", name:"AirPods Pro 3", price:470, oldPrice:670, badge:"Хит",
+    photo:"img/airpods-pro-new.jpg",
     img:"https://www.apple.com/v/airpods-pro/r/images/meta/og__c0ceegchesom_overview.png",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
@@ -710,6 +714,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Динамики Apple 40 мм","Активное шумоподавление","Пространственное аудио","До 20 часов работы","USB-C"] },
 
   { id:54, cat:"audio", name:"AirPods Pro 2", price:390, oldPrice:560, badge:null, stock:"out",
+    photo:"img/airpods-pro-new.jpg",
     img:"https://www.apple.com/v/airpods-pro/r/images/meta/og__c0ceegchesom_overview.png",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
