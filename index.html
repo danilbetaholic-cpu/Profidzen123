@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TechPro — техника Apple в Беларуси с гарантией и доставкой</title>
 <meta name="description" content="TechPro — оригинальная техника Apple в Беларуси: iPhone, iPad, Mac, Apple Watch, AirPods. Гарантия, доставка по всей стране, оплата картой, ЕРИП и Apple Pay.">
-<meta name="theme-color" content="#fbfbfc">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://techpro.by/">
 <!-- OG / превью при отправке ссылки в Telegram, Viber, соцсети -->
 <meta property="og:type" content="website">
@@ -44,7 +44,7 @@
 <style>
   :root {
     /* ——— фоны и текст ——— */
-    --bg: #fbfbfc;
+    --bg: #ffffff;
     --bg-grey: #f3f3f5;
     --text: #0a0a0c;
     --ink: #0a0a0c;
@@ -2561,7 +2561,7 @@ window.addEventListener("scroll", () => {
 function renderPhotoReviews(){
   const n = (window.SHOP_CONFIG && window.SHOP_CONFIG.photoReviews) || 19;
   const el = document.getElementById("photoReviews"); if(!el) return;
-  const skip = (window.SHOP_CONFIG && window.SHOP_CONFIG.photoReviewsSkip) || [18]; // дубликаты
+  const skip = (window.SHOP_CONFIG && window.SHOP_CONFIG.photoReviewsSkip) || [2,4,5,6,10,11,12,14,18]; // скриншоты переписки/дубли — только чистые фото
   let h="";
   for(let i=1;i<=n;i++){ if(skip.indexOf(i)!==-1) continue; h += `<img src="img/review-photo-${i}.jpg" alt="Фото-отзыв клиента TechPro" loading="lazy" onclick="openPhoto(this.src)" onerror="this.style.display='none'">`; }
   el.innerHTML = h;
