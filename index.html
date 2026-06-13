@@ -26,7 +26,7 @@
   "name": "TechPro",
   "description": "Оригинальная техника Apple в Беларуси: iPhone, iPad, Mac, Apple Watch, AirPods.",
   "url": "https://techpro.by/",
-  "telephone": "+375000000000",
+  "telephone": "+375291743684",
   "email": "info@techpro.by",
   "priceRange": "BYN",
   "address": {
@@ -244,10 +244,16 @@
     display:flex; align-items:center; justify-content:center; text-decoration:none;
     background:linear-gradient(90deg,#c1410b,#ff7a2f); color:#fff;
     font-size:14px; font-weight:600; letter-spacing:.01em; padding:0 16px;
-    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; transition:filter .25s;
+    overflow:hidden; transition:filter .25s;
   }
+  .promo-strip .promo-track { white-space:nowrap; }
   .promo-strip:hover { filter:brightness(1.08); text-decoration:none; }
-  @media (max-width:600px){ .promo-strip { font-size:12px; padding:9px 12px; } }
+  /* на телефоне текст не влезает — пускаем бегущей строкой, читается целиком */
+  @media (max-width:600px){
+    .promo-strip { justify-content:flex-start; font-size:12.5px; padding:0; }
+    .promo-strip .promo-track { display:inline-block; padding-left:100%; animation:promoMarquee 16s linear infinite; }
+  }
+  @keyframes promoMarquee { from{transform:translateX(0)} to{transform:translateX(-100%)} }
 
   /* ---------- hero (тёмный, премиум) ---------- */
   .hero {
@@ -367,14 +373,21 @@
   /* ---------- хайлайты (фото-блоки в стиле Apple) ---------- */
   .hl-wrap { max-width:1100px; margin:0 auto; padding:0 22px 80px; display:grid; gap:16px; }
   .hl {
-    background:#0b0b0d; color:#f5f5f7; border-radius:24px; overflow:hidden;
+    background:var(--bg-grey); color:var(--text); border-radius:24px; overflow:hidden;
     display:grid; grid-template-columns:1fr 1.1fr; align-items:center; gap:10px;
     opacity:0; transform:translateY(36px);
   }
   .hl.visible { opacity:1; transform:none; transition:opacity .8s, transform .8s cubic-bezier(.22,1,.36,1); }
   .hl-text { padding:48px 20px 48px 48px; }
   .hl h3 { font-family:var(--display); font-size:clamp(30px,4.2vw,58px); font-weight:600; letter-spacing:-.04em; line-height:1.02; }
-  .hl p { color:#a1a1a6; font-size:16px; line-height:1.6; margin-top:14px; max-width:380px; }
+  .hl p { color:var(--muted); font-size:16px; line-height:1.6; margin-top:14px; max-width:380px; }
+  .hl img { background:#fff; }   /* фото на белом фоне, без чёрных полей */
+  /* иллюстрации вместо чёрных рендеров в хайлайтах/плитках (режим единого домена) */
+  .hl-art, .tile-art { display:flex; align-items:center; justify-content:center; width:100%; min-height:280px; background:#fff; padding:18px; }
+  .hl.small .hl-art { min-height:240px; }
+  .tile-art { min-height:0; background:transparent; }
+  .hl-art svg, .tile-art svg { max-height:280px; width:auto; height:auto; }
+  .tile-art svg { max-height:230px; }
   .hl a { display:inline-block; margin-top:16px; font-size:15px; }
   .hl img { width:100%; height:100%; object-fit:cover; min-height:280px; }
   .hl-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
@@ -990,7 +1003,7 @@
 
 <!-- ПЛАШКА АКЦИИ -->
 <a class="promo-strip" href="#catalog" onclick="setTab('sale')">
-  🔥 Ликвидация склада — цены снижены. Успейте забрать выгодные модели →
+  <span class="promo-track">🔥 Ликвидация склада — цены снижены. Успейте забрать выгодные модели →</span>
 </a>
 
 <!-- HERO -->
@@ -1273,7 +1286,7 @@
         Зарегистрирована 11.06.2026, Администрация Ленинского района г. Могилёва<br>
         Место жительства и почтовый адрес: Могилёвская обл., г. Могилёв, ул. Кедровая, д. 13, ком. 614<br>
         Режим работы: ежедневно 10:00–21:00<br>
-        Телефон: +375 (XX) XXX-XX-XX · Email: info@techpro.by
+        Телефон: +375 (29) 174-36-84 · Email: info@techpro.by
       </p>
       <p>Вид деятельности — розничная торговля техникой и аксессуарами — <b>не подлежит
       лицензированию</b> в соответствии с законодательством Республики Беларусь.</p>
@@ -1304,7 +1317,7 @@
     <div>
       <h5>Контакты</h5>
       <li>г. Могилёв, ул. Кедровая, 13</li>
-      <li>+375 (XX) XXX-XX-XX</li>
+      <li><a href="tel:+375291743684">+375 (29) 174-36-84</a></li>
       <li>info@techpro.by</li>
       <li>Ежедневно 10:00–21:00</li>
       <li class="ext-social"><a href="https://www.instagram.com/techpro.belarus" target="_blank" rel="noopener">Instagram: @techpro.belarus</a></li>
@@ -1418,8 +1431,15 @@ const priceOf = (p, mem, sim) => r10((p.price + memDelta(p, mem)) * (1 + (sim ? 
 const oldPriceOf = (p, mem, sim) => p.oldPrice ? r10((p.oldPrice + memDelta(p, mem)) * (1 + (sim ? simDelta(sim) : 0))) : null;
 
 // ============ SVG-ЗАГЛУШКА (если фото не загрузилось) ============
-function art(p, w, h) {
-  const [c1, c2] = p.gradient || ["#9aa3b5","#5e6878"];
+// затемнение/осветление hex-цвета (f<1 темнее)
+function shade(hex, f){
+  const m = String(hex||"").replace('#','').match(/.{2}/g);
+  if(!m || m.length<3) return hex;
+  return '#'+m.slice(0,3).map(x=>Math.max(0,Math.min(255,Math.round(parseInt(x,16)*f))).toString(16).padStart(2,'0')).join('');
+}
+function art(p, w, h, override) {
+  let [c1, c2] = p.gradient || ["#9aa3b5","#5e6878"];
+  if (override) { c1 = override; c2 = shade(override, .72); }  // перекраска по выбранному цвету
   const id = "g" + p.id + Math.random().toString(36).slice(2,6);
   const head = `<svg width="${w}" height="${h}" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg">
     <defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1">
@@ -1774,8 +1794,10 @@ function renderDetail(p) {
         <div class="detail-img" style="--glow:${selHex}">
           <div class="detail-glow"></div>
           ${(() => {
-            const dl = [...(p.gallery||[]), p.photo, p.img].filter((v,i,a)=>v && a.indexOf(v)===i);
-            if (!dl.length) return imgOrArt(p, 280);
+            // реальные локальные фото (Б/У, аксессуары) — показываем как есть;
+            // у новых товаров фото нет → перекрашиваемая иллюстрация по выбранному цвету
+            const dl = photoList(p).filter((v,i,a)=>v && a.indexOf(v)===i);
+            if (!dl.length) return `<div id="detailMainImg">${art(p, 280, 280, selHex)}</div>`;
             return `<img id="detailMainImg" src="${dl[0]}" alt="${escHtml(p.name)}"
               data-list='${JSON.stringify(dl).replace(/'/g,"&#39;")}' data-i="0" data-id="${p.id}" data-h="280"
               onerror="window.imgNext(this)">`;
@@ -2468,6 +2490,22 @@ window.addEventListener("scroll", () => {
   heroImg.style.transform = `translateY(${y*.12}px) scale(${1 + y*.0001})`;
 }, { passive:true });
 
+// заменяем чёрные внешние рендеры Apple (хайлайты/плитки) на светлые иллюстрации товаров
+function relightMarketing(){
+  if (!(window.SHOP_CONFIG && window.SHOP_CONFIG.localImagesOnly)) return;
+  document.querySelectorAll('.hl, .tile').forEach(card=>{
+    const img = card.querySelector('img'); if(!img) return;
+    const oc = [...card.querySelectorAll('[onclick]')].map(x=>x.getAttribute('onclick')||'').join(' ');
+    const m = oc.match(/openDetail\((\d+)\)/);
+    const p = m ? byId(m[1]) : null;
+    const wrap = document.createElement('div');
+    wrap.className = card.classList.contains('tile') ? 'tile-art' : 'hl-art';
+    if (p) wrap.innerHTML = art(p, 360, 360);
+    img.replaceWith(wrap);
+    card.classList.remove('dark');  // плитка больше не тёмная
+  });
+}
+
 renderTabs();
 renderCatalog();
 renderNews();
@@ -2475,6 +2513,7 @@ renderInstagram();
 renderFab();
 initCookie();
 renderRecent();
+relightMarketing(); // заменить чёрные рендеры Apple в хайлайтах/плитках на светлые иллюстрации
 // строгий режим bePaid: скрыть все внешние ссылки на соцсети
 if (window.SHOP_CONFIG.showSocial === false)
   document.querySelectorAll('.ext-social').forEach(el => el.style.display = 'none');
