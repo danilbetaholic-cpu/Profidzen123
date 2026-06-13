@@ -203,7 +203,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Совершенно новый iPhone 16 Pro Max в плёнке: титановый корпус, большой дисплей 6,9″, камера 48 Мп с 5-кратным зумом и кнопка Camera Control. Та же премиальная линейка Pro — на треть доступнее новинки.",
     specs:["Дисплей 6,9″ ProMotion 120 Гц","Чип Apple A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","До 33 часов видео","Титановый корпус"] },
 
-  { id:7, cat:"iphone", name:"iPhone 16 Pro", price:2390, oldPrice:null, badge:null,
+  { id:7, cat:"iphone", name:"iPhone 16 Pro", price:1950, oldPrice:2790, badge:null,
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Desert Titanium","#bfa98a"],["Natural Titanium","#c2bcb2"],["Белый титан","#e8e6e2"],["Black Titanium","#3a3c40"]],
@@ -212,7 +212,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Совершенно новый iPhone 16 Pro: титановый корпус, дисплей 6,3″ ProMotion, камера 48 Мп с 5-кратным зумом и кнопка Camera Control.",
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","Титановый корпус"] },
 
-  { id:8, cat:"iphone", name:"iPhone 16 Plus", price:1990, oldPrice:null, badge:null,
+  { id:8, cat:"iphone", name:"iPhone 16 Plus", price:1670, oldPrice:2390, badge:null,
     img:"https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg",
     gradient:["#5a6cff","#2b3bbf"], sim:true,
     colors:[["Ultramarine","#4a5ccf"],["Бирюзовый","#6fb8b0"],["Pink","#e8a8bc"],["White","#f2f2ef"],["Black","#1d1e22"]],
@@ -221,7 +221,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Новый iPhone 16 Plus: большой дисплей 6,7″, чип A18 с поддержкой Apple Intelligence, кнопка Camera Control и лучшая в линейке автономность.",
     specs:["Дисплей 6,7″ Super Retina XDR","Чип Apple A18","Камера 48 Мп Fusion","Кнопка Camera Control","До 27 часов видео"] },
 
-  { id:9, cat:"iphone", name:"iPhone 16", price:1690, oldPrice:null, badge:null,
+  { id:9, cat:"iphone", name:"iPhone 16", price:1530, oldPrice:2190, badge:null,
     img:"https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg",
     gradient:["#5a6cff","#2b3bbf"], sim:true,
     colors:[["Ultramarine","#4a5ccf"],["Бирюзовый","#6fb8b0"],["Pink","#e8a8bc"],["White","#f2f2ef"],["Black","#1d1e22"]],
@@ -230,7 +230,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Новый iPhone 16: чип A18, поддержка Apple Intelligence, камера 48 Мп и кнопка Camera Control — всё главное по разумной цене.",
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A18","Камера 48 Мп Fusion","Кнопка Camera Control","До 22 часов видео"] },
 
-  { id:10, cat:"iphone", name:"iPhone 15", price:1390, oldPrice:null, badge:null,
+  { id:10, cat:"iphone", name:"iPhone 15", price:1250, oldPrice:1790, badge:null,
     img:"https://www.apple.com/newsroom/images/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/tile/Apple-iPhone-15-lineup-hero-230912.jpg.og.jpg",
     gradient:["#e8a8bc","#b86a88"], sim:true,
     colors:[["Pink","#e8c4d0"],["Blue","#b5c9dd"],["Green","#c4d4c0"],["Жёлтый","#e8e0b0"],["Black","#1d1e22"]],
