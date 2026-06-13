@@ -1232,6 +1232,8 @@
         Режим работы: ежедневно 10:00–21:00<br>
         Телефон: +375 (XX) XXX-XX-XX · Email: info@ibrain.by
       </p>
+      <p>Вид деятельности — розничная торговля техникой и аксессуарами — <b>не подлежит
+      лицензированию</b> в соответствии с законодательством Республики Беларусь.</p>
       <p class="info-small">⚠️ Укажите реальный телефон и email перед подключением bePaid.</p>
     </div>
 
@@ -1495,7 +1497,9 @@ function photoList(p) {
   // случайные стоки НЕ используем — они выглядят неуместно
   const list = [];
   if (p.photo) list.push(p.photo);
-  if (p.img) list.push(p.img);
+  // внешние рендеры (http) отключаются флагом localImagesOnly (режим «единый домен» bePaid)
+  const localOnly = window.SHOP_CONFIG && window.SHOP_CONFIG.localImagesOnly;
+  if (p.img && !(localOnly && /^https?:/i.test(p.img))) list.push(p.img);
   return list;
 }
 // первое доступное фото товара (для корзины); если нет — пусто
