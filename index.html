@@ -1786,6 +1786,7 @@ function renderInstagram() {
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
   }
+  pool.sort((a, b) => (b.avatar ? 1 : 0) - (a.avatar ? 1 : 0)); // карточки с фото — вперёд (видимыми будут реальные лица)
   const show = cfg.showCount ? pool.slice(0, cfg.showCount) : pool;
 
   grid.innerHTML = show.map(r => `
