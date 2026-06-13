@@ -438,6 +438,13 @@ window.DEFAULT_PRODUCTS = [
     desc:"Space Black, 128 ГБ, Dynamic Island, состояние 10/10",
     full:"iPhone 14 Pro 128 ГБ в цвете Space Black, состояние «как новый». Dynamic Island, дисплей 6,1″ ProMotion 120 Гц с Always-On, тройная камера Pro 48 Мп, нержавеющая сталь. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,1″ ProMotion 120 Гц, Always-On","Dynamic Island","Чип A16 Bionic","Камера 48 Мп Pro","Стальная рамка","Гарантия 6 месяцев"] },
+  { id:125, cat:"used", name:"iPhone 14 Pro", price:1390, oldPrice:null, badge:"Как новый", stock:"out",
+    condition:"Как новый", gradient:["#e8e6e2","#bcbcbc"], sim:true,
+    colors:[["Silver","#e8e6e2"]],
+    memory:[["256 ГБ",0]],
+    desc:"Silver, 256 ГБ — ожидаем поставку",
+    full:"iPhone 14 Pro 256 ГБ в цвете Silver. Dynamic Island, дисплей 6,1″ ProMotion 120 Гц с Always-On, тройная камера Pro 48 Мп. Сейчас нет в наличии — ожидаем поставку, оставьте заявку и мы сообщим о поступлении.",
+    specs:["Дисплей 6,1″ ProMotion 120 Гц, Always-On","Dynamic Island","Чип A16 Bionic","Камера 48 Мп Pro","Стальная рамка","Гарантия 6 месяцев"] },
 
   { id:123, cat:"used", name:"iPhone 14", price:790, oldPrice:null, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#b5c9dd","#7a93b8"], sim:true,
