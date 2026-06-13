@@ -248,12 +248,11 @@
   }
   .promo-strip .promo-track { white-space:nowrap; }
   .promo-strip:hover { filter:brightness(1.08); text-decoration:none; }
-  /* на телефоне текст не влезает — пускаем бегущей строкой, читается целиком */
-  @media (max-width:600px){
-    .promo-strip { justify-content:flex-start; font-size:12.5px; padding:0; }
-    .promo-strip .promo-track { display:inline-block; padding-left:100%; animation:promoMarquee 16s linear infinite; }
-  }
+  /* если текст не влезает (любой экран) — включается бегущая строка (класс .marquee ставит JS) */
+  .promo-strip.marquee { justify-content:flex-start; padding:0; }
+  .promo-strip.marquee .promo-track { display:inline-block; padding-left:100%; animation:promoMarquee 18s linear infinite; will-change:transform; }
   @keyframes promoMarquee { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+  @media (max-width:600px){ .promo-strip { font-size:12.5px; } }
 
   /* ---------- hero (тёмный, премиум) ---------- */
   .hero {
@@ -2491,6 +2490,17 @@ window.addEventListener("scroll", () => {
   heroImg.style.transform = `translateY(${y*.12}px) scale(${1 + y*.0001})`;
 }, { passive:true });
 
+// бегущая строка в плашке акции, если текст не влезает (работает на любом экране)
+function fitPromo(){
+  const strip = document.querySelector('.promo-strip');
+  const track = strip && strip.querySelector('.promo-track');
+  if(!track) return;
+  strip.classList.remove('marquee');               // сначала меряем в обычном виде
+  if (track.scrollWidth > strip.clientWidth + 2) strip.classList.add('marquee');
+}
+addEventListener('resize', fitPromo);
+addEventListener('load', fitPromo);
+
 // заменяем чёрные внешние рендеры Apple (хайлайты/плитки) на светлые иллюстрации товаров
 function relightMarketing(){
   if (!(window.SHOP_CONFIG && window.SHOP_CONFIG.localImagesOnly)) return;
@@ -2515,6 +2525,7 @@ renderFab();
 initCookie();
 renderRecent();
 relightMarketing(); // заменить чёрные рендеры Apple в хайлайтах/плитках на светлые иллюстрации
+fitPromo();         // включить бегущую строку в плашке, если текст не влезает
 // строгий режим bePaid: скрыть все внешние ссылки на соцсети
 if (window.SHOP_CONFIG.showSocial === false)
   document.querySelectorAll('.ext-social').forEach(el => el.style.display = 'none');

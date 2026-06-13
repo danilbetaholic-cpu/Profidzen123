@@ -150,6 +150,7 @@ window.DEFAULT_PRODUCTS = [
 
   // ================= iPHONE =================
   { id:1, cat:"iphone", name:"iPhone 17 Pro Max", price:2360, oldPrice:3370, badge:"Хит", left:7,
+    photo:"img/iphone17-promax-new.jpg",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg",
     gradient:["#ff9a3c","#ff5e62"], sim:true,
     colors:[["Cosmic Orange","#e8762e"],["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -159,6 +160,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,9″ ProMotion 120 Гц, 3000 нит","Чип Apple A19 Pro","Камеры 48+48+48 Мп, зум 8×","Селфи 18 Мп Center Stage","До 39 часов видео","Ceramic Shield 2"] },
 
   { id:2, cat:"iphone", name:"iPhone 17 Pro", price:2220, oldPrice:3170, badge:"Новинка",
+    photo:"img/iphone17-pro-new.jpg",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-color-lineup-250909_inline.jpg.large.jpg",
     gradient:["#4e7cff","#2b4bcf"], sim:true,
     colors:[["Cosmic Orange","#e8762e"],["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -177,6 +179,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Толщина 5,6 мм, 165 г","Дисплей 6,5″ ProMotion 120 Гц","Чип Apple A19 Pro","Камера 48 Мп Fusion","Титановая рама"] },
 
   { id:4, cat:"iphone", name:"iPhone 17", price:1600, oldPrice:2280, badge:null,
+    photo:"img/iphone17-new.jpg",
     img:"https://www.apple.com/v/iphone-17/f/images/meta/iphone-17_overview__cg0rlzmbhl7m_og.png",
     gradient:["#c9b6e4","#8e6fe8"], sim:true,
     colors:[["Lavender","#c9b6e4"],["Mist Blue","#b5c9dd"],["Sage","#b9c4a8"],["Black","#1d1e22"],["White","#f2f2ef"]],
@@ -186,6 +189,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A19","Камеры 48+48 Мп","Селфи 18 Мп Center Stage","До 30 часов видео"] },
 
   { id:5, cat:"iphone", name:"iPhone 17e", price:1250, oldPrice:1790, badge:null,
+    photo:"img/iphone17e-new.jpg",
     img:"https://www.apple.com/v/iphone-17e/a/images/overview/welcome/hero_endframe__eafizd06t6qa_large.jpg",
     gradient:["#5f6b7a","#2c3440"], sim:true,
     colors:[["Black","#1d1e22"],["White","#f2f2ef"]],
@@ -195,6 +199,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A19","Камера 48 Мп 2-в-1","Face ID","До 26 часов видео"] },
 
   { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2300, oldPrice:3280, badge:"Выгодно", left:5,
+    photo:"img/iphone16-promax-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Desert Titanium","#bfa98a"],["Natural Titanium","#c2bcb2"],["Белый титан","#e8e6e2"],["Black Titanium","#3a3c40"]],
@@ -204,6 +209,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,9″ ProMotion 120 Гц","Чип Apple A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","До 33 часов видео","Титановый корпус"] },
 
   { id:7, cat:"iphone", name:"iPhone 16 Pro", price:1950, oldPrice:2790, badge:null,
+    photo:"img/iphone16-pro-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Desert Titanium","#bfa98a"],["Natural Titanium","#c2bcb2"],["Белый титан","#e8e6e2"],["Black Titanium","#3a3c40"]],
@@ -213,6 +219,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","Титановый корпус"] },
 
   { id:8, cat:"iphone", name:"iPhone 16 Plus", price:1670, oldPrice:2390, badge:null,
+    photo:"img/iphone16plus-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg",
     gradient:["#5a6cff","#2b3bbf"], sim:true,
     colors:[["Ultramarine","#4a5ccf"],["Бирюзовый","#6fb8b0"],["Pink","#e8a8bc"],["White","#f2f2ef"],["Black","#1d1e22"]],
@@ -222,6 +229,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,7″ Super Retina XDR","Чип Apple A18","Камера 48 Мп Fusion","Кнопка Camera Control","До 27 часов видео"] },
 
   { id:9, cat:"iphone", name:"iPhone 16", price:1530, oldPrice:2190, badge:null,
+    photo:"img/iphone16-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg",
     gradient:["#5a6cff","#2b3bbf"], sim:true,
     colors:[["Ultramarine","#4a5ccf"],["Бирюзовый","#6fb8b0"],["Pink","#e8a8bc"],["White","#f2f2ef"],["Black","#1d1e22"]],
@@ -231,6 +239,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A18","Камера 48 Мп Fusion","Кнопка Camera Control","До 22 часов видео"] },
 
   { id:10, cat:"iphone", name:"iPhone 15", price:1250, oldPrice:1790, badge:null,
+    photo:"img/iphone15-new.jpg",
     img:"https://www.apple.com/newsroom/images/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/tile/Apple-iPhone-15-lineup-hero-230912.jpg.og.jpg",
     gradient:["#e8a8bc","#b86a88"], sim:true,
     colors:[["Pink","#e8c4d0"],["Blue","#b5c9dd"],["Green","#c4d4c0"],["Жёлтый","#e8e0b0"],["Black","#1d1e22"]],
