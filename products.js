@@ -589,6 +589,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Чип Apple M4","16 ГБ объединённой памяти","Thunderbolt 4 × 3, HDMI","Wi-Fi 6E"] },
 
   { id:32, cat:"mac", name:"MacBook Air 13", price:2200, oldPrice:3150, badge:"Хит",
+    photo:"img/macbook-air-new.jpg",
     img:"https://www.apple.com/v/macbook-air/z/images/meta/macbook_air_mx__ez5y0k5yy7au_og.png",
     gradient:["#2e3650","#141927"],
     colors:[["Sky Blue","#b8d3e8"],["Midnight","#2e3650"],["Starlight","#e8dcc8"],["Silver","#d6dade"]],
@@ -598,6 +599,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 13,6″ Liquid Retina","Чип Apple M4","16 ГБ памяти","До 18 часов работы","1,24 кг"] },
 
   { id:33, cat:"mac", name:"MacBook Air 15", price:2380, oldPrice:3400, badge:null,
+    photo:"img/macbook-air-new.jpg",
     img:"https://www.apple.com/v/macbook-air/z/images/meta/macbook_air_mx__ez5y0k5yy7au_og.png",
     gradient:["#e8dcc8","#b8a888"],
     colors:[["Sky Blue","#b8d3e8"],["Midnight","#2e3650"],["Starlight","#e8dcc8"],["Silver","#d6dade"]],
@@ -607,6 +609,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 15,3″ Liquid Retina","Чип Apple M4","16 ГБ памяти","До 18 часов работы","1,51 кг"] },
 
   { id:34, cat:"mac", name:"MacBook Pro 14", price:3910, oldPrice:5580, badge:"Pro",
+    photo:"img/macbook-pro-new.jpg",
     img:"https://www.apple.com/v/macbook-pro/ax/images/meta/macbook-pro__difvbgz1plsi_og.png",
     gradient:["#3d4356","#15171f"],
     colors:[["Space Black","#2a2c31"],["Silver","#d6dade"]],
@@ -616,6 +619,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 14,2″ XDR 120 Гц","Чип Apple M5 Pro","24 ГБ памяти","До 24 часов работы","HDMI, SDXC, Thunderbolt 5"] },
 
   { id:35, cat:"mac", name:"MacBook Pro 16", price:7000, oldPrice:null, badge:"Pro",
+    photo:"img/macbook-pro-new.jpg",
     img:"https://www.apple.com/v/macbook-pro/ax/images/meta/macbook-pro__difvbgz1plsi_og.png",
     gradient:["#3d4356","#15171f"],
     colors:[["Space Black","#2a2c31"],["Silver","#d6dade"]],
@@ -653,6 +657,7 @@ window.DEFAULT_PRODUCTS = [
 
   // ================= WATCH =================
   { id:41, cat:"watch", name:"Apple Watch SE", price:560, oldPrice:800, badge:null,
+    photo:"img/watch-se-new.jpg",
     img:"https://www.apple.com/v/apple-watch-se-3/b/images/meta/apple-watch-se-3__d0wwc67lzg02_og.png",
     gradient:["#2e3650","#141927"],
     colors:[["Midnight","#2e3650"],["Starlight","#e8dcc8"],["Silver","#d6dade"]],
@@ -661,6 +666,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей Retina","Пульс и тренировки","Обнаружение падений","Влагозащита 50 м","До 18 часов работы"] },
 
   { id:42, cat:"watch", name:"Apple Watch Series 11", price:760, oldPrice:1090, badge:"Новинка",
+    photo:"img/watch-series-new.jpg",
     img:"https://www.apple.com/v/apple-watch-series-11/c/images/meta/apple-watch-series-11__cim89z1i9spe_og.png",
     gradient:["#f0c4d8","#c88aa8"],
     colors:[["Rose Gold","#e0b8c4"],["Silver","#d6dade"],["Графитовый","#3a3c40"],["Угольный","#1d1e22"]],
@@ -669,6 +675,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Always-On Retina дисплей","ЭКГ + кислород в крови","Отслеживание сна","5G + GPS","До 24 часов работы"] },
 
   { id:43, cat:"watch", name:"Apple Watch Ultra 3", price:2450, oldPrice:null, badge:"Ultra",
+    photo:"img/watch-ultra-new.jpg",
     img:"https://www.apple.com/v/apple-watch-ultra-3/b/images/overview/welcome/hero_endframe__e4ls9pihykya_large.jpg",
     gradient:["#bfa98a","#7a6a4f"],
     colors:[["Natural Titanium","#bfa98a"],["Black Titanium","#3a3c40"]],
