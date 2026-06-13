@@ -2535,17 +2535,27 @@ addEventListener('load', fitPromo);
 
 // заменяем чёрные внешние рендеры Apple (хайлайты/плитки) на светлые иллюстрации товаров
 function relightMarketing(){
-  if (!(window.SHOP_CONFIG && window.SHOP_CONFIG.localImagesOnly)) return;
+  // убираем чёрные рендеры Apple в хайлайтах/плитках:
+  // если у связанного товара есть локальное фото на белом — ставим его,
+  // иначе — светлую иллюстрацию. Так нет чёрного фона нигде.
   document.querySelectorAll('.hl, .tile').forEach(card=>{
     const img = card.querySelector('img'); if(!img) return;
     const oc = [...card.querySelectorAll('[onclick]')].map(x=>x.getAttribute('onclick')||'').join(' ');
     const m = oc.match(/openDetail\((\d+)\)/);
     const p = m ? byId(m[1]) : null;
-    const wrap = document.createElement('div');
-    wrap.className = card.classList.contains('tile') ? 'tile-art' : 'hl-art';
-    if (p) wrap.innerHTML = art(p, 360, 360);
-    img.replaceWith(wrap);
+    const localPhoto = (p && p.photo && /^img\//.test(p.photo)) ? p.photo : '';
     card.classList.remove('dark');  // плитка больше не тёмная
+    if (localPhoto) {
+      img.src = localPhoto;
+      img.removeAttribute('loading');
+      img.style.objectFit = 'contain';
+      img.style.background = '#fff';
+    } else {
+      const wrap = document.createElement('div');
+      wrap.className = card.classList.contains('tile') ? 'tile-art' : 'hl-art';
+      if (p) wrap.innerHTML = art(p, 360, 360);
+      img.replaceWith(wrap);
+    }
   });
 }
 
