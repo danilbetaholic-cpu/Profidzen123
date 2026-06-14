@@ -149,7 +149,7 @@ window.CAT_BENEFITS = {
 window.DEFAULT_PRODUCTS = [
 
   // ================= iPHONE =================
-  { id:1, cat:"iphone", name:"iPhone 17 Pro Max", price:2360, oldPrice:3370, badge:"Хит", left:7,
+  { id:1, cat:"iphone", name:"iPhone 17 Pro Max", price:2360, oldPrice:3371, badge:"Хит", left:7,
     photo:"img/iphone17-promax-new.jpg",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg",
     gradient:["#ff9a3c","#ff5e62"], sim:true,
@@ -159,7 +159,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Максимальный iPhone: самая большая батарея в истории iPhone, телеобъектив с 8-кратным оптическим зумом и система охлаждения с испарительной камерой — мощность не падает даже под нагрузкой.",
     specs:["Дисплей 6,9″ ProMotion 120 Гц, 3000 нит","Чип Apple A19 Pro","Камеры 48+48+48 Мп, зум 8×","Селфи 18 Мп Center Stage","До 39 часов видео","Ceramic Shield 2"] },
 
-  { id:2, cat:"iphone", name:"iPhone 17 Pro", price:2220, oldPrice:3170, badge:"Новинка",
+  { id:2, cat:"iphone", name:"iPhone 17 Pro", price:2220, oldPrice:3171, badge:"Новинка",
     photo:"img/iphone17-pro-new.jpg",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-color-lineup-250909_inline.jpg.large.jpg",
     gradient:["#4e7cff","#2b4bcf"], sim:true,
@@ -169,7 +169,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Вся мощность Pro в компактном корпусе: тройная камера 48 Мп, съёмка ProRes RAW и рекордная автономность.",
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A19 Pro","Камеры 48+48+48 Мп, зум 8×","До 33 часов видео","USB-C 3.2"] },
 
-  { id:3, cat:"iphone", name:"iPhone 17 Air", price:1810, oldPrice:2590, badge:"Самый тонкий",
+  { id:3, cat:"iphone", name:"iPhone 17 Air", price:1810, oldPrice:2586, badge:"Самый тонкий",
     photo:"img/iphone17air-new.jpg",
     img:"https://www.apple.com/v/iphone-air/f/images/meta/iphone-air_overview__dwhg6l117yqa_og.png",
     gradient:["#7fd6ff","#4a9fe8"], sim:true,
@@ -179,7 +179,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый тонкий iPhone в истории — всего 5,6 мм и 165 граммов. Титановая рама и полноценный чип A19 Pro.",
     specs:["Толщина 5,6 мм, 165 г","Дисплей 6,5″ ProMotion 120 Гц","Чип Apple A19 Pro","Камера 48 Мп Fusion","Титановая рама"] },
 
-  { id:4, cat:"iphone", name:"iPhone 17", price:1600, oldPrice:2280, badge:null,
+  { id:4, cat:"iphone", name:"iPhone 17", price:1600, oldPrice:2286, badge:null,
     photo:"img/iphone17-new.jpg",
     img:"https://www.apple.com/v/iphone-17/f/images/meta/iphone-17_overview__cg0rlzmbhl7m_og.png",
     gradient:["#c9b6e4","#8e6fe8"], sim:true,
@@ -189,7 +189,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Золотая середина линейки: впервые в базовой модели — дисплей ProMotion 120 Гц и стартовые 256 ГБ памяти.",
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A19","Камеры 48+48 Мп","Селфи 18 Мп Center Stage","До 30 часов видео"] },
 
-  { id:5, cat:"iphone", name:"iPhone 17e", price:1250, oldPrice:1790, badge:null,
+  { id:5, cat:"iphone", name:"iPhone 17e", price:1250, oldPrice:1786, badge:null,
     photo:"img/iphone17e-new.jpg",
     img:"https://www.apple.com/v/iphone-17e/a/images/overview/welcome/hero_endframe__eafizd06t6qa_large.jpg",
     gradient:["#5f6b7a","#2c3440"], sim:true,
@@ -199,7 +199,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый доступный вход в экосистему Apple: флагманский чип A19, OLED-дисплей и поддержка Apple Intelligence.",
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A19","Камера 48 Мп 2-в-1","Face ID","До 26 часов видео"] },
 
-  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2100, oldPrice:3280, badge:"Выгодно", left:5,
+  { id:6, cat:"iphone", name:"iPhone 16 Pro Max", price:2100, oldPrice:3000, badge:"Выгодно", left:5,
     photo:"img/iphone16-promax-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     gradient:["#bfa98a","#7a6a4f"], sim:true,
@@ -209,7 +209,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Совершенно новый iPhone 16 Pro Max в плёнке: титановый корпус, большой дисплей 6,9″, камера 48 Мп с 5-кратным зумом и кнопка Camera Control. Та же премиальная линейка Pro — на треть доступнее новинки.",
     specs:["Дисплей 6,9″ ProMotion 120 Гц","Чип Apple A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","До 33 часов видео","Титановый корпус"] },
 
-  { id:7, cat:"iphone", name:"iPhone 16 Pro", price:1950, oldPrice:2790, badge:null,
+  { id:7, cat:"iphone", name:"iPhone 16 Pro", price:1950, oldPrice:2786, badge:null,
     photo:"img/iphone16-pro-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     gradient:["#bfa98a","#7a6a4f"], sim:true,
@@ -219,7 +219,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Совершенно новый iPhone 16 Pro: титановый корпус, дисплей 6,3″ ProMotion, камера 48 Мп с 5-кратным зумом и кнопка Camera Control.",
     specs:["Дисплей 6,3″ ProMotion 120 Гц","Чип Apple A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","Титановый корпус"] },
 
-  { id:8, cat:"iphone", name:"iPhone 16 Plus", price:1670, oldPrice:2390, badge:null,
+  { id:8, cat:"iphone", name:"iPhone 16 Plus", price:1670, oldPrice:2386, badge:null,
     photo:"img/iphone16plus-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg",
     gradient:["#5a6cff","#2b3bbf"], sim:true,
@@ -229,7 +229,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Новый iPhone 16 Plus: большой дисплей 6,7″, чип A18 с поддержкой Apple Intelligence, кнопка Camera Control и лучшая в линейке автономность.",
     specs:["Дисплей 6,7″ Super Retina XDR","Чип Apple A18","Камера 48 Мп Fusion","Кнопка Camera Control","До 27 часов видео"] },
 
-  { id:9, cat:"iphone", name:"iPhone 16", price:1530, oldPrice:2190, badge:null,
+  { id:9, cat:"iphone", name:"iPhone 16", price:1530, oldPrice:2186, badge:null,
     photo:"img/iphone16-new.jpg",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg",
     gradient:["#5a6cff","#2b3bbf"], sim:true,
@@ -239,7 +239,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Новый iPhone 16: чип A18, поддержка Apple Intelligence, камера 48 Мп и кнопка Camera Control — всё главное по разумной цене.",
     specs:["Дисплей 6,1″ Super Retina XDR","Чип Apple A18","Камера 48 Мп Fusion","Кнопка Camera Control","До 22 часов видео"] },
 
-  { id:10, cat:"iphone", name:"iPhone 15", price:1250, oldPrice:1790, badge:null,
+  { id:10, cat:"iphone", name:"iPhone 15", price:1250, oldPrice:1786, badge:null,
     photo:"img/iphone15-new.jpg",
     img:"https://www.apple.com/newsroom/images/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/tile/Apple-iPhone-15-lineup-hero-230912.jpg.og.jpg",
     gradient:["#e8a8bc","#b86a88"], sim:true,
@@ -250,7 +250,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,1″ Super Retina XDR","Чип A16 Bionic","Камера 48 Мп","Dynamic Island","USB-C"] },
 
   // ================= Б/У iPHONE =================
-  { id:101, cat:"used", name:"iPhone 17 Pro Max", price:2080, oldPrice:2970, badge:"Как новый",
+  { id:101, cat:"used", name:"iPhone 17 Pro Max", price:2080, oldPrice:2971, badge:"Как новый",
     photo:"img/iphone17-promax-orange-1.jpg",
     gallery:["img/iphone17-promax-orange-1.jpg","img/iphone17-promax-orange-2.jpg","img/iphone17-promax-orange-3.jpg","img/iphone17-promax-orange-4.jpg"],
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-cosmic-orange-250909_inline.jpg.large.jpg",
@@ -261,7 +261,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Аппарат в идеальном состоянии: без царапин и сколов, аккумулятор от 98%. Проверка по 40 пунктам, гарантия 6 месяцев.",
     specs:["Состояние 10/10 «как новый»","АКБ 98–100%","Полный комплект, коробка","Гарантия 6 месяцев"] },
 
-  { id:102, cat:"used", name:"iPhone 17 Pro", photo:"img/iphone17-pro-new.jpg", price:1950, oldPrice:2785, badge:"Как новый",
+  { id:102, cat:"used", name:"iPhone 17 Pro", photo:"img/iphone17-pro-new.jpg", price:1950, oldPrice:2786, badge:"Как новый",
     img:"https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-color-lineup-250909_inline.jpg.large.jpg",
     condition:"Как новый", gradient:["#4e7cff","#2b4bcf"], sim:true,
     colors:[["Deep Blue","#1f2a44"],["Silver","#d6dade"]],
@@ -279,7 +279,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Профессионально восстановленный флагман: новый аккумулятор, новый корпус, оригинальные комплектующие. Работает как новый — стоит заметно дешевле.",
     specs:["Новый аккумулятор (100%)","Новый корпус и стекло","Оригинальные запчасти","Гарантия 6 месяцев"] },
 
-  { id:104, cat:"used", name:"iPhone 17", photo:"img/iphone17-new.jpg", price:1410, oldPrice:2015, badge:"Как новый",
+  { id:104, cat:"used", name:"iPhone 17", photo:"img/iphone17-new.jpg", price:1410, oldPrice:2014, badge:"Как новый",
     img:"https://www.apple.com/v/iphone-17/f/images/meta/iphone-17_overview__cg0rlzmbhl7m_og.png",
     condition:"Как новый", gradient:["#c9b6e4","#8e6fe8"], sim:true,
     colors:[["Lavender","#c9b6e4"],["Black","#1d1e22"]],
@@ -288,7 +288,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Практически новый iPhone 17 ощутимо дешевле. Полная проверка, гарантия 6 месяцев.",
     specs:["Состояние 10/10","АКБ 98–100%","Гарантия 6 месяцев"] },
 
-  { id:105, cat:"used", name:"iPhone 16 Pro", photo:"img/iphone16-pro-new.jpg", price:1720, oldPrice:2455, badge:"Как новый",
+  { id:105, cat:"used", name:"iPhone 16 Pro", photo:"img/iphone16-pro-new.jpg", price:1720, oldPrice:2457, badge:"Как новый",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg",
     condition:"Как новый", gradient:["#bfa98a","#7a6a4f"], sim:true,
     colors:[["Natural Titanium","#bfa98a"],["Black Titanium","#3a3c40"]],
@@ -297,7 +297,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Флагман 2025 года: титановый корпус, камера 48 Мп, кнопка Camera Control. АКБ от 95%, гарантия 6 месяцев.",
     specs:["Дисплей 6,3″ ProMotion","Чип A18 Pro","АКБ от 95%","Гарантия 6 месяцев"] },
 
-  { id:106, cat:"used", name:"iPhone 16", photo:"img/iphone16-new.jpg", price:1090, oldPrice:1555, badge:"Восстановленный",
+  { id:106, cat:"used", name:"iPhone 16", photo:"img/iphone16-new.jpg", price:1090, oldPrice:1557, badge:"Восстановленный",
     img:"https://www.apple.com/newsroom/images/2024/09/apple-introduces-iphone-16-and-iphone-16-plus/article/Apple-iPhone-16-hero-240909_inline.jpg.large.jpg",
     condition:"Восстановленный", gradient:["#5a6cff","#2b3bbf"], sim:true,
     colors:[["Ultramarine","#4a5ccf"],["Black","#1d1e22"]],
@@ -306,7 +306,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Восстановленный iPhone 16: новый аккумулятор, новый корпус. Лучшее соотношение цены и возможностей.",
     specs:["Новый аккумулятор","Новый корпус","Чип A18","Гарантия 6 месяцев"] },
 
-  { id:117, cat:"used", name:"iPhone 16 Pro Max", price:1850, oldPrice:2645, badge:"Как новый", left:1,
+  { id:117, cat:"used", name:"iPhone 16 Pro Max", price:1850, oldPrice:2643, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#bfb8ad","#8a8378"], sim:true,
     colors:[["Natural Titanium","#bfb8ad"]],
     memory:[["256 ГБ",0]],
@@ -317,7 +317,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 16 Pro Max 256 ГБ в цвете Natural Titanium, версия eSIM. Состояние «как новый», аккумулятор 93%. Дисплей 6,9″ ProMotion 120 Гц, кнопка Camera Control, титановый корпус. Гарантия 6 месяцев.",
     specs:["Дисплей 6,9″ ProMotion 120 Гц","Чип A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","АКБ 93%","Только eSIM","Гарантия 6 месяцев"] },
 
-  { id:116, cat:"used", name:"iPhone 16 Pro Max", price:1870, oldPrice:2670, badge:"Как новый", left:1,
+  { id:116, cat:"used", name:"iPhone 16 Pro Max", price:1870, oldPrice:2671, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#e8e6e2","#c2bcb2"], sim:true,
     colors:[["White Titanium","#e8e6e2"]],
     memory:[["256 ГБ",0]],
@@ -328,7 +328,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 16 Pro Max 256 ГБ в цвете White Titanium, версия eSIM. Состояние «как новый»: аккумулятор 98%, всего 191 цикл, выпущен в ноябре 2024, первое включение — январь 2025. Дисплей 6,9″ ProMotion 120 Гц, кнопка Camera Control, титановый корпус. Гарантия 6 месяцев.",
     specs:["Дисплей 6,9″ ProMotion 120 Гц","Чип A18 Pro","Камеры 48+48+12 Мп, зум 5×","Кнопка Camera Control","АКБ 98% (191 цикл)","Только eSIM","Гарантия 6 месяцев"] },
 
-  { id:114, cat:"used", name:"iPhone 14 Pro Max", price:1790, oldPrice:2555, badge:"Как новый", left:1,
+  { id:114, cat:"used", name:"iPhone 14 Pro Max", price:1790, oldPrice:2557, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#5a4e7a","#332b50"], sim:true,
     colors:[["Deep Purple","#5a4e7a"]],
     memory:[["128 ГБ",0],["256 ГБ",200],["512 ГБ",500]],
@@ -338,7 +338,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 14 Pro Max в цвете Deep Purple, состояние «как новый», в полном комплекте с коробкой. Dynamic Island, дисплей 6,7″ ProMotion 120 Гц с Always-On, тройная камера Pro 48 Мп. Гарантия 6 месяцев.",
     specs:["Дисплей 6,7″ ProMotion 120 Гц, Always-On","Dynamic Island","Чип A16 Bionic","Камера 48 Мп Pro","Спутниковый SOS","Гарантия 6 месяцев"] },
 
-  { id:108, cat:"used", name:"iPhone 13 Pro Max", price:1490, oldPrice:2130, badge:"Как новый", left:1,
+  { id:108, cat:"used", name:"iPhone 13 Pro Max", price:1490, oldPrice:2129, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#a9c4e0","#5a7da0"], sim:true,
     colors:[["Sierra Blue","#9fc0dd"]],
     memory:[["256 ГБ",0]],
@@ -348,7 +348,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 13 Pro Max 256 ГБ в цвете Sierra Blue, состояние «как новый» — без царапин и сколов. Дисплей 6,7″ ProMotion 120 Гц, тройная камера Pro, ёмкость аккумулятора от 90%. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,7″ ProMotion 120 Гц","Чип A15 Bionic","Тройная камера Pro 12 Мп","АКБ от 90%","Полный комплект","Гарантия 6 месяцев"] },
 
-  { id:126, cat:"used", name:"iPhone 16 Pro Max", price:1830, oldPrice:2615, badge:"Как новый", left:1,
+  { id:126, cat:"used", name:"iPhone 16 Pro Max", price:1830, oldPrice:2614, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#c9a86a","#9a7b44"], sim:true,
     colors:[["Desert Titanium","#c9a86a"]],
     memory:[["256 ГБ",0]],
@@ -358,7 +358,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 16 Pro Max 256 ГБ в цвете Desert Titanium, состояние «как новый» — без царапин и сколов. Титановый корпус, дисплей 6,9″ ProMotion 120 Гц, кнопка Camera Control, камера 48 Мп, USB-C. Ёмкость аккумулятора от 95%, полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,9″ ProMotion 120 Гц","Чип A18 Pro","Камера 48 Мп Pro + Camera Control","Титановый корпус","USB-C","АКБ от 95%","Гарантия 6 месяцев"] },
 
-  { id:109, cat:"used", name:"iPhone 12 Pro Max", price:1090, oldPrice:1555, badge:"Как новый", left:1,
+  { id:109, cat:"used", name:"iPhone 12 Pro Max", price:1090, oldPrice:1557, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#e6d2a8","#c2a36a"], sim:true,
     colors:[["Gold","#e6cfa0"]],
     memory:[["128 ГБ",0],["256 ГБ",150]],
@@ -378,7 +378,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 12 Pro Max с двумя физическими SIM (Dual SIM), 128 ГБ, цвет Pacific Blue. Состояние «как новый», в полном комплекте с коробкой. Дисплей 6,7″ Super Retina XDR, тройная камера Pro с LiDAR. Гарантия 6 месяцев.",
     specs:["Две физические SIM (Dual SIM)","Дисплей 6,7″ Super Retina XDR","Чип A14 Bionic","Тройная камера Pro + LiDAR","Полный комплект, коробка","Гарантия 6 месяцев"] },
 
-  { id:115, cat:"used", name:"iPhone 12 Pro Max", price:1290, oldPrice:1845, badge:"Как новый", left:1,
+  { id:115, cat:"used", name:"iPhone 12 Pro Max", price:1290, oldPrice:1843, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#e8e6e2","#bcbcbc"], sim:true,
     colors:[["Silver","#e8e6e2"]],
     memory:[["512 ГБ",0]],
@@ -388,7 +388,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 12 Pro Max 512 ГБ в цвете Silver, состояние «как новый», в полном комплекте с коробкой. Максимальный объём памяти, дисплей 6,7″ Super Retina XDR, тройная камера Pro с LiDAR. Гарантия 6 месяцев.",
     specs:["Память 512 ГБ","Дисплей 6,7″ Super Retina XDR","Чип A14 Bionic","Тройная камера Pro + LiDAR","Полный комплект, коробка","Гарантия 6 месяцев"] },
 
-  { id:118, cat:"used", name:"iPhone 15", price:990, oldPrice:1415, badge:"Как новый", left:1,
+  { id:118, cat:"used", name:"iPhone 15", price:990, oldPrice:1414, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#1d1e22","#3a3c40"], sim:true,
     colors:[["Black","#1d1e22"]],
     memory:[["128 ГБ",0]],
@@ -398,7 +398,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 15 128 ГБ в чёрном цвете, состояние «как новый». Dynamic Island, дисплей 6,1″ Super Retina XDR, камера 48 Мп, USB-C. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,1″ Super Retina XDR","Dynamic Island","Чип A16 Bionic","Камера 48 Мп","USB-C","Гарантия 6 месяцев"] },
 
-  { id:119, cat:"used", name:"iPhone 15", price:990, oldPrice:1415, badge:"Как новый", left:1,
+  { id:119, cat:"used", name:"iPhone 15", price:990, oldPrice:1414, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#b5c9dd","#7a93b8"], sim:true,
     colors:[["Blue","#b5c9dd"]],
     memory:[["128 ГБ",0]],
@@ -408,7 +408,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 15 128 ГБ в голубом цвете, состояние «как новый». Dynamic Island, дисплей 6,1″ Super Retina XDR, камера 48 Мп, USB-C. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,1″ Super Retina XDR","Dynamic Island","Чип A16 Bionic","Камера 48 Мп","USB-C","Гарантия 6 месяцев"] },
 
-  { id:120, cat:"used", name:"iPhone 15", price:990, oldPrice:1415, badge:"Как новый", left:1,
+  { id:120, cat:"used", name:"iPhone 15", price:990, oldPrice:1414, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#c4d4c0","#9ab098"], sim:true,
     colors:[["Green","#c4d4c0"]],
     memory:[["128 ГБ",0]],
@@ -418,7 +418,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 15 128 ГБ в зелёном цвете, состояние «как новый». Dynamic Island, дисплей 6,1″ Super Retina XDR, камера 48 Мп, USB-C. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,1″ Super Retina XDR","Dynamic Island","Чип A16 Bionic","Камера 48 Мп","USB-C","Гарантия 6 месяцев"] },
 
-  { id:121, cat:"used", name:"iPhone 15", price:990, oldPrice:1415, badge:"Как новый", left:1,
+  { id:121, cat:"used", name:"iPhone 15", price:990, oldPrice:1414, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#e8c4d0","#d09cb0"], sim:true,
     colors:[["Pink","#e8c4d0"]],
     memory:[["128 ГБ",0]],
@@ -429,7 +429,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 6,1″ Super Retina XDR","Dynamic Island","Чип A16 Bionic","Камера 48 Мп","USB-C","Гарантия 6 месяцев"] },
 
 
-  { id:124, cat:"used", name:"iPhone 14 Pro", price:1290, oldPrice:1845, badge:"Как новый", left:1,
+  { id:124, cat:"used", name:"iPhone 14 Pro", price:1290, oldPrice:1843, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#2a2c31","#4a4c52"], sim:true,
     colors:[["Space Black","#2a2c31"]],
     memory:[["128 ГБ",0],["256 ГБ",200]],
@@ -438,7 +438,7 @@ window.DEFAULT_PRODUCTS = [
     desc:"Space Black, 128 ГБ, Dynamic Island, состояние 10/10",
     full:"iPhone 14 Pro 128 ГБ в цвете Space Black, состояние «как новый». Dynamic Island, дисплей 6,1″ ProMotion 120 Гц с Always-On, тройная камера Pro 48 Мп, нержавеющая сталь. Полная проверка, гарантия 6 месяцев.",
     specs:["Дисплей 6,1″ ProMotion 120 Гц, Always-On","Dynamic Island","Чип A16 Bionic","Камера 48 Мп Pro","Стальная рамка","Гарантия 6 месяцев"] },
-  { id:125, cat:"used", name:"iPhone 14 Pro", price:1390, oldPrice:1985, badge:"Как новый", stock:"out",
+  { id:125, cat:"used", name:"iPhone 14 Pro", price:1390, oldPrice:1986, badge:"Как новый", stock:"out",
     condition:"Как новый", gradient:["#e8e6e2","#bcbcbc"], sim:true,
     colors:[["Silver","#e8e6e2"]],
     memory:[["256 ГБ",0]],
@@ -446,7 +446,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPhone 14 Pro 256 ГБ в цвете Silver. Dynamic Island, дисплей 6,1″ ProMotion 120 Гц с Always-On, тройная камера Pro 48 Мп. Сейчас нет в наличии — ожидаем поставку, оставьте заявку и мы сообщим о поступлении.",
     specs:["Дисплей 6,1″ ProMotion 120 Гц, Always-On","Dynamic Island","Чип A16 Bionic","Камера 48 Мп Pro","Стальная рамка","Гарантия 6 месяцев"] },
 
-  { id:123, cat:"used", name:"iPhone 14", price:790, oldPrice:1130, badge:"Как новый", left:1,
+  { id:123, cat:"used", name:"iPhone 14", price:790, oldPrice:1129, badge:"Как новый", left:1,
     condition:"Как новый", gradient:["#b5c9dd","#7a93b8"], sim:true,
     colors:[["Blue","#a9c4e0"]],
     memory:[["128 ГБ",0],["256 ГБ",150]],
@@ -485,7 +485,7 @@ window.DEFAULT_PRODUCTS = [
     full:"MacBook Air на чипе M2 в идеальном состоянии: без царапин, аккумулятор практически новый (до 50 циклов). Полная диагностика, гарантия 6 месяцев.",
     specs:["Дисплей 13,6″ Liquid Retina","Чип Apple M2","8/16 ГБ памяти","АКБ: до 50 циклов","Гарантия 6 месяцев"] },
 
-  { id:112, cat:"used", name:"MacBook Pro 14 (M3 Pro)", price:3590, oldPrice:5130, badge:"Как новый",
+  { id:112, cat:"used", name:"MacBook Pro 14 (M3 Pro)", price:3590, oldPrice:5129, badge:"Как новый",
     img:"https://www.apple.com/v/macbook-pro/ax/images/meta/macbook-pro__difvbgz1plsi_og.png",
     condition:"Как новый", gradient:["#3d4356","#15171f"],
     colors:[["Space Black","#2a2c31"],["Silver","#d6dade"]],
@@ -494,7 +494,7 @@ window.DEFAULT_PRODUCTS = [
     full:"MacBook Pro 14 на M3 Pro в состоянии нового: дисплей XDR 120 Гц, 18 ГБ памяти. Проверен по всем пунктам, гарантия 6 месяцев.",
     specs:["Дисплей 14,2″ XDR 120 Гц","Чип Apple M3 Pro","18 ГБ памяти","АКБ от 95%","Гарантия 6 месяцев"] },
 
-  { id:113, cat:"used", name:"Mac mini (M2)", price:990, oldPrice:1415, badge:"Восстановленный",
+  { id:113, cat:"used", name:"Mac mini (M2)", price:990, oldPrice:1414, badge:"Восстановленный",
     img:"https://www.apple.com/v/mac-mini/aa/images/meta/mac-mini__dvce2jrm11w2_og.jpg",
     condition:"Восстановленный", gradient:["#aab4c4","#5e6878"],
     memory:[["256 ГБ",0],["512 ГБ",250]],
@@ -522,7 +522,7 @@ window.DEFAULT_PRODUCTS = [
     full:"MacBook Pro 16″ 2021 на топовом чипе M1 Max (32-ядерный GPU), 32 ГБ памяти и 1 ТБ SSD, цвет Space Gray. Состояние отличное, ёмкость аккумулятора 86%. Мощность для монтажа 4K, 3D и тяжёлых задач. Гарантия 6 месяцев.",
     specs:["Дисплей 16,2″ Liquid Retina XDR 120 Гц","Чип M1 Max, 32-ядерный GPU","32 ГБ объединённой памяти","SSD 1 ТБ","АКБ 86%","Гарантия 6 месяцев"] },
 
-  { id:129, cat:"used", name:"MacBook Pro 13″ (2015) Core i5", price:790, oldPrice:1130, badge:"Б/У", left:1,
+  { id:129, cat:"used", name:"MacBook Pro 13″ (2015) Core i5", price:790, oldPrice:1129, badge:"Б/У", left:1,
     condition:"Б/У, хорошее", gradient:["#d6dade","#a6abb2"],
     colors:[["Silver","#d6dade"]],
     memory:[["256 ГБ SSD",0]],
@@ -532,7 +532,7 @@ window.DEFAULT_PRODUCTS = [
     full:"MacBook Pro 13″ 2015 года на Intel Core i5, 16 ГБ оперативной памяти и 256 ГБ SSD, цвет Silver. Рабочее состояние, ёмкость аккумулятора 84%. Надёжный вариант для учёбы, документов и интернета по доступной цене.",
     specs:["Дисплей 13,3″ Retina","Intel Core i5","16 ГБ ОЗУ","SSD 256 ГБ","АКБ 84%","Гарантия 3 месяца"] },
 
-  { id:130, cat:"used", name:"MacBook Air 15″ (2025) M4", price:2090, oldPrice:2985, badge:"Как новый", left:2,
+  { id:130, cat:"used", name:"MacBook Air 15″ (2025) M4", price:2090, oldPrice:2986, badge:"Как новый", left:2,
     condition:"Как новый", gradient:["#d6dade","#a6abb2"],
     colors:[["Silver","#d6dade"]],
     memory:[["512 ГБ SSD",0]],
@@ -543,7 +543,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 15,3″ Liquid Retina","Чип Apple M4","16 ГБ объединённой памяти","SSD 512 ГБ","АКБ 100%","Гарантия 6 месяцев"] },
 
   // ================= iPAD =================
-  { id:21, cat:"ipad", name:"iPad", price:810, oldPrice:1160, badge:null,
+  { id:21, cat:"ipad", name:"iPad", price:810, oldPrice:1157, badge:null,
     photo:"img/ipad-new.jpg",
     img:"https://www.apple.com/v/ipad-11/d/images/meta/ipad-11_overview__brh97xhhd8b6_og.png",
     gradient:["#9fb4d8","#5e76a8"],
@@ -562,7 +562,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Целый iPad 2024 года в одной руке: 298 граммов, экран 8,3″. Идеален для чтения, заметок и поездок.",
     specs:["Дисплей 8,3″ Liquid Retina","Чип A17 Pro","Apple Pencil Pro","Wi-Fi 6E","298 грамм"] },
 
-  { id:23, cat:"ipad", name:"iPad Air", price:1310, oldPrice:1870, badge:"Хит",
+  { id:23, cat:"ipad", name:"iPad Air", price:1310, oldPrice:1871, badge:"Хит",
     photo:"img/ipad-air-new.jpg",
     img:"https://www.apple.com/v/ipad-air/ah/images/meta/ipad-air_overview__bc2fd15uec0y_og.png",
     gradient:["#7fd6ff","#4a9fe8"],
@@ -573,7 +573,7 @@ window.DEFAULT_PRODUCTS = [
     full:"iPad Air 2026 года: мощность чипа M4 в тонком корпусе, на выбор экран 11″ или 13″. Монтаж видео, рисование, многозадачность. Поддержка Magic Keyboard.",
     specs:["Дисплей 11″ Liquid Retina","Чип Apple M4","Apple Pencil Pro","Камера 12 Мп","Touch ID"] },
 
-  { id:24, cat:"ipad", name:"iPad Pro", price:2260, oldPrice:3230, badge:"Pro",
+  { id:24, cat:"ipad", name:"iPad Pro", price:2260, oldPrice:3229, badge:"Pro",
     photo:"img/ipad-pro-new.jpg",
     img:"https://www.apple.com/v/ipad-pro/aw/images/meta/ipad-pro_overview__bu4cql27diaa_og.png",
     gradient:["#3d4356","#15171f"],
@@ -585,7 +585,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей Ultra Retina XDR (OLED)","Чип Apple M5","Толщина 5,1 мм","Face ID","Thunderbolt / USB 4"] },
 
   // ================= MAC =================
-  { id:31, cat:"mac", name:"Mac mini", photo:"img/mac-mini-new.jpg", price:2115, oldPrice:3020, badge:null,
+  { id:31, cat:"mac", name:"Mac mini", photo:"img/mac-mini-new.jpg", price:2115, oldPrice:3021, badge:null,
     img:"https://www.apple.com/v/mac-mini/aa/images/meta/mac-mini__dvce2jrm11w2_og.jpg",
     gradient:["#aab4c4","#5e6878"],
     colors:[["Silver","#d6dade"]],
@@ -594,7 +594,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый доступный Mac: корпус 12,7 × 12,7 см, чип M4 и порты Thunderbolt. Подключите монитор — и готово.",
     specs:["Чип Apple M4","16 ГБ объединённой памяти","Thunderbolt 4 × 3, HDMI","Wi-Fi 6E"] },
 
-  { id:32, cat:"mac", name:"MacBook Air 13", price:2465, oldPrice:3520, badge:"Хит",
+  { id:32, cat:"mac", name:"MacBook Air 13", price:2465, oldPrice:3521, badge:"Хит",
     photo:"img/macbook-air-new.jpg",
     img:"https://www.apple.com/v/macbook-air/z/images/meta/macbook_air_mx__ez5y0k5yy7au_og.png",
     gradient:["#2e3650","#141927"],
@@ -604,7 +604,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый популярный ноутбук Apple: тонкий, бесшумный (без вентилятора) и работает весь день от батареи.",
     specs:["Дисплей 13,6″ Liquid Retina","Чип Apple M4","16 ГБ памяти","До 18 часов работы","1,24 кг"] },
 
-  { id:33, cat:"mac", name:"MacBook Air 15", price:2665, oldPrice:3805, badge:null,
+  { id:33, cat:"mac", name:"MacBook Air 15", price:2665, oldPrice:3807, badge:null,
     photo:"img/macbook-air-new.jpg",
     img:"https://www.apple.com/v/macbook-air/z/images/meta/macbook_air_mx__ez5y0k5yy7au_og.png",
     gradient:["#e8dcc8","#b8a888"],
@@ -614,7 +614,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Тот же тонкий и лёгкий Air, но с большим экраном 15,3″ — для тех, кому нужно больше пространства.",
     specs:["Дисплей 15,3″ Liquid Retina","Чип Apple M4","16 ГБ памяти","До 18 часов работы","1,51 кг"] },
 
-  { id:34, cat:"mac", name:"MacBook Pro 14", price:4380, oldPrice:6255, badge:"Pro",
+  { id:34, cat:"mac", name:"MacBook Pro 14", price:4380, oldPrice:6257, badge:"Pro",
     photo:"img/macbook-pro-new.jpg",
     img:"https://www.apple.com/v/macbook-pro/ax/images/meta/macbook-pro__difvbgz1plsi_og.png",
     gradient:["#3d4356","#15171f"],
@@ -634,7 +634,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Флагманский ноутбук для монтажа, 3D и разработки: чип M5 Max и экран 16,2″ XDR.",
     specs:["Дисплей 16,2″ XDR 120 Гц","Чип Apple M5 Max","36 ГБ памяти","До 24 часов работы","Thunderbolt 5"] },
 
-  { id:36, cat:"mac", name:"iMac", price:4705, oldPrice:6720, badge:null,
+  { id:36, cat:"mac", name:"iMac", price:4705, oldPrice:6721, badge:null,
     img:"https://www.apple.com/v/imac/v/images/meta/imac__d7trotporb6u_og.png",
     gradient:["#7fd6ff","#4a9fe8"],
     colors:[["Blue","#b8d3e8"],["Green","#b9c4a8"],["Pink","#e8c4d0"],["Orange","#e8a05c"],["Silver","#d6dade"]],
@@ -643,7 +643,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Компьютер-моноблок, который украсит любой стол: экран 24″ 4.5K, чип M4 и толщина 11,5 мм.",
     specs:["Дисплей 24″ 4.5K Retina","Чип Apple M4","16 ГБ памяти","Камера 12 Мп Center Stage","7 цветов"] },
 
-  { id:37, cat:"mac", name:"Mac Studio", price:9410, oldPrice:13445, badge:"Pro",
+  { id:37, cat:"mac", name:"Mac Studio", price:9410, oldPrice:13443, badge:"Pro",
     img:"https://www.apple.com/v/mac-studio/m/images/meta/mac-studio_overview__eedzbosm1t26_og.png",
     gradient:["#aab4c4","#5e6878"],
     colors:[["Silver","#d6dade"]],
@@ -671,7 +671,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Уведомления, тренировки, пульс, обнаружение падений — всё важное по самой доступной цене.",
     specs:["Дисплей Retina","Пульс и тренировки","Обнаружение падений","Влагозащита 50 м","До 18 часов работы"] },
 
-  { id:42, cat:"watch", name:"Apple Watch Series 11", price:760, oldPrice:1090, badge:"Новинка",
+  { id:42, cat:"watch", name:"Apple Watch Series 11", price:760, oldPrice:1086, badge:"Новинка",
     photo:"img/watch-series-new.jpg",
     img:"https://www.apple.com/v/apple-watch-series-11/c/images/meta/apple-watch-series-11__cim89z1i9spe_og.png",
     gradient:["#f0c4d8","#c88aa8"],
@@ -690,14 +690,14 @@ window.DEFAULT_PRODUCTS = [
     specs:["Титановый корпус 49 мм","Спутниковая связь","Погружения до 100 м","До 42 часов работы"] },
 
   // ================= AIRPODS =================
-  { id:51, cat:"audio", name:"AirPods 4", photo:"img/airpods-4-new.jpg", price:290, oldPrice:410, badge:null,
+  { id:51, cat:"audio", name:"AirPods 4", photo:"img/airpods-4-new.jpg", price:290, oldPrice:414, badge:null,
     img:"",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
     desc:"Новая посадка, чип H2, пространственное аудио",
     full:"Самые удобные AirPods: переработанная форма, пространственное аудио и до 30 часов с кейсом.",
     specs:["Чип Apple H2","Пространственное аудио","USB-C кейс","До 30 часов с кейсом","IP54"] },
-  { id:55, cat:"audio", name:"AirPods 4 (с шумоподавлением)", photo:"img/airpods-4-new.jpg", price:400, oldPrice:570, badge:null,
+  { id:55, cat:"audio", name:"AirPods 4 (с шумоподавлением)", photo:"img/airpods-4-new.jpg", price:400, oldPrice:571, badge:null,
     img:"",
     gradient:["#e8ecf2","#aab4c4"],
     colors:[["White","#f2f2ef"]],
@@ -705,7 +705,7 @@ window.DEFAULT_PRODUCTS = [
     full:"AirPods 4 с активным шумоподавлением: чип H2, пространственное аудио, режим прозрачности и адаптивный звук. До 30 часов с кейсом.",
     specs:["Чип Apple H2","Активное шумоподавление","Режим прозрачности","Пространственное аудио","USB-C кейс","До 30 часов с кейсом"] },
 
-  { id:52, cat:"audio", name:"AirPods Pro 3", price:470, oldPrice:670, badge:"Хит",
+  { id:52, cat:"audio", name:"AirPods Pro 3", price:470, oldPrice:671, badge:"Хит",
     photo:"img/airpods-pro-new.jpg",
     img:"https://www.apple.com/v/airpods-pro/r/images/meta/og__c0ceegchesom_overview.png",
     gradient:["#e8ecf2","#aab4c4"],
@@ -714,7 +714,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Шумоподавление в 2 раза мощнее предыдущего поколения, измерение пульса в ушах и функция слухового аппарата.",
     specs:["Шумоподавление ×2","Датчик пульса","Адаптивное аудио","До 8 часов на заряде","IP57"] },
 
-  { id:53, cat:"audio", name:"AirPods Max", photo:"img/airpods-max-new.jpg", price:1110, oldPrice:1590, badge:null,
+  { id:53, cat:"audio", name:"AirPods Max", photo:"img/airpods-max-new.jpg", price:1110, oldPrice:1586, badge:null,
     img:"",
     gradient:["#2e3650","#141927"],
     colors:[["Starlight","#e8dcc8"],["Midnight","#2e3650"],["Blue","#7a93b8"],["Purple","#c9bfe0"],["Orange","#e8a05c"]],
@@ -722,7 +722,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Полноразмерные наушники Apple: фирменное звучание, шумоподавление, алюминий и премиальные материалы.",
     specs:["Динамики Apple 40 мм","Активное шумоподавление","Пространственное аудио","До 20 часов работы","USB-C"] },
 
-  { id:54, cat:"audio", name:"AirPods Pro 2", price:390, oldPrice:560, badge:null, stock:"out",
+  { id:54, cat:"audio", name:"AirPods Pro 2", price:390, oldPrice:557, badge:null, stock:"out",
     photo:"img/airpods-pro-new.jpg",
     img:"https://www.apple.com/v/airpods-pro/r/images/meta/og__c0ceegchesom_overview.png",
     gradient:["#e8ecf2","#aab4c4"],
@@ -786,7 +786,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Магнитная беспроводная зарядка для iPhone и AirPods: идеально выравнивается и заряжает до 25 Вт.",
     specs:["Мощность до 25 Вт","Кабель USB-C 1 м","Совместима с чехлами MagSafe"] },
 
-  { id:73, cat:"acc", name:"Адаптер питания 20 Вт USB-C", price:60, oldPrice:85, badge:null,
+  { id:73, cat:"acc", name:"Адаптер питания 20 Вт USB-C", price:60, oldPrice:86, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
     photo:"img/acc-adapter-20w.jpg",
     desc:"Быстрая зарядка iPhone и iPad",
@@ -797,14 +797,14 @@ window.DEFAULT_PRODUCTS = [
 
 
   // ---------- ЗАРЯДНЫЕ БЛОКИ И КАБЕЛИ ----------
-  { id:77, cat:"acc", name:"Адаптер питания 30 Вт USB-C", price:65, oldPrice:95, badge:null,
+  { id:77, cat:"acc", name:"Адаптер питания 30 Вт USB-C", price:65, oldPrice:93, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
     photo:"img/acc-adapter-30w.jpg",
     desc:"Быстрая зарядка iPhone, iPad и MacBook Air",
     full:"Компактный оригинальный адаптер Apple на 30 Вт: быстро заряжает iPhone, iPad и даже MacBook Air. Складные контакты.",
     specs:["30 Вт, USB-C","Быстрая зарядка","Складные контакты","Оригинал Apple"] },
 
-  { id:78, cat:"acc", name:"Адаптер питания 35 Вт (2 × USB-C)", price:99, oldPrice:140, badge:"Хит",
+  { id:78, cat:"acc", name:"Адаптер питания 35 Вт (2 × USB-C)", price:99, oldPrice:141, badge:"Хит",
     gradient:["#e8ecf2","#aab4c4"],
     photo:"img/acc-adapter-35w.jpg",
     desc:"Два порта — заряжайте два устройства сразу",
@@ -818,13 +818,13 @@ window.DEFAULT_PRODUCTS = [
     full:"Оригинальный адаптер Apple на 67 Вт: быстро заряжает MacBook Pro 14″, iPad и iPhone. Подходит для кабеля USB-C и MagSafe 3.",
     specs:["67 Вт, USB-C","Для MacBook Pro 14″","Быстрая зарядка","Оригинал Apple"] },
 
-  { id:80, cat:"acc", name:"Адаптер питания 70 Вт USB-C", photo:"img/acc-adapter-70w.jpg", price:129, oldPrice:185, badge:null,
+  { id:80, cat:"acc", name:"Адаптер питания 70 Вт USB-C", photo:"img/acc-adapter-70w.jpg", price:129, oldPrice:184, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
     desc:"Для MacBook Air и MacBook Pro 14″",
     full:"Адаптер Apple на 70 Вт для быстрой зарядки MacBook Air 15″ и MacBook Pro 14″. Один порт USB-C.",
     specs:["70 Вт, USB-C","Для MacBook Air/Pro","Быстрая зарядка","Оригинал Apple"] },
 
-  { id:81, cat:"acc", name:"Адаптер питания 96 Вт USB-C", price:159, oldPrice:225, badge:null,
+  { id:81, cat:"acc", name:"Адаптер питания 96 Вт USB-C", price:159, oldPrice:227, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
     photo:"img/acc-adapter-96w.jpg",
     desc:"Максимальная скорость для MacBook Pro 14″/16″",
@@ -835,7 +835,7 @@ window.DEFAULT_PRODUCTS = [
 
 
 
-  { id:86, cat:"acc", name:"Зарядное устройство MagSafe (2-е поколение)", price:135, oldPrice:195, badge:null,
+  { id:86, cat:"acc", name:"Зарядное устройство MagSafe (2-е поколение)", price:135, oldPrice:193, badge:null,
     gradient:["#e8ecf2","#aab4c4"],
     photo:"img/acc-magsafe2.jpg",
     desc:"Беспроводная зарядка до 25 Вт для iPhone 16/17",
@@ -843,7 +843,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["До 25 Вт","Для iPhone 16/17","Кабель USB-C 1 м","Магнитное крепление"] },
 
   // ---------- ЧЕХЛЫ ----------
-  { id:87, cat:"acc", name:"Силиконовый чехол MagSafe", price:95, oldPrice:135, badge:null,
+  { id:87, cat:"acc", name:"Силиконовый чехол MagSafe", price:95, oldPrice:136, badge:null,
     gradient:["#3d4356","#15171f"],
     colors:[["Чёрный","#1d1e22"],["Синий","#1f2a44"],["Розовый","#e8c4d0"],["Оранжевый","#e8762e"]],
     photo:"img/acc-case-silicone-1.jpg",
@@ -851,7 +851,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Фирменный силиконовый чехол с приятным на ощупь покрытием и микрофиброй внутри. Магниты MagSafe для зарядки и аксессуаров, точные вырезы под камеры и кнопки.",
     specs:["Поддержка MagSafe","Силикон софт-тач","Микрофибра внутри","Защита камеры"] },
 
-  { id:88, cat:"acc", name:"Прозрачный чехол MagSafe", price:89, oldPrice:125, badge:null,
+  { id:88, cat:"acc", name:"Прозрачный чехол MagSafe", price:89, oldPrice:127, badge:null,
     gradient:["#e8ecf2","#c4ccd6"],
     photo:"img/acc-case-clear-1.jpg",
     desc:"Прозрачный, не желтеет, MagSafe",
