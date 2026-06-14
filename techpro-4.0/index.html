@@ -1111,7 +1111,6 @@
     </select>
   </div>
   <div class="tabs" id="tabs"></div>
-  <div id="subTabs"></div>
   <div class="sale-timer" id="saleTimer" style="display:none">
     <span class="lbl">До конца акции:</span>
     <div class="clock">
@@ -1653,18 +1652,14 @@ let usedSub = "all"; // подкатегория Б/У: all | iphone | mac
 const usedKind = p => /Mac|iMac/i.test(p.name) ? "mac" : "iphone";
 
 function renderTabs() {
-  const html = window.SHOP_CATEGORIES.map(([key, label]) =>
+  let html = window.SHOP_CATEGORIES.map(([key, label]) =>
     `<button class="tab ${key==='sale'?'sale-tab':''} ${key===activeCat?'active':''}" onclick="setTab('${key}')">${label}</button>`
   ).join("");
-  document.getElementById("tabs").innerHTML = html;
-  // под-табы Б/У — в отдельный контейнер под основными (иначе на мобайле ломают flex-nowrap)
-  const sub = document.getElementById("subTabs");
-  if (sub) {
-    sub.innerHTML = activeCat === "used"
-      ? `<div class="sub-tabs">` + [["all","Вся б/у техника"],["iphone","Б/У iPhone"],["mac","Б/У Mac"]].map(([k,l]) =>
-          `<button class="tab sub ${k===usedSub?'active':''}" onclick="setUsedSub('${k}')">${l}</button>`).join("") + `</div>`
-      : "";
+  if (activeCat === "used") {
+    html += `<div class="sub-tabs">` + [["all","Вся б/у техника"],["iphone","Б/У iPhone"],["mac","Б/У Mac"]].map(([k,l]) =>
+      `<button class="tab sub ${k===usedSub?'active':''}" onclick="setUsedSub('${k}')">${l}</button>`).join("") + `</div>`;
   }
+  document.getElementById("tabs").innerHTML = html;
 }
 function setUsedSub(k) {
   usedSub = k;
@@ -1688,7 +1683,7 @@ function setTab(key) {
     if (grid) requestAnimationFrame(() => grid.classList.remove("switching"));
   }, 200);
   const t = document.getElementById("saleTimer");
-  if (t) t.style.display = "flex";   // таймер акции — на всех категориях
+  if (t) t.style.display = key === "sale" ? "flex" : "none";
   document.getElementById("catalog").scrollIntoView({behavior:"smooth"});
 }
 
