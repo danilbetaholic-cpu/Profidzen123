@@ -549,8 +549,8 @@ window.DEFAULT_PRODUCTS = [
     gradient:["#9fb4d8","#5e76a8"],
     colors:[["Silver","#d6dade"],["Blue","#b8d3e8"],["Pink","#e8c4d0"],["Жёлтый","#e8dc9a"]],
     memory:[["128 ГБ",0],["256 ГБ",220],["512 ГБ",660]],
-    desc:"Дисплей 11″, чип A16 — для учёбы и развлечений",
-    full:"Универсальный планшет для всей семьи: учёба, фильмы, игры, заметки. Поддержка Apple Pencil и Magic Keyboard Folio.",
+    desc:"iPad (2025) · 11″, чип A16 — для учёбы и развлечений",
+    full:"Универсальный планшет 2025 года для всей семьи: учёба, фильмы, игры, заметки. Экран 11″. Поддержка Apple Pencil и Magic Keyboard Folio.",
     specs:["Дисплей 11″ Liquid Retina","Чип A16","Камера 12 Мп","Touch ID","До 10 часов работы"] },
 
   { id:22, cat:"ipad", name:"iPad mini", photo:"img/ipad-mini-new.jpg", price:1610, oldPrice:2300, badge:null,
@@ -558,8 +558,8 @@ window.DEFAULT_PRODUCTS = [
     gradient:["#b18ae8","#7050b8"],
     colors:[["Purple","#b8a8d8"],["Blue","#7a93b8"],["Starlight","#e8dcc8"],["Space Gray","#5f6368"]],
     memory:[["128 ГБ",0],["256 ГБ",220],["512 ГБ",660]],
-    desc:"Компактный 8,3″, чип A17 Pro, Apple Pencil Pro",
-    full:"Целый iPad в одной руке: 298 граммов. Идеален для чтения, заметок и поездок.",
+    desc:"iPad mini (2024) · 8,3″, чип A17 Pro, Apple Pencil Pro",
+    full:"Целый iPad 2024 года в одной руке: 298 граммов, экран 8,3″. Идеален для чтения, заметок и поездок.",
     specs:["Дисплей 8,3″ Liquid Retina","Чип A17 Pro","Apple Pencil Pro","Wi-Fi 6E","298 грамм"] },
 
   { id:23, cat:"ipad", name:"iPad Air", price:1310, oldPrice:1870, badge:"Хит",
@@ -568,8 +568,8 @@ window.DEFAULT_PRODUCTS = [
     gradient:["#7fd6ff","#4a9fe8"],
     colors:[["Blue","#b8d3e8"],["Purple","#c9bfe0"],["Starlight","#e8dcc8"],["Space Gray","#5f6368"]],
     memory:[["128 ГБ",0],["256 ГБ",220],["512 ГБ",660],["1 ТБ",1100]],
-    desc:"Дисплей 11″/13″, чип M4 — мощность ноутбука",
-    full:"Мощность чипа M4 в тонком планшете: монтаж видео, рисование, многозадачность. Поддержка Magic Keyboard.",
+    desc:"iPad Air (2026) · 11″ или 13″, чип M4 — мощность ноутбука",
+    full:"iPad Air 2026 года: мощность чипа M4 в тонком корпусе, на выбор экран 11″ или 13″. Монтаж видео, рисование, многозадачность. Поддержка Magic Keyboard.",
     specs:["Дисплей 11″ Liquid Retina","Чип Apple M4","Apple Pencil Pro","Камера 12 Мп","Touch ID"] },
 
   { id:24, cat:"ipad", name:"iPad Pro", price:2260, oldPrice:3230, badge:"Pro",
@@ -578,8 +578,8 @@ window.DEFAULT_PRODUCTS = [
     gradient:["#3d4356","#15171f"],
     colors:[["Silver","#d6dade"],["Space Black","#2a2c31"]],
     memory:[["256 ГБ",0],["512 ГБ",450],["1 ТБ",1350],["2 ТБ",2250]],
-    desc:"OLED-дисплей, чип M5 — мощнее многих ноутбуков",
-    full:"Самый продвинутый iPad: дисплей Ultra Retina XDR на OLED, чип M5 и толщина 5,1 мм. Полноценная замена ноутбуку.",
+    desc:"iPad Pro (2025) · 11″ или 13″, OLED, чип M5",
+    full:"Самый продвинутый iPad 2025 года: дисплей Ultra Retina XDR на OLED, на выбор 11″ или 13″, чип M5 и толщина 5,1 мм. Полноценная замена ноутбуку.",
     specs:["Дисплей Ultra Retina XDR (OLED)","Чип Apple M5","Толщина 5,1 мм","Face ID","Thunderbolt / USB 4"] },
 
   // ================= MAC =================
