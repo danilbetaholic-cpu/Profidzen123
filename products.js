@@ -553,7 +553,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Универсальный планшет для всей семьи: учёба, фильмы, игры, заметки. Поддержка Apple Pencil и Magic Keyboard Folio.",
     specs:["Дисплей 11″ Liquid Retina","Чип A16","Камера 12 Мп","Touch ID","До 10 часов работы"] },
 
-  { id:22, cat:"ipad", name:"iPad mini", price:1610, oldPrice:null, badge:null,
+  { id:22, cat:"ipad", name:"iPad mini", photo:"img/ipad-mini-new.jpg", price:1610, oldPrice:null, badge:null,
     img:"https://www.apple.com/v/ipad-mini/v/images/overview/hero/fan__mub6p4ua0t2y_large.jpg",
     gradient:["#b18ae8","#7050b8"],
     colors:[["Purple","#b8a8d8"],["Blue","#7a93b8"],["Starlight","#e8dcc8"],["Space Gray","#5f6368"]],
@@ -563,7 +563,7 @@ window.DEFAULT_PRODUCTS = [
     specs:["Дисплей 8,3″ Liquid Retina","Чип A17 Pro","Apple Pencil Pro","Wi-Fi 6E","298 грамм"] },
 
   { id:23, cat:"ipad", name:"iPad Air", price:1310, oldPrice:1870, badge:"Хит",
-    photo:"img/ipad-new.jpg",
+    photo:"img/ipad-air-new.jpg",
     img:"https://www.apple.com/v/ipad-air/ah/images/meta/ipad-air_overview__bc2fd15uec0y_og.png",
     gradient:["#7fd6ff","#4a9fe8"],
     colors:[["Blue","#b8d3e8"],["Purple","#c9bfe0"],["Starlight","#e8dcc8"],["Space Gray","#5f6368"]],
@@ -576,7 +576,7 @@ window.DEFAULT_PRODUCTS = [
     photo:"img/ipad-pro-new.jpg",
     img:"https://www.apple.com/v/ipad-pro/aw/images/meta/ipad-pro_overview__bu4cql27diaa_og.png",
     gradient:["#3d4356","#15171f"],
-    colors:[["Space Black","#2a2c31"],["Silver","#d6dade"]],
+    colors:[["Silver","#d6dade"],["Space Black","#2a2c31"]],
     memory:[["256 ГБ",0],["512 ГБ",450],["1 ТБ",1350],["2 ТБ",2250]],
     desc:"OLED-дисплей, чип M5 — мощнее многих ноутбуков",
     full:"Самый продвинутый iPad: дисплей Ultra Retina XDR на OLED, чип M5 и толщина 5,1 мм. Полноценная замена ноутбуку.",
