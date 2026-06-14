@@ -1476,9 +1476,10 @@ const fmt = n => n.toLocaleString("ru-RU") + " " + (window.SHOP_CONFIG.currency 
 const byId = id => PRODUCTS.find(p => p.id == id);
 const memDelta = (p, mem) => p.memory ? ((p.memory.find(m => m[0] === mem) || [0,0])[1]) : 0;
 const simDelta = sim => { const o = (window.SIM_OPTIONS||[]).find(s => s[0] === sim); return o ? o[1] : 0; };
+const sizeDelta = (p, size) => p.sizes ? ((p.sizes.find(s => s[0] === size) || [0,0])[1]) : 0;
 const r10 = n => Math.round(n/10)*10; // округление до 10 BYN
-const priceOf = (p, mem, sim) => r10((p.price + memDelta(p, mem)) * (1 + (sim ? simDelta(sim) : 0)));
-const oldPriceOf = (p, mem, sim) => p.oldPrice ? r10((p.oldPrice + memDelta(p, mem)) * (1 + (sim ? simDelta(sim) : 0))) : null;
+const priceOf = (p, mem, sim, size) => r10((p.price + memDelta(p, mem) + sizeDelta(p, size)) * (1 + (sim ? simDelta(sim) : 0)));
+const oldPriceOf = (p, mem, sim, size) => p.oldPrice ? r10((p.oldPrice + memDelta(p, mem) + sizeDelta(p, size)) * (1 + (sim ? simDelta(sim) : 0))) : null;
 
 // ============ SVG-ЗАГЛУШКА (если фото не загрузилось) ============
 // затемнение/осветление hex-цвета (f<1 темнее)
@@ -1829,7 +1830,7 @@ function observeReveal() {
 }
 
 // ============ ДЕТАЛЬНАЯ КАРТОЧКА ============
-let selMem = "", selSim = "", selColor = "";
+let selMem = "", selSim = "", selColor = "", selSize = "";
 function pushRecent(id) {
   try {
     let r = JSON.parse(localStorage.getItem("ibrain_recent") || "[]");
@@ -1843,12 +1844,13 @@ function openDetail(id) {
   selMem = p.memory ? p.memory[0][0] : "";
   selSim = p.sim ? (window.SIM_DEFAULT || window.SIM_OPTIONS[0][0]) : "";
   selColor = p.colors ? p.colors[0][0] : "";
+  selSize = p.sizes ? p.sizes[0][0] : "";
   renderDetail(p);
   document.getElementById("detailOverlay").classList.add("open");
 }
 function renderDetail(p) {
-  const price = priceOf(p, selMem, selSim);
-  const basePrice = p.price + memDelta(p, selMem);
+  const price = priceOf(p, selMem, selSim, selSize);
+  const basePrice = p.price + memDelta(p, selMem) + sizeDelta(p, selSize);
   const simDiff = d => {
     if (!d) return "";
     const v = r10(Math.abs(basePrice * d));
@@ -1892,6 +1894,11 @@ function renderDetail(p) {
               onclick="selColor='${name.replace(/'/g,"\\'")}';renderDetail(byId(${p.id}))"></div>`).join("")}
           </div>` : ""}
 
+        ${p.sizes ? `<div class="opt-label">Диагональ</div>
+          <div class="pills">${p.sizes.map(([s,d]) =>
+            `<button class="pill ${s===selSize?'active':''}" onclick="selSize='${s}';renderDetail(byId(${p.id}))">${s}${d?` <small>+${fmt(d)}</small>`:""}</button>`).join("")}
+          </div>` : ""}
+
         ${p.memory ? `<div class="opt-label">Память</div>
           <div class="pills">${p.memory.map(([m,d]) =>
             `<button class="pill ${m===selMem?'active':''}" onclick="selMem='${m}';renderDetail(byId(${p.id}))">${m}${d?` <small>+${fmt(d)}</small>`:""}</button>`).join("")}
@@ -1903,14 +1910,14 @@ function renderDetail(p) {
           </div>` : ""}
 
         <div class="detail-price">${fmt(price)}
-          ${p.oldPrice ? `<span class="old-price">${fmt(oldPriceOf(p, selMem, selSim))}</span>` : ""}
-          ${p.oldPrice && oldPriceOf(p, selMem, selSim) > price ? `<span class="disc">−${Math.round((1 - price / oldPriceOf(p, selMem, selSim)) * 100)}%</span>` : ""}
+          ${p.oldPrice ? `<span class="old-price">${fmt(oldPriceOf(p, selMem, selSim, selSize))}</span>` : ""}
+          ${p.oldPrice && oldPriceOf(p, selMem, selSim, selSize) > price ? `<span class="disc">−${Math.round((1 - price / oldPriceOf(p, selMem, selSim, selSize)) * 100)}%</span>` : ""}
         </div>
         ${p.left ? `<div class="left-row" style="margin-top:10px"><span class="left-bar"><i style="width:${Math.max(12,Math.min(p.left/10*100,100))}%"></i></span>Осталось ${p.left} шт. — успейте купить</div>` : ""}
         ${p.stock==="out"
           ? `<button class="btn" style="width:100%;margin-top:18px;background:#e8e8ed;color:var(--faint);cursor:default">Закончились — ожидаем поставку</button>`
           : `<div class="detail-buy">
-              <button class="btn btn-blue" style="flex:1" onclick="addToCart(${p.id}, selMem, selSim, selColor); closeDetail();">
+              <button class="btn btn-blue" style="flex:1" onclick="addToCart(${p.id}, selMem, selSim, selColor, selSize); closeDetail();">
                 ${p.stock==="soon" ? "Оформить предзаказ" : "Добавить в корзину"}
               </button>
               <button class="btn btn-outline oneclick" onclick="oneClick(${p.id})"><svg class="ic-inline" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg> Купить в 1 клик</button>
@@ -1945,21 +1952,21 @@ function closeDetail(){ document.getElementById("detailOverlay").classList.remov
 function quickAdd(id, btn) {
   const p = byId(id);
   if (btn) flyToCart(btn);
-  addToCart(id, p.memory ? p.memory[0][0] : "", p.sim ? (window.SIM_DEFAULT || window.SIM_OPTIONS[0][0]) : "", p.colors ? p.colors[0][0] : "");
+  addToCart(id, p.memory ? p.memory[0][0] : "", p.sim ? (window.SIM_DEFAULT || window.SIM_OPTIONS[0][0]) : "", p.colors ? p.colors[0][0] : "", p.sizes ? p.sizes[0][0] : "");
   if (btn) {
     btn.textContent = "✓ В корзине"; btn.classList.add("added");
     setTimeout(() => { btn.textContent = "Купить"; btn.classList.remove("added"); }, 1300);
   }
 }
-function addToCart(id, mem, sim, color) {
-  const key = [id, mem, sim, color].join("|");
+function addToCart(id, mem, sim, color, size) {
+  const key = [id, mem, sim, color, size || ""].join("|");
   cart[key] = (cart[key] || 0) + 1;
   updateCartCount(true); saveCart();
   showToast("Добавлено в корзину");
 }
 function parseKey(key) {
-  const [id, mem, sim, color] = key.split("|");
-  return { p: byId(id), mem, sim, color };
+  const [id, mem, sim, color, size] = key.split("|");
+  return { p: byId(id), mem, sim, color, size };
 }
 function updateCartCount(bump) {
   const n = Object.values(cart).reduce((a,b)=>a+b,0);
@@ -1988,7 +1995,7 @@ function flyToCart(fromEl) {
 }
 function cartTotal() {
   return Object.entries(cart).reduce((sum,[key,q]) => {
-    const {p, mem, sim} = parseKey(key); return p ? sum + priceOf(p, mem, sim)*q : sum;
+    const {p, mem, sim, size} = parseKey(key); return p ? sum + priceOf(p, mem, sim, size)*q : sum;
   }, 0);
 }
 function renderCart() {
@@ -2000,14 +2007,14 @@ function renderCart() {
     foot.innerHTML = ""; return;
   }
   items.innerHTML = entries.map(([key,q]) => {
-    const {p, mem, sim, color} = parseKey(key); if(!p) return "";
+    const {p, mem, sim, color, size} = parseKey(key); if(!p) return "";
     const cimg = photoFor(p);
     return `<div class="cart-item">
       <div class="ci-art">${cimg
         ? `<img src="${cimg}" alt="${escHtml(p.name)}" onerror="this.outerHTML='<div class=&quot;ci-ph&quot; style=&quot;background:linear-gradient(135deg,${p.gradient[0]},${p.gradient[1]})&quot;></div>'">`
         : `<div class="ci-ph" style="background:linear-gradient(135deg,${p.gradient[0]},${p.gradient[1]})"></div>`}</div>
       <div class="ci-info"><b>${p.name}${p.condition?` (${p.condition})`:""}</b>
-        <span>${[color, mem, sim].filter(Boolean).join(" · ")} · ${fmt(priceOf(p,mem,sim))}</span></div>
+        <span>${[color, size, mem, sim].filter(Boolean).join(" · ")} · ${fmt(priceOf(p,mem,sim,size))}</span></div>
       <div class="qty">
         <button onclick="chQty('${key}',-1)">−</button><span>${q}</span><button onclick="chQty('${key}',1)">+</button>
       </div>
@@ -2137,8 +2144,8 @@ function submitOrder() {
       free: isFreeDeliv()
     },
     items: Object.entries(cart).map(([key,q]) => {
-      const {p, mem, sim, color} = parseKey(key);
-      return { id:p.id, name:[p.name, color, mem, sim].filter(Boolean).join(" · ") + (p.condition?` (${p.condition})`:""), qty:q, price:priceOf(p,mem,sim) };
+      const {p, mem, sim, color, size} = parseKey(key);
+      return { id:p.id, name:[p.name, color, size, mem, sim].filter(Boolean).join(" · ") + (p.condition?` (${p.condition})`:""), qty:q, price:priceOf(p,mem,sim,size) };
     }),
     total: cartTotal() + dc
   };
@@ -2173,7 +2180,7 @@ function oneClick(id){
   const p = byId(id);
   if(!p) return;
   closeDetail();
-  const price = priceOf(p, (p.memory&&p.memory[0]&&p.memory[0][0])||"", "");
+  const price = priceOf(p, (p.memory&&p.memory[0]&&p.memory[0][0])||"", "", (p.sizes&&p.sizes[0]&&p.sizes[0][0])||"");
   let ov = document.getElementById("oneClickOverlay");
   if(!ov){
     ov = document.createElement("div");
@@ -2211,7 +2218,7 @@ function submitOneClick(id){
   mark(document.getElementById("ocName"), !name);
   mark(document.getElementById("ocPhone"), phone.replace(/\D/g,"").length < 9);
   if(!ok){ showToast("Укажите имя и телефон"); return; }
-  const price = priceOf(p, (p.memory&&p.memory[0]&&p.memory[0][0])||"", "");
+  const price = priceOf(p, (p.memory&&p.memory[0]&&p.memory[0][0])||"", "", (p.sizes&&p.sizes[0]&&p.sizes[0][0])||"");
   const order = {
     oneClick: true,
     customer: { name, phone, email:"", address:"" },

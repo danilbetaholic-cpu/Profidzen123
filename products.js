@@ -568,6 +568,7 @@ window.DEFAULT_PRODUCTS = [
     gradient:["#7fd6ff","#4a9fe8"],
     colors:[["Blue","#b8d3e8"],["Purple","#c9bfe0"],["Starlight","#e8dcc8"],["Space Gray","#5f6368"]],
     memory:[["128 ГБ",0],["256 ГБ",220],["512 ГБ",660],["1 ТБ",1100]],
+    sizes:[["11″",0],["13″",350]],
     desc:"iPad Air (2026) · 11″ или 13″, чип M4 — мощность ноутбука",
     full:"iPad Air 2026 года: мощность чипа M4 в тонком корпусе, на выбор экран 11″ или 13″. Монтаж видео, рисование, многозадачность. Поддержка Magic Keyboard.",
     specs:["Дисплей 11″ Liquid Retina","Чип Apple M4","Apple Pencil Pro","Камера 12 Мп","Touch ID"] },
@@ -578,12 +579,13 @@ window.DEFAULT_PRODUCTS = [
     gradient:["#3d4356","#15171f"],
     colors:[["Silver","#d6dade"],["Space Black","#2a2c31"]],
     memory:[["256 ГБ",0],["512 ГБ",450],["1 ТБ",1350],["2 ТБ",2250]],
+    sizes:[["11″",0],["13″",550]],
     desc:"iPad Pro (2025) · 11″ или 13″, OLED, чип M5",
     full:"Самый продвинутый iPad 2025 года: дисплей Ultra Retina XDR на OLED, на выбор 11″ или 13″, чип M5 и толщина 5,1 мм. Полноценная замена ноутбуку.",
     specs:["Дисплей Ultra Retina XDR (OLED)","Чип Apple M5","Толщина 5,1 мм","Face ID","Thunderbolt / USB 4"] },
 
   // ================= MAC =================
-  { id:31, cat:"mac", name:"Mac mini", photo:"img/mac-mini-new.jpg", price:1890, oldPrice:2700, badge:null,
+  { id:31, cat:"mac", name:"Mac mini", photo:"img/mac-mini-new.jpg", price:2115, oldPrice:3020, badge:null,
     img:"https://www.apple.com/v/mac-mini/aa/images/meta/mac-mini__dvce2jrm11w2_og.jpg",
     gradient:["#aab4c4","#5e6878"],
     colors:[["Silver","#d6dade"]],
@@ -592,7 +594,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый доступный Mac: корпус 12,7 × 12,7 см, чип M4 и порты Thunderbolt. Подключите монитор — и готово.",
     specs:["Чип Apple M4","16 ГБ объединённой памяти","Thunderbolt 4 × 3, HDMI","Wi-Fi 6E"] },
 
-  { id:32, cat:"mac", name:"MacBook Air 13", price:2200, oldPrice:3150, badge:"Хит",
+  { id:32, cat:"mac", name:"MacBook Air 13", price:2465, oldPrice:3520, badge:"Хит",
     photo:"img/macbook-air-new.jpg",
     img:"https://www.apple.com/v/macbook-air/z/images/meta/macbook_air_mx__ez5y0k5yy7au_og.png",
     gradient:["#2e3650","#141927"],
@@ -602,7 +604,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Самый популярный ноутбук Apple: тонкий, бесшумный (без вентилятора) и работает весь день от батареи.",
     specs:["Дисплей 13,6″ Liquid Retina","Чип Apple M4","16 ГБ памяти","До 18 часов работы","1,24 кг"] },
 
-  { id:33, cat:"mac", name:"MacBook Air 15", price:2380, oldPrice:3400, badge:null,
+  { id:33, cat:"mac", name:"MacBook Air 15", price:2665, oldPrice:3805, badge:null,
     photo:"img/macbook-air-new.jpg",
     img:"https://www.apple.com/v/macbook-air/z/images/meta/macbook_air_mx__ez5y0k5yy7au_og.png",
     gradient:["#e8dcc8","#b8a888"],
@@ -612,7 +614,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Тот же тонкий и лёгкий Air, но с большим экраном 15,3″ — для тех, кому нужно больше пространства.",
     specs:["Дисплей 15,3″ Liquid Retina","Чип Apple M4","16 ГБ памяти","До 18 часов работы","1,51 кг"] },
 
-  { id:34, cat:"mac", name:"MacBook Pro 14", price:3910, oldPrice:5580, badge:"Pro",
+  { id:34, cat:"mac", name:"MacBook Pro 14", price:4380, oldPrice:6255, badge:"Pro",
     photo:"img/macbook-pro-new.jpg",
     img:"https://www.apple.com/v/macbook-pro/ax/images/meta/macbook-pro__difvbgz1plsi_og.png",
     gradient:["#3d4356","#15171f"],
@@ -622,7 +624,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Профессиональный инструмент: чип M5 Pro, лучший в индустрии дисплей XDR и до 24 часов автономности.",
     specs:["Дисплей 14,2″ XDR 120 Гц","Чип Apple M5 Pro","24 ГБ памяти","До 24 часов работы","HDMI, SDXC, Thunderbolt 5"] },
 
-  { id:35, cat:"mac", name:"MacBook Pro 16", price:7000, oldPrice:10000, badge:"Pro",
+  { id:35, cat:"mac", name:"MacBook Pro 16", price:7840, oldPrice:11200, badge:"Pro",
     photo:"img/macbook-pro-new.jpg",
     img:"https://www.apple.com/v/macbook-pro/ax/images/meta/macbook-pro__difvbgz1plsi_og.png",
     gradient:["#3d4356","#15171f"],
@@ -632,7 +634,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Флагманский ноутбук для монтажа, 3D и разработки: чип M5 Max и экран 16,2″ XDR.",
     specs:["Дисплей 16,2″ XDR 120 Гц","Чип Apple M5 Max","36 ГБ памяти","До 24 часов работы","Thunderbolt 5"] },
 
-  { id:36, cat:"mac", name:"iMac", price:4200, oldPrice:6000, badge:null,
+  { id:36, cat:"mac", name:"iMac", price:4705, oldPrice:6720, badge:null,
     img:"https://www.apple.com/v/imac/v/images/meta/imac__d7trotporb6u_og.png",
     gradient:["#7fd6ff","#4a9fe8"],
     colors:[["Blue","#b8d3e8"],["Green","#b9c4a8"],["Pink","#e8c4d0"],["Orange","#e8a05c"],["Silver","#d6dade"]],
@@ -641,7 +643,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Компьютер-моноблок, который украсит любой стол: экран 24″ 4.5K, чип M4 и толщина 11,5 мм.",
     specs:["Дисплей 24″ 4.5K Retina","Чип Apple M4","16 ГБ памяти","Камера 12 Мп Center Stage","7 цветов"] },
 
-  { id:37, cat:"mac", name:"Mac Studio", price:8400, oldPrice:12000, badge:"Pro",
+  { id:37, cat:"mac", name:"Mac Studio", price:9410, oldPrice:13445, badge:"Pro",
     img:"https://www.apple.com/v/mac-studio/m/images/meta/mac-studio_overview__eedzbosm1t26_og.png",
     gradient:["#aab4c4","#5e6878"],
     colors:[["Silver","#d6dade"]],
@@ -650,7 +652,7 @@ window.DEFAULT_PRODUCTS = [
     full:"Студийная мощность в компактном корпусе: рендеринг, цветокоррекция, нейросети — всё летает.",
     specs:["Чип M4 Max / M3 Ultra","До 512 ГБ памяти","Thunderbolt 5 × 6","10G Ethernet"] },
 
-  { id:38, cat:"mac", name:"Mac Pro", price:17500, oldPrice:25000, badge:"Pro",
+  { id:38, cat:"mac", name:"Mac Pro", price:19600, oldPrice:28000, badge:"Pro",
     img:"https://www.apple.com/assets-www/en_WW/mac/05_og/mac_og_9c1c26340.png",
     gradient:["#c8d0dc","#7e8898"],
     colors:[["Silver","#d6dade"]],
